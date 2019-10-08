@@ -15,6 +15,7 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins 
          folder instead of downloading all of them to reduce the load. -->
     <link href="<?php echo base_url(); ?>assets/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
+        <link rel="shortcut icon" type="image/x-icon" href="https://www.flaticon.com/premium-icon/icons/svg/956/956640.svg">
     <style>
     	.error{
     		color:red;
@@ -42,15 +43,15 @@
         <!-- Logo -->
         <a href="<?php echo base_url(); ?>" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini"><b>CI</b>AS</span>
+          <span class="logo-mini"><b>SIS</b></span>
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg"><b>CodeInsect</b>AS</span>
+          <span class="logo-lg"><b>SIS</b>BIBLIO</span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
           <!-- Sidebar toggle button-->
           <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-            <span class="sr-only">Toggle navigation</span>
+            <span class="sr-only">Navegacion</span>
           </a>
           <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
@@ -72,10 +73,10 @@
                   <!-- Menu Footer-->
                   <li class="user-footer">
                     <div class="pull-left">
-                      <a href="<?php echo base_url(); ?>loadChangePass" class="btn btn-default btn-flat"><i class="fa fa-key"></i> Change Password</a>
+                      <a href="<?php echo base_url(); ?>loadChangePass" class="btn btn-default btn-flat"><i class="fa fa-key"></i>Cambiar contraseña</a>
                     </div>
                     <div class="pull-right">
-                      <a href="<?php echo base_url(); ?>logout" class="btn btn-default btn-flat"><i class="fa fa-sign-out"></i> Sign out</a>
+                      <a href="<?php echo base_url(); ?>logout" class="btn btn-default btn-flat"><i class="fa fa-sign-out"></i> Salir</a>
                     </div>
                   </li>
                 </ul>
@@ -93,14 +94,14 @@
           <img src="<?php echo base_url();?>assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce</p>
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+          <p>Administrador</p>
+          <a href="#"><i class="fa fa-circle text-primary"></i>En linea</a>
         </div>
       </div>
       <!-- search form -->
       <form action="#" method="get" class="sidebar-form">
         <div class="input-group">
-          <input type="text" name="q" class="form-control" placeholder="Search...">
+          <input type="text" name="q" class="form-control" placeholder="Buscar...">
               <span class="input-group-btn">
                 <button type="submit" name="search" id="search-btn" class="btn btn-flat">
                   <i class="fa fa-search"></i>
@@ -110,7 +111,7 @@
       </form>
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
-            <li class="header">MAIN NAVIGATION</li>
+            <li class="header">Navegacion Principal</li>
             <li class="treeview">
               <a href="<?php echo base_url(); ?>dashboard">
                 <i class="fa fa-dashboard"></i> <span>Dashboard</span></i>
@@ -119,13 +120,13 @@
             <li class="treeview">
               <a href="#" >
                 <i class="fa fa-plane"></i>
-                <span>New Task</span>
+                <span>Nuevo Trabajo</span>
               </a>
             </li>
             <li class="treeview">
               <a href="#" >
                 <i class="fa fa-ticket"></i>
-                <span>My Tasks</span>
+                <span>Mis trabajos</span>
               </a>
             </li>
             <?php
@@ -135,13 +136,13 @@
             <li class="treeview">
               <a href="#" >
                 <i class="fa fa-thumb-tack"></i>
-                <span>Task Status</span>
+                <span>Estado de la tarea</span>
               </a>
             </li>
             <li class="treeview">
               <a href="#" >
                 <i class="fa fa-upload"></i>
-                <span>Task Uploads</span>
+                <span>Trabajos</span>
               </a>
             </li>
             <?php
@@ -152,13 +153,13 @@
             <li class="treeview">
               <a href="<?php echo base_url(); ?>userListing">
                 <i class="fa fa-users"></i>
-                <span>Users</span>
+                <span>Usuarios</span>
               </a>
             </li>
             <li class="treeview">
               <a href="#" >
                 <i class="fa fa-files-o"></i>
-                <span>Reports</span>
+                <span>Reportes</span>
               </a>
             </li>
             <?php

@@ -2,11 +2,12 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>CodeInsect | Admin System Log in</title>
+    <title>Sistema Bibliotecario</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <link href="<?php echo base_url(); ?>assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url(); ?>assets/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" type="image/x-icon" href="https://www.flaticon.com/premium-icon/icons/svg/956/956640.svg">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -15,13 +16,13 @@
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body class="login-page">
+  <body class="login-page" >
     <div class="login-box">
       <div class="login-logo">
-        <a href="#"><b>CodeInsect</b><br>Admin System</a>
+        <a href="#"><br>SisBiblio</a>
       </div><!-- /.login-logo -->
       <div class="login-box-body">
-        <p class="login-box-msg">Sign In</p>
+        <p class="login-box-msg">Registrarse</p>
         <?php $this->load->helper('form'); ?>
         <div class="row">
             <div class="col-md-12">
@@ -51,11 +52,11 @@
         
         <form action="<?php echo base_url(); ?>loginMe" method="post">
           <div class="form-group has-feedback">
-            <input type="email" class="form-control" placeholder="Email" name="email" required />
+            <input type="email" class="form-control" placeholder="Correo" name="email" required />
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback">
-            <input type="password" class="form-control" placeholder="Password" name="password" required />
+            <input type="password" class="form-control" placeholder="Contraseña" name="password" required />
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
           </div>
           <div class="row">
@@ -67,12 +68,12 @@
               </div>  -->                       
             </div><!-- /.col -->
             <div class="col-xs-4">
-              <input type="submit" class="btn btn-primary btn-block btn-flat" value="Sign In" />
+              <input type="submit" class="btn btn-primary btn-block btn-flat" value="Ingresar" />
             </div><!-- /.col -->
           </div>
         </form>
 
-        <a href="<?php echo base_url() ?>forgotPassword">Forgot Password</a><br>
+        <a href="<?php echo base_url() ?>forgotPassword">Se te olvidó tu contraseña</a><br>
         
       </div><!-- /.login-box-body -->
     </div><!-- /.login-box -->
