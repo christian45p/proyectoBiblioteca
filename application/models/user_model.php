@@ -187,6 +187,10 @@ class User_model extends CI_Model
         
         return $this->db->affected_rows();
     }
+
+    public function getListaLibros(){
+        return $this->db->query("SELECT * FROM ejemplar");
+    }
 }
 
   

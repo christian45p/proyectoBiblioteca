@@ -60,7 +60,26 @@ class User extends BaseController
             $this->loadViews("users", $this->global, $data, NULL);
         }
     }
+    function ejemplares()
+    {
+        if($this->isAdmin() == TRUE)
+        {
+            $this->loadThis();
+        }
+        else
+        { 
+          $this->load->model('user_model');
+          $this->load->view ( 'includes/header', $this->global );
+          $consulta=$this->user_model->getListaLibros();
+          $datos['consulta'] = $consulta;
+          $this->load->view ( 'ejemplaresLista',$datos );
+          $this->load->view ( 'includes/footer' );
+            
+           
+        }
+    }
 
+    
     /**
      * This function is used to load the add new form
      */
