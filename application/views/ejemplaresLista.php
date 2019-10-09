@@ -29,18 +29,18 @@
                     <tr>
                     <th>Id</th>
 					<th>Título</th>
-					<th>Autor</th>
-					<th>Área</th>
-					<th>Categoría</th>
+					<th>Editorial</th>
+					<th>Paginas</th>
+					<th>Isbn</th>
 					<th>Opciones</th>
                     <tr>
 					<?php foreach($consulta->result() as $reg): ?>
 					<tr>
 	    			<td><?php echo $reg->ejem_id; ?></td>
 	    			<td><?php echo $reg->ejem_titulo; ?></td>
-	    			<td>Por definir</td>
-	    			<td>Por definir</td>
-	    			<td>Por definir</td>
+	    			<td><?php echo $reg->ejem_editorial; ?></td>
+	    			<td><?php echo $reg->ejem_paginas; ?></td>
+	    			<td><?php echo $reg->ejem_isbn; ?></td>
 					<?php endforeach; ?>
                       <td class="text-center">
                       	<a class="btn btn-sm btn-info" href="<?php echo base_url()?>"><i class="fa fa-pencil"></i></a>

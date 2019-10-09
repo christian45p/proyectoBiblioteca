@@ -69,10 +69,11 @@ class User extends BaseController
         else
         { 
           $this->load->model('user_model');
+          $this->global['pageTitle'] = 'CodeInsect : Libros';
           $this->load->view ( 'includes/header', $this->global );
           $consulta=$this->user_model->getListaLibros();
           $datos['consulta'] = $consulta;
-          $this->load->view ( 'ejemplaresLista',$datos );
+          $this->load->view ( 'ejemplaresLista',$datos);
           $this->load->view ( 'includes/footer' );
             
            
