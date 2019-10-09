@@ -157,9 +157,9 @@
               </a>
             </li>
             <li class="treeview">
-              <a href="#" >
+              <a href="<?php echo base_url(); ?>ejemplares" >
                 <i class="fa fa-files-o"></i>
-                <span>Reportes</span>
+                <span>Libros</span>
               </a>
             </li>
             <?php
