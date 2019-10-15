@@ -1,5 +1,5 @@
 
-## SisBilio con php codeigniter 3.2.1 latest version intigration.
+## SisBilio con php codeigniter 3.2.1  intigración de la última versión.
 
 *Descargue el código del repositorio. Descomprima el archivo zip.
 *Ir a localhost / phpmyadmin. Importe el archivo "sisbilio.sql" en esa base de datos
