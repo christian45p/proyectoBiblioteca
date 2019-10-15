@@ -1,22 +1,19 @@
 
-<div class="container">
-<div class="row justify-content-md-center">
-
-	<nav class="navbar navbar-default" role="navigation">
-<div class="container">
-
-    <ul class="nav navbar-nav">
+<div class="text-center mt-5">
+      <ul class="nav navbar-nav">
       <li><a class="btn btn-warning" href="<?php echo base_url()?>index.php/Login">LOGIN-INICIO</a></li>
     </ul>
-</nav>
 </div>
-</div>
-</nav>
-<div class="container">
-<div class="row">
-<div class="col-md-6">
-		<h2>Registro</h2>
-
+<div class="row justify-content-center">
+          <div class="col-xl-6 col-lg-8 col-md-10">
+              <div class="col-md-12 p-3">
+              	<h2 class="font-italic text-muted col-md-12 h4">Registro</h2>
+<div class="form-row">
+<div class="form-group col-md-12">
+<div class="card o-hidden border-1 shadow-sm p-3 mb-5 bg-white rounded">
+ <div class="card-body p-0">
+<div class="col-md-12">
+     <div class="p-4">
 		<form role="form" name="registro" action="<?php echo base_url();?>index.php/Login/evaluaRegistro" method="post">
 		  <div class="form-group">
 		    <label for="text">Código de Estudiante</label>
@@ -57,11 +54,12 @@
 		 <!--  <div class="form-group">
           <input class="border-primary"  style="width:30px;height:30px;" type="checkbox" value="1" name="usua_esadmin">Administrador?
        	  </div> -->
-
-		  <button type="submit" class="btn btn-warning btn-lg">Registrar</button>
-		</form>
+ 			<hr class="sidebar-divider my-3 mb-2">
+			<button type="submit" class="btn btn-warning btn-block mb-2">Registrar</button>
+       			</div>
+			</div>
+			</div>
 		</div>
 		</div>
-		</div>
-	
+	</div>
 </div>
