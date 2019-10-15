@@ -10,10 +10,12 @@ class Login extends CI_Controller {
 	}
 	public function index()
 	{
-		$data['titulo']= 'Ingresar Datos Login';
-		$this->load->view('Login/loginHeader',$data);
-		$this->load->view('Login/loginView');
-		$this->load->view('Login/loginFooter');
+    $this->load->view('header');
+    $data['titulo']= 'Ingresar Datos Login';
+    $this->load->view('Login/loginHeader',$data);
+    $this->load->view('Login/loginView');
+    $this->load->view('Login/loginFooter');
+    $this->load->view('footer');
 	}
   
 	public function evaluaAcceso()
