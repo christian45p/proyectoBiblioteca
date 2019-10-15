@@ -6,32 +6,74 @@ class administrador extends CI_Controller {
 		parent::__construct();
 		$this->load->model('ejemplar_model','pm');
 	}
+
+
+	//Copia este codigo de abajo antes de escribir código en un NUEVO METODO!!!
+/*->  $tipoDeUsuario=$this->session->userdata('usua_esadmin');
+	  $nombreDelUsuario=$this->session->userdata('usua_nombres');
+	  $datos['nombreDelUsuario']=$nombreDelUsuario;
+		if($this->session->userdata('usua_login')&&$tipoDeUsuario==1){
+			
+			Escribe CODIGO acá......
+
+		}else{
+			redirect(base_url().'index.php/Login');
+		}          <- NO BORRES ESTE COMENTARIO PARA PODER USAR EL CODIGO SIEMPRE*/
+
 	public function index(){
-		$data = [
+		$tipoDeUsuario=$this->session->userdata('usua_esadmin');
+	  $nombreDelUsuario=$this->session->userdata('usua_nombres');
+	  $datos['nombreDelUsuario']=$nombreDelUsuario;
+		if($this->session->userdata('usua_login')&&$tipoDeUsuario==1){
+			
+			$data = [
 				'ejemplar'=> $this->pm->read()
 			];
 
-		$this->load->view('Administrador/header');
+		$this->load->view('Administrador/header',$datos);
 		$this->load->view('Administrador/listado',$data);
 		$this->load->view('Administrador/footer');
+
+		}else{
+			redirect(base_url().'index.php/Login');
+		} 
+
 	}
 
 	public function add(){
-		$this->load->view('Administrador/header');
+		$tipoDeUsuario=$this->session->userdata('usua_esadmin');
+	  $nombreDelUsuario=$this->session->userdata('usua_nombres');
+	  $datos['nombreDelUsuario']=$nombreDelUsuario;
+		if($this->session->userdata('usua_login')&&$tipoDeUsuario==1){
+			
+			$this->load->view('Administrador/header',$datos);
 		$this->load->view('Administrador/formulario');
 		$this->load->view('Administrador/footer');
+
+		}else{
+			redirect(base_url().'index.php/Login');
+		} 
 	}
 	public function insert(){
 		$this->pm->insert();
 		redirect(base_url('index.php/Administrador'));
 	}
 	public function edit($id){
-		$data=[
+		$tipoDeUsuario=$this->session->userdata('usua_esadmin');
+	  $nombreDelUsuario=$this->session->userdata('usua_nombres');
+	  $datos['nombreDelUsuario']=$nombreDelUsuario;
+		if($this->session->userdata('usua_login')&&$tipoDeUsuario==1){
+			
+			$data=[
 			'ejemplar'=> $this->pm->getById($id)
 		];
-		$this->load->view('Administrador/header');
+		$this->load->view('Administrador/header',$datos);
 		$this->load->view('Administrador/editar',$data);
 		$this->load->view('Administrador/footer');
+
+		}else{
+			redirect(base_url().'index.php/Login');
+		}	
 	}
 	public function update(){
 		$this->pm->update();
@@ -40,5 +82,10 @@ class administrador extends CI_Controller {
 	public function delete($id){
 		$this->pm->delete($id);
 		redirect(base_url('index.php/administrador/'));
+	}
+	public function salir()
+	{	//NO COPIES ACÁ EL CÓDIGO
+		$this->session->unset_userdata('usua_login');
+		redirect(base_url().'index.php/Login');
 	}
 }
