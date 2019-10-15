@@ -57,37 +57,39 @@ class Login extends CI_Controller {
     	}
 	}
 
-	public function Registro()
-	{	
-		$data['titulo']= 'Registro de Usuario';
-		$this->load->view('Login/loginHeader',$data);
-		
-		$this->form_validation->set_rules('usua_codigo', 'Codigo', 'trim|required');
-   		$this->form_validation->set_rules('usua_nombres', 'Nombres', 'trim|required');
-   		$this->form_validation->set_rules('usua_apellidos', 'Apellidos', 'trim|required');
-    	$this->form_validation->set_rules('usua_direccion', 'Direccion', 'trim|required');
-    	$this->form_validation->set_rules('usua_login', 'Usuario', 'trim|required');
-    	$this->form_validation->set_rules('usua_password', 'Password', 'trim|required');
-    	$this->form_validation->set_rules('confirmar', 'Confirmar', 'trim|required');
-    	
-    	$this->form_validation->set_rules('usua_email', 'E-mail', 'trim|required');
-    	$this->form_validation->set_rules('usua_telefono', 'Telefono', 'trim|required');
-    	$this->form_validation->set_rules('usua_esadmin', 'Tipo Usuario', 'trim|required');
-    	
-		$this->form_validation->set_error_delimiters('<div class="col-md-12 col-md-offset-3"><div class="alert alert-danger alert-dismissible fade show" role="alert">','</div></div>');
+  public function Registro()
+  { 
+    $this->load->view('header');
+    $data['titulo']= 'Registro de Usuario';
+    $this->load->view('Login/loginHeader',$data);
+    $this->load->view('footer');
     
-   	if ($this->form_validation->run() == FALSE)
+    $this->form_validation->set_rules('usua_codigo', 'Codigo', 'trim|required');
+      $this->form_validation->set_rules('usua_nombres', 'Nombres', 'trim|required');
+      $this->form_validation->set_rules('usua_apellidos', 'Apellidos', 'trim|required');
+      $this->form_validation->set_rules('usua_direccion', 'Direccion', 'trim|required');
+      $this->form_validation->set_rules('usua_login', 'Usuario', 'trim|required');
+      $this->form_validation->set_rules('usua_password', 'Password', 'trim|required');
+      $this->form_validation->set_rules('confirmar', 'Confirmar', 'trim|required');
+      
+      $this->form_validation->set_rules('usua_email', 'E-mail', 'trim|required');
+      $this->form_validation->set_rules('usua_telefono', 'Telefono', 'trim|required');
+      $this->form_validation->set_rules('usua_esadmin', 'Tipo Usuario', 'trim|required');
+      
+    $this->form_validation->set_error_delimiters('<div class="col-md-12 col-md-offset-3"><div class="alert alert-danger alert-dismissible fade show" role="alert">','</div></div>');
+    
+    if ($this->form_validation->run() == FALSE)
      {
       $this->load->view('Login/registroView');
-   	 }
+     }
     else
     {
 
-		$this->evaluaRegistro();
-	}
+    $this->evaluaRegistro();
+  }
     }
-	public function evaluaRegistro()
-	{
+  public function evaluaRegistro()
+  {
 
 		$usua_codigo = $this->security->xss_clean($this->input->post('usua_codigo'));
       $usua_nombres = $this->security->xss_clean($this->input->post('usua_nombres'));
