@@ -1,0 +1,5 @@
+1. Clonar desde el git for windows entrando en la dirección : c:\xampp\htdocs
+2. Importar la base de datos sisbiblio con ese mismo nombre.
+3. El usuario y contraseña del Administrador son: 
+	-usuario: administrador
+	-contraseña: 1234
