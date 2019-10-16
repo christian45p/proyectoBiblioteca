@@ -1,3 +1,6 @@
+<?php
+$metodo=$this->router->fetch_method();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,7 +42,7 @@
       <hr class="sidebar-divider my-0">
 
       <!-- Nav Item - Dashboard -->
-      <li class="nav-item active">
+      <li class="nav-item <?php if($metodo=='index') echo 'active';?>">
         <a class="nav-link" href="<?php echo base_url();?>index.php/administrador">
           <i class="fas fa-plus-circle"></i>
           <span>Dashboard</span></a>
@@ -55,14 +58,14 @@
 
 
       <!-- Nav Item - Charts -->
-      <li class="nav-item">
+      <li class="nav-item <?php if($metodo=='ejemplar') echo 'active';?>">
         <a class="nav-link" href="<?php echo base_url();?>index.php/administrador/ejemplar">
           <i class="fas fa-book"></i>
           <span>Ejemplar</span></a>
       </li>
 
       <!-- Nav Item - Tables -->
-      <li class="nav-item">
+      <li class="nav-item <?php if($metodo=='usuario') echo 'active';?>">
         <a class="nav-link" href="<?php echo base_url();?>index.php/administrador/usuario">
           <i class="fas fa-fw fa-user"></i>
           <span>Usuarios</span></a>

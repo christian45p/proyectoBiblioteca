@@ -10,11 +10,9 @@ class Login extends CI_Controller {
 	}
 	public function index()
 	{
-    $this->load->view('header');
     $data['titulo']= 'Ingresar Datos Login';
-    $this->load->view('Login/loginHeader',$data);
+    $this->load->view('header',$data);
     $this->load->view('Login/loginView');
-    $this->load->view('Login/loginFooter');
     $this->load->view('footer');
 	}
   
@@ -60,8 +58,7 @@ class Login extends CI_Controller {
   public function Registro()
   { 
     $data['titulo']= 'Registro de Usuario';
-    $this->load->view('header');
-    $this->load->view('Login/loginHeader',$data);
+    $this->load->view('header',$data);
     $this->load->view('footer');
     
     $this->form_validation->set_rules('usua_codigo', 'Codigo', 'trim|required');

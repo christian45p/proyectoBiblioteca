@@ -1,3 +1,6 @@
+<?php
+$metodo=$this->router->fetch_method();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
