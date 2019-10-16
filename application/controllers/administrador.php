@@ -23,9 +23,9 @@ class administrador extends CI_Controller {
 
 	public function index(){
 		$tipoDeUsuario=$this->session->userdata('usua_esadmin');
-	  $nombreDelUsuario=$this->session->userdata('usua_nombres');
-	  $datos['nombreDelUsuario']=$nombreDelUsuario;
-	  $datos['titulo']="Dashboard!";
+	 	$nombreDelUsuario=$this->session->userdata('usua_nombres');
+	  	$datos['nombreDelUsuario']=$nombreDelUsuario;
+	  	$datos['titulo']="Dashboard!";
 
 		if($this->session->userdata('usua_login')&&$tipoDeUsuario==1){
 
@@ -87,7 +87,7 @@ class administrador extends CI_Controller {
 		if($this->session->userdata('usua_login')&&$tipoDeUsuario==1){
 			
 		$this->load->view('Administrador/header',$datos);
-		$this->load->view('Administrador/formulario');
+		$this->load->view('Administrador/formulario_usuario');
 		$this->load->view('Administrador/footer');
 
 		}else{
@@ -95,8 +95,17 @@ class administrador extends CI_Controller {
 		} 
 	}
 	public function insert_usuario(){
-		$this->user->insert();
-		redirect(base_url('index.php/Administrador'));
+	$data = [
+				'usua_codigo'=>$this->input->post('codigo'),
+				'usua_nombres'=>$this->input->post('nombres'),
+				'usua_apellidos'=>$this->input->post('apellidos'),
+				'usua_direccion'=>$this->input->post('direccion'),
+				'usua_email'=>$this->input->post('email'),
+				'usua_telefono'=>$this->input->post('telefono'),
+
+			];
+			$this->db->insert('usuario',$data);
+		redirect(base_url('index.php/Administrador/usuario'));
 	}
 	public function edit_usuario($id){
 		$tipoDeUsuario=$this->session->userdata('usua_esadmin');
@@ -108,7 +117,7 @@ class administrador extends CI_Controller {
 			'usuario'=> $this->user->getById($id)
 		];
 		$this->load->view('Administrador/header',$datos);
-		$this->load->view('Administrador/editar',$data);
+		$this->load->view('Administrador/editar_usuario',$data);
 		$this->load->view('Administrador/footer');
 
 		}else{
@@ -120,8 +129,9 @@ class administrador extends CI_Controller {
 		redirect(base_url('index.php/administrador/'));
 	}
 	public function delete_usuario($id){
-		$this->user->delete($id);
-		redirect(base_url('index.php/administrador/'));
+		$id = $this->input->get('id');
+      	$this->db->query("DELETE FROM usuario WHERE usua_id='{$id}'");
+		redirect(base_url('index.php/administrador/usuario'));
 	}
 	//Ejemplar........
 	public function add(){

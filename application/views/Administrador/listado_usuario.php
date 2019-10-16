@@ -1,5 +1,5 @@
 <div class="text-right container">
-<a href='<?= base_url('index.php/administrador/add')?>' class='btn btn-primary'>Crear registro</a>
+<a href='<?= base_url('index.php/administrador/add_usuario')?>' class='btn btn-primary'>Crear registro</a>
 </div>
 <h2>Usuarios</h2>
 <table class='table table-bordered table-dark'>

@@ -59,8 +59,8 @@ class Login extends CI_Controller {
 
   public function Registro()
   { 
-    $this->load->view('header');
     $data['titulo']= 'Registro de Usuario';
+    $this->load->view('header');
     $this->load->view('Login/loginHeader',$data);
     $this->load->view('footer');
     
