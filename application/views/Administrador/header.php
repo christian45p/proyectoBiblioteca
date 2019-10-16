@@ -63,9 +63,9 @@
 
       <!-- Nav Item - Tables -->
       <li class="nav-item">
-        <a class="nav-link" href="#">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Tables</span></a>
+        <a class="nav-link" href="<?php echo base_url();?>index.php/administrador/usuario">
+          <i class="fas fa-fw fa-user"></i>
+          <span>Usuarios</span></a>
       </li>
           <!-- Nav Item - Tables -->
       <li class="nav-item">
