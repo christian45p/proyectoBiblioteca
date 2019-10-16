@@ -5,7 +5,7 @@ class administrador extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('ejemplar_model','pm');
-		$this->load->model('usuario_model','user');
+		$this->load->model('usuario_model');
 	}
 
 
@@ -67,7 +67,7 @@ class administrador extends CI_Controller {
 		if($this->session->userdata('usua_login')&&$tipoDeUsuario==1){
 			
 			$data = [
-				'usuario'=> $this->user->read()
+				'usuario'=> $this->usuario_model->read()
 			];
 
 		$this->load->view('Administrador/header',$datos);
@@ -114,7 +114,7 @@ class administrador extends CI_Controller {
 		if($this->session->userdata('usua_login')&&$tipoDeUsuario==1){
 			
 			$data=[
-			'usuario'=> $this->user->getById($id)
+			'usuario'=> $this->usuario_model->getById($id)
 		];
 		$this->load->view('Administrador/header',$datos);
 		$this->load->view('Administrador/editar_usuario',$data);
@@ -125,12 +125,11 @@ class administrador extends CI_Controller {
 		}	
 	}
 	public function update_usuario(){
-		$this->user->update();
+		$this->usuario_model->update();
 		redirect(base_url('index.php/administrador/'));
 	}
 	public function delete_usuario($id){
-		$id = $this->input->get('id');
-      	$this->db->query("DELETE FROM usuario WHERE usua_id='{$id}'");
+      	$this->usuario_model->delete_usuario($id);
 		redirect(base_url('index.php/administrador/usuario'));
 	}
 	//Ejemplar........
