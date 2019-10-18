@@ -71,10 +71,10 @@ $metodo=$this->router->fetch_method();
           <span>Usuarios</span></a>
       </li>
           <!-- Nav Item - Tables -->
-      <li class="nav-item">
-        <a class="nav-link" href="#">
+      <li class="nav-item" <?php if($metodo=='autor') echo 'active';?>">
+        <a class="nav-link" href="<?php echo base_url();?>administrador/autor">
           <i class="fas fa-fw fa-table"></i>
-          <span>Tables1</span></a>
+          <span>Autor</span></a>
       </li>      
       <!-- Nav Item - Tables -->
       <li class="nav-item">

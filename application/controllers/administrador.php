@@ -6,6 +6,7 @@ class administrador extends CI_Controller {
 		parent::__construct();
 		$this->load->model('ejemplar_model','pm');
 		$this->load->model('usuario_model');
+		$this->load->model('autor_model','aut');
 	}
 
 
@@ -59,6 +60,39 @@ class administrador extends CI_Controller {
 		} 
 
 	}
+
+	public function autor(){
+		$tipoDeUsuario = $this->session->userdata('usua_esadmin');
+	  	$nombreDelUsuario = $this->session->userdata('usua_nombres');
+	  	$datos['nombreDelUsuario'] = $nombreDelUsuario;
+	  	$datos['titulo'] = "Autor!";
+		if($this->session->userdata('usua_login') && $tipoDeUsuario == 1){
+			$data = [
+				'autor' => $this->aut->read()
+			];
+			$this->load->view('Administrador/header',$datos);
+			$this->load->view('Administrador/listado_autor',$data);
+			$this->load->view('Administrador/footer');
+		}else{
+			redirect(base_url().'Login');
+		}
+	}
+
+	public function add_autor(){
+		$tipoDeUsuario=$this->session->userdata('usua_esadmin');
+	  	$nombreDelUsuario=$this->session->userdata('usua_nombres');
+	  	$datos['nombreDelUsuario']=$nombreDelUsuario;
+		if($this->session->userdata('usua_login')&&$tipoDeUsuario==1){
+			
+		$this->load->view('Administrador/header',$datos);
+		$this->load->view('Administrador/formulario_autor');
+		$this->load->view('Administrador/footer');
+
+		}else{
+			redirect(base_url().'Login');
+		} 
+	}
+
 	public function usuario(){
 		$tipoDeUsuario=$this->session->userdata('usua_esadmin');
 	  $nombreDelUsuario=$this->session->userdata('usua_nombres');
@@ -80,7 +114,7 @@ class administrador extends CI_Controller {
 
 	}
 	//Usuario.........
-		public function add_usuario(){
+	public function add_usuario(){
 		$tipoDeUsuario=$this->session->userdata('usua_esadmin');
 	  	$nombreDelUsuario=$this->session->userdata('usua_nombres');
 	  	$datos['nombreDelUsuario']=$nombreDelUsuario;
