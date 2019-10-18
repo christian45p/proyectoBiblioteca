@@ -13,7 +13,7 @@
 <div class="col-md-12">
  <div class="p-4">
 <div class="row text-center">
-   <form role="form" name="login" action="<?php echo base_url();?>index.php/Login/evaluaAcceso" method="post">
+   <form role="form" name="login" action="<?php echo base_url();?>Login/evaluaAcceso" method="post">
 		 <div class="form-group row mb-2">
 		    <label for="username ">Nombre de usuario o email</label>
 		    <input type="text" class="form-control" id="username" name="usua_login" placeholder="Nombre de usuario">
@@ -53,7 +53,7 @@
               <div class="col-md-12">
        <div class="text-center mt-5">
 		<ul class="nav navbar-nav">  
-  		<li><a class="btn btn-warning" href="<?php echo base_url()?>index.php/Login/Registro">REGISTRO</a></li> 
+  		<li><a class="btn btn-warning" href="<?php echo base_url()?>Login/Registro">REGISTRO</a></li> 
 		</ul>
 </div>
               </div>

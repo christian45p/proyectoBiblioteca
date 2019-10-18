@@ -1,7 +1,7 @@
 
 <div class="text-center mt-5">
       <ul class="nav navbar-nav">
-      <li><a class="btn btn-warning" href="<?php echo base_url()?>index.php/Login">LOGIN-INICIO</a></li>
+      <li><a class="btn btn-warning" href="<?php echo base_url()?>Login">LOGIN-INICIO</a></li>
     </ul>
 </div>
 <div class="row justify-content-center">
@@ -14,7 +14,7 @@
  <div class="card-body p-0">
 <div class="col-md-12">
      <div class="p-4">
-		<form role="form" name="registro" action="<?php echo base_url();?>index.php/Login/evaluaRegistro" method="post">
+		<form role="form" name="registro" action="<?php echo base_url();?>Login/evaluaRegistro" method="post">
 		  <div class="form-group">
 		    <label for="text">Código de Estudiante</label>
 		    <input type="text" class="form-control" id="username" name="usua_codigo" placeholder="Código de Estudiante">

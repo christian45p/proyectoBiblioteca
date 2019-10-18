@@ -40,14 +40,14 @@ class Login extends CI_Controller {
  			);
  			$this->session->set_userdata($sessionData);
  			if($resultado[0]->usua_esadmin==1){
- 				redirect(base_url().'index.php/administrador');
+ 				redirect(base_url().'administrador');
  			}else if($resultado[0]->usua_esadmin==0){
- 				redirect(base_url().'index.php/usuario');
+ 				redirect(base_url().'usuario');
  			}
  			
  		}else{
  			$this->session->set_flashdata('error','Invalido usuario y password');
- 			redirect(base_url().'index.php/Login');
+ 			redirect(base_url().'Login');
  		}
 
     	}else{

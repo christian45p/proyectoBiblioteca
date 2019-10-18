@@ -28,13 +28,13 @@ class usuario extends CI_Controller {
 			$this->load->view('Usuarios/footer');
 
 		}else{
-			redirect(base_url().'index.php/Login');
+			redirect(base_url().'Login');
 		}
 		
 	}
 	public function salir()
 	{	//NO COPIES ACÁ EL CODIGO
 		$this->session->unset_userdata('usua_login');
-		redirect(base_url().'index.php/Login');
+		redirect(base_url().'Login');
 	}
 }

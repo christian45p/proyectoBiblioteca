@@ -39,7 +39,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="<?php echo base_url();?>index.php/usuario">
+        <a class="nav-link" href="<?php echo base_url();?>usuario">
           <i class="fas fa-plus-circle"></i>
           <span>Dashboard</span></a>
       </li>
@@ -273,7 +273,7 @@
         <div class="modal-body">Selecciona "Salir" abajo si estás listo para terminar su actual sesión.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-          <a class="btn btn-primary" href="<?php echo base_url();?>index.php/administrador/salir">Salir</a>
+          <a class="btn btn-primary" href="<?php echo base_url();?>administrador/salir">Salir</a>
         </div>
       </div>
     </div>
