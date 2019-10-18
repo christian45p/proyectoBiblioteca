@@ -18,7 +18,7 @@ class administrador extends CI_Controller {
 			Escribe CODIGO acá......
 
 		}else{
-			redirect(base_url().'index.php/Login');
+			redirect(base_url().'Login');
 		}          <- NO BORRES ESTE COMENTARIO PARA PODER USAR EL CODIGO SIEMPRE*/
 
 	public function index(){
@@ -34,7 +34,7 @@ class administrador extends CI_Controller {
 		$this->load->view('Administrador/footer');
 
 		}else{
-			redirect(base_url().'index.php/Login');
+			redirect(base_url().'Login');
 		} 
 
 	}	
@@ -55,7 +55,7 @@ class administrador extends CI_Controller {
 		$this->load->view('Administrador/footer');
 
 		}else{
-			redirect(base_url().'index.php/Login');
+			redirect(base_url().'Login');
 		} 
 
 	}
@@ -75,7 +75,7 @@ class administrador extends CI_Controller {
 		$this->load->view('Administrador/footer');
 
 		}else{
-			redirect(base_url().'index.php/Login');
+			redirect(base_url().'Login');
 		} 
 
 	}
@@ -91,7 +91,7 @@ class administrador extends CI_Controller {
 		$this->load->view('Administrador/footer');
 
 		}else{
-			redirect(base_url().'index.php/Login');
+			redirect(base_url().'Login');
 		} 
 	}
 	public function insert_usuario(){
@@ -105,7 +105,7 @@ class administrador extends CI_Controller {
 
 			];
 			$this->db->insert('usuario',$data);
-		redirect(base_url('index.php/Administrador/usuario'));
+		redirect(base_url('Administrador/usuario'));
 	}
 	public function edit_usuario($id){
 		$tipoDeUsuario=$this->session->userdata('usua_esadmin');
@@ -121,16 +121,16 @@ class administrador extends CI_Controller {
 		$this->load->view('Administrador/footer');
 
 		}else{
-			redirect(base_url().'index.php/Login');
+			redirect(base_url().'Login');
 		}	
 	}
 	public function update_usuario(){
 		$this->usuario_model->update();
-		redirect(base_url('index.php/administrador/'));
+		redirect(base_url('administrador/'));
 	}
 	public function delete_usuario($id){
       	$this->usuario_model->delete_usuario($id);
-		redirect(base_url('index.php/administrador/usuario'));
+		redirect(base_url('administrador/usuario'));
 	}
 	//Ejemplar........
 	public function add(){
@@ -145,12 +145,12 @@ class administrador extends CI_Controller {
 		$this->load->view('Administrador/footer');
 
 		}else{
-			redirect(base_url().'index.php/Login');
+			redirect(base_url().'Login');
 		} 
 	}
 	public function insert(){
 		$this->pm->insert();
-		redirect(base_url('index.php/Administrador'));
+		redirect(base_url('Administrador'));
 	}
 	public function edit($id){
 		$tipoDeUsuario=$this->session->userdata('usua_esadmin');
@@ -166,20 +166,20 @@ class administrador extends CI_Controller {
 		$this->load->view('Administrador/footer');
 
 		}else{
-			redirect(base_url().'index.php/Login');
+			redirect(base_url().'Login');
 		}	
 	}
 	public function update(){
 		$this->pm->update();
-		redirect(base_url('index.php/administrador/'));
+		redirect(base_url('administrador/'));
 	}
 	public function delete($id){
 		$this->pm->delete($id);
-		redirect(base_url('index.php/administrador/'));
+		redirect(base_url('administrador/'));
 	}
 	public function salir()
 	{	//NO COPIES ACÁ EL CÓDIGO
 		$this->session->unset_userdata('usua_login');
-		redirect(base_url().'index.php/Login');
+		redirect(base_url().'Login');
 	}
 }
