@@ -1,5 +1,5 @@
 <div class="text-right container">
-<a href='<?= base_url('index.php/administrador/add')?>' class='btn btn-primary'>Crear registro</a>
+<a href='<?= base_url('administrador/add')?>' class='btn btn-primary'>Crear registro</a>
 </div>
 <h2>Ejemplar</h2>
 <table class='table table-bordered table-dark'>
@@ -22,8 +22,8 @@
     <td class="text-center"><?= $admi->ejem_isbn?></td>
     <td class="text-center"><?= $admi->ejem_idioma?></td>
       <td class='text-center'>
-        <a href="<?= base_url('index.php/administrador/delete/'.$admi->ejem_id)?>" class='btn btn-danger eliminar'>Eliminar</a>
-        <a href="<?= base_url('index.php/administrador/edit/'.$admi->ejem_id)?>" class='btn btn-success'>Editar</a>
+        <a href="<?= base_url('administrador/delete/'.$admi->ejem_id)?>" class='btn btn-danger eliminar'>Eliminar</a>
+        <a href="<?= base_url('administrador/edit/'.$admi->ejem_id)?>" class='btn btn-success'>Editar</a>
       </td>
   </tr>
   <?php endforeach;?>

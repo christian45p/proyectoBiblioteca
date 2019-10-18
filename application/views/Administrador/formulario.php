@@ -1,5 +1,5 @@
 <h2>Ejemplar</h2>
-<form class="form-horizontal" action="<?= base_url('index.php/administrador/insert')?>" method="post">
+<form class="form-horizontal" action="<?= base_url('administrador/insert')?>" method="post">
 	<input type="hidden" name="id" value="">
     <div class="form-group">
         <label for="titulo" class="col-sm-2 control-label">Titulo</label>
@@ -37,7 +37,7 @@
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
             <button type="submit" class="btn btn-primary col-3">Guardar</button>
-            <a href="<?= base_url('index.php/administrador')?>" class="btn btn-danger col-3">Cancelar</a>
+            <a href="<?= base_url('administrador/ejemplar')?>" class="btn btn-danger col-3">Cancelar</a>
         </div>
     </div>
 </form>

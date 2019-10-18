@@ -150,7 +150,7 @@ class administrador extends CI_Controller {
 	}
 	public function insert(){
 		$this->pm->insert();
-		redirect(base_url('Administrador'));
+		redirect(base_url('Administrador/Ejemplar'));
 	}
 	public function edit($id){
 		$tipoDeUsuario=$this->session->userdata('usua_esadmin');
