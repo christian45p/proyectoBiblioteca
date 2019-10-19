@@ -25,17 +25,8 @@ class usuario_model extends CI_Model{
 			];
 			$this->db->insert('usuario',$data);
 		}
-		function update_usuario(){
-			$id=$this->input->post('id');
-			$data = [
-				'usua_nombres'=>$this->input->post('nombres'),
-				'usua_apellidos'=>$this->input->post('apellidos'),
-				'usua_direccion'=>$this->input->post('direccion'),
-				'usua_email'=>$this->input->post('email'),
-				'usua_telefono'=>$this->input->post('telefono'),
-				'usua_password'=>md5($this->input->post('password')),
-			];
-			$confirmar=md5($this->input->post('confirmarPassword'));
+		function editar_usuario($data,$id){
+			
 			$this->db->where('usua_id',$id);
 			$this->db->update('usuario',$data);
 		}

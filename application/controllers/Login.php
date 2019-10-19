@@ -88,7 +88,8 @@ class Login extends CI_Controller {
       //$hashPassword = password_hash($password,PASSWORD_BCRYPT,$options);
       
         if(md5($usua_password) == md5($confirmar)){
-            $insertData = array('usua_codigo'=>$usua_codigo,
+            $insertData = array(
+                'usua_codigo'=>$usua_codigo,
                 'usua_nombres'=>$usua_nombres,
                 'usua_apellidos'=>$usua_apellidos,
                 'usua_direccion'=>$usua_direccion,

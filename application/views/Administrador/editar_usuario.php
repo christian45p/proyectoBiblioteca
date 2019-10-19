@@ -4,47 +4,48 @@
     </div>
     <div class="card-body">
         <form action="<?= base_url('index.php/administrador/update_usuario')?>" method="post">
+            <input type="hidden" name="id" value="<?= $usuario->usua_id?>">
             <div class="form-row">
                 <div class="form-group col-md-3 disabled">
                     <label for="">Codigo del Estudiante</label>
-                    <input type="text" class="form-control form-control-sm border border-warning" value="<?= $usuario->usua_codigo?>"  id="" disabled>
+                    <input type="text" name="usua_codigo" class="form-control form-control-sm border border-warning" value="<?= $usuario->usua_codigo?>"  id="" >
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputEmail4">Nombres</label>
-                    <input type="text" class="form-control form-control-sm border border-warning" value="<?= $usuario->usua_nombres?>" id="" name="nombres" >
+                    <input type="text" class="form-control form-control-sm border border-warning" value="<?= $usuario->usua_nombres?>" id="" name="usua_nombres" >
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputPassword4">Apellidos</label>
-                    <input type="text" class="form-control form-control-sm border border-warning" value="<?= $usuario->usua_apellidos?>" id="" name="apellidos" >
+                    <input type="text" class="form-control form-control-sm border border-warning" value="<?= $usuario->usua_apellidos?>" id="" name="usua_apellidos" >
                 </div>
             </div>
             <div class="form-group">
                 <label for="inputAddress">Direccion</label>
-                <input type="text" class="form-control form-control-sm border border-warning" value="<?= $usuario->usua_direccion?>" id="inputAddress" name="direccion" >
+                <input type="text" class="form-control form-control-sm border border-warning" value="<?= $usuario->usua_direccion?>" id="inputAddress" name="usua_direccion" >
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputEmail4">E-mail</label>
-                    <input type="email" class="form-control form-control-sm border border-warning" value="<?= $usuario->usua_email?>" id="" name="email" >
+                    <input type="email" class="form-control form-control-sm border border-warning" value="<?= $usuario->usua_email?>" id="" name="usua_email" >
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputPassword4">Telefono</label>
-                    <input type="text" class="form-control form-control-sm border border-warning" value="<?= $usuario->usua_telefono?>" id="" name="telefono" >
+                    <input type="text" class="form-control form-control-sm border border-warning" value="<?= $usuario->usua_telefono?>" id="" name="usua_telefono" >
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-3">
                     <label for="inputEmail4">Usuario</label>
-                    <input type="text" class="form-control form-control-sm border border-warning" value="<?= $usuario->usua_login?>" id="" disabled="1">
+                    <input type="text" name="usua_login" class="form-control form-control-sm border border-warning" value="<?= $usuario->usua_login?>" id="" >
                 </div>
             </div>
             <hr class="sidebar-divider my-2">
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputEmail4">Contraseña</label>
-                    <input type="password" class="form-control form-control-sm border border-warning" value="" id="" name="password" >
+                    <input type="password" class="form-control form-control-sm border border-warning" value="" id="" name="usua_password" >
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputPassword4">Confirmar Contraseña</label>
