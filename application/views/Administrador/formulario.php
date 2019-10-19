@@ -8,19 +8,19 @@
         </div>
     </div>
     <div class="form-row">
-    <div class="form-group">
-        <label for="editorial" class="col-sm-2 control-label">Editorial</label>
-        <div class="col">
-            <input type="text" class="form-control" id="editorial" name="editorial" value="" placeholder="Editorial">
+        <div class="form-group">
+            <label for="editorial" class="col-sm-2 control-label">Editorial</label>
+            <div class="col">
+                <input type="text" class="form-control" id="editorial" name="editorial" value="" placeholder="Editorial">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="paginas" class="col-sm-2 control-label">Pagina</label>
+            <div class="col">
+                <input type="text" class="form-control" id="paginas" name="paginas" value="" placeholder="Paginas">
+            </div>
         </div>
     </div>
-    <div class="form-group">
-        <label for="paginas" class="col-sm-2 control-label">Pagina</label>
-        <div class="col">
-            <input type="text" class="form-control" id="paginas" name="paginas" value="" placeholder="Paginas">
-        </div>
-    </div>
-</div>
     <div class="form-group">
         <label for="isbn" class="col-sm-2 control-label">Isbn</label>
         <div class="col-5">
