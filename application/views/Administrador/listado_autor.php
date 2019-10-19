@@ -12,12 +12,12 @@
     <?php if(!empty($autor)): ?>
     <?php foreach ($autor as $aut): ?>
     <tr>
-        <td class="text-center"><?= $aut->ID_AUT?></td>
-        <td class="text-center"><?= $aut->NOMBRES_AUT?></td>
-        <td class="text-center"><?= $aut->APELLIDOS_AUT?></td>
+        <td class="text-center"><?= $aut->auto_id?></td>
+        <td class="text-center"><?= $aut->auto_nombres?></td>
+        <td class="text-center"><?= $aut->auto_apellidos?></td>
         <td class='text-center'>
-            <a href="<?= base_url('administrador/delete_autor/'.$aut->ID_AUT)?>" class='btn btn-danger eliminar'>Eliminar</a>
-            <a href="<?= base_url('administrador/edit_autor/'.$aut->ID_AUT)?>" class='btn btn-success'>Editar</a>
+            <a href="<?= base_url('administrador/delete_autor/'.$aut->auto_id)?>" class='btn btn-danger eliminar'>Eliminar</a>
+            <a href="<?= base_url('administrador/edit_autor/'.$aut->auto_id)?>" class='btn btn-success'>Editar</a>
         </td>
     </tr>
     <?php endforeach;?>
