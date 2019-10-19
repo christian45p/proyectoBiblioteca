@@ -67,7 +67,7 @@ $metodo=$this->router->fetch_method();
       <!-- Nav Item - Tables -->
       <li class="nav-item <?php if($metodo=='usuario') echo 'active';?>">
         <a class="nav-link" href="<?php echo base_url();?>administrador/usuario">
-          <i class="fas fa-fw fa-user"></i>
+          <i class="fas fa-fw fa-users"></i>
           <span>Usuarios</span></a>
       </li>
           <!-- Nav Item - Tables -->
