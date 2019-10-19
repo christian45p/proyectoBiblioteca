@@ -191,7 +191,7 @@ class administrador extends CI_Controller {
 
 	public function update(){
 		$this->pm->update();
-		redirect(base_url('administrador/'));
+		redirect(base_url('administrador/ejemplar'));
 	}
 
 	public function delete($id){
