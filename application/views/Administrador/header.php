@@ -80,13 +80,26 @@ $metodo=$this->router->fetch_method();
       <li class="nav-item">
         <a class="nav-link" href="#">
           <i class="fas fa-fw fa-table"></i>
-          <span>Tables2</span></a>
+          <span>Peticiones de Libros</span></a>
       </li>      
       <!-- Nav Item - Tables -->
       <li class="nav-item">
         <a class="nav-link" href="#">
           <i class="fas fa-fw fa-table"></i>
-          <span>Tables3</span></a>
+          <span>Libros Prestados</span></a>
+      </li>
+      <!-- Nav Item - Tables -->
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Reportes</span></a>
+      </li>
+      <!-- Nav Item - Tables -->
+      <br>
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Datos del Administrador</span></a>
       </li>
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
