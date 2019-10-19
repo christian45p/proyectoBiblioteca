@@ -9,8 +9,8 @@
         <th class="text-center">Apellidos</th>
         <th class="text-center">Opciones</th>
     </tr>
-    <?php if(!empty($Autor)): ?>
-    <?php foreach ($Autor as $aut): ?>
+    <?php if(!empty($autor)): ?>
+    <?php foreach ($autor as $aut): ?>
     <tr>
         <td class="text-center"><?= $aut->ID_AUT?></td>
         <td class="text-center"><?= $aut->NOMBRES_AUT?></td>

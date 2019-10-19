@@ -1,6 +1,6 @@
 
 <div class="text-center mt-5 mb-2 p-3">
-  <h1 class="font-italic h4">SisBiblio</h1>
+  <h1 class="font-italic h4">BIENVENIDO AL SISTEMA DE BIBLIOTECA</h1>
 </div>
       <div class="row justify-content-center">
           <div class="col-xl-9">
