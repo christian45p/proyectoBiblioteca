@@ -41,7 +41,7 @@
       <li class="nav-item active">
         <a class="nav-link" href="<?php echo base_url();?>index.php/usuario/index">
           <i class="fas fa-plus-circle"></i>
-          <span class="text-white">Dashboard</span></a>
+          <span class="text-white">Portada</span></a>
       </li>
 
       <!-- Divider -->
@@ -55,7 +55,7 @@
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="<?php base_url()?>usuario/buscar_libro">
+        <a class="nav-link" href="<?php echo base_url().'index.php/usuario/buscarLibro/';?>">
           <i class="fas fa-fw fa-search"></i>
           <span class="text-white">Buscar Libro</span></a>
       </li>

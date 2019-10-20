@@ -70,7 +70,7 @@
                 <!-- Nav Item - Tables -->
                 <li class="nav-item <?php if($metodo=='autor') echo 'active';?>">
                     <a class="nav-link" href="<?php echo base_url();?>administrador/autor">
-                        <i class="fas fa-autor"></i>
+                        <i class="fas fa-feather-alt"></i>
                         <span>Autor</span>
                     </a>
                 </li>      

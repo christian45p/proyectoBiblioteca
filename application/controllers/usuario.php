@@ -30,10 +30,11 @@ class usuario extends CI_Controller {
 			redirect(base_url().'Login');
 		}		
 	}
-	public function buscar_libro(){
+	public function buscarLibro(){
 		$tipoDeUsuario=$this->session->userdata('usua_esadmin');
 		$nombreDelUsuario=$this->session->userdata('usua_nombres');
 		$datos['nombreDelUsuario']=$nombreDelUsuario;
+		$datos['titulo']='Busqueda de Libros';
 		if($this->session->userdata('usua_login')&&$tipoDeUsuario==0){
 		
 		$this->load->view('Usuarios/header',$datos);
