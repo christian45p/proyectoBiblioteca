@@ -23,8 +23,10 @@ class usuario extends CI_Controller {
 		$tipoDeUsuario=$this->session->userdata('usua_esadmin');
 	  	$nombreDelUsuario=$this->session->userdata('usua_nombres');
 	  	$datos['nombreDelUsuario']=$nombreDelUsuario;
+	  	$datos['titulo']='Portada';
 		if($this->session->userdata('usua_login')&&$tipoDeUsuario==0){
 			$this->load->view('Usuarios/header',$datos);
+			
 			$this->load->view('Usuarios/footer');
 		}else{
 			redirect(base_url().'Login');
@@ -44,6 +46,66 @@ class usuario extends CI_Controller {
 		}else{
 			redirect(base_url().'Login');
 		} 
+	}
+
+	public function librosPrestados(){
+		$tipoDeUsuario=$this->session->userdata('usua_esadmin');
+		$nombreDelUsuario=$this->session->userdata('usua_nombres');
+		$datos['nombreDelUsuario']=$nombreDelUsuario;
+		$datos['titulo']='Libros Prestados';
+		if($this->session->userdata('usua_login')&&$tipoDeUsuario==0){
+			$this->load->view('Usuarios/header',$datos);
+			
+			$this->load->view('Usuarios/footer');
+		}else{
+			redirect(base_url().'Login');
+		} 
+
+	}
+
+	public function misLibrosFavoritos(){
+		$tipoDeUsuario=$this->session->userdata('usua_esadmin');
+		$nombreDelUsuario=$this->session->userdata('usua_nombres');
+		$datos['nombreDelUsuario']=$nombreDelUsuario;
+		$datos['titulo']='Libros Favoritos';
+		if($this->session->userdata('usua_login')&&$tipoDeUsuario==0){
+			$this->load->view('Usuarios/header',$datos);
+			
+			$this->load->view('Usuarios/footer');
+		}else{
+			redirect(base_url().'Login');
+		} 
+		
+	}
+
+	public function historialDeBusqueda(){
+		$tipoDeUsuario=$this->session->userdata('usua_esadmin');
+		$nombreDelUsuario=$this->session->userdata('usua_nombres');
+		$datos['nombreDelUsuario']=$nombreDelUsuario;
+		$datos['titulo']='Historial de Búsqueda';
+		if($this->session->userdata('usua_login')&&$tipoDeUsuario==0){
+			$this->load->view('Usuarios/header',$datos);
+			
+			$this->load->view('Usuarios/footer');
+		}else{
+			redirect(base_url().'Login');
+		} 
+		
+	}
+
+	public function datosDeUsuario(){
+		$tipoDeUsuario=$this->session->userdata('usua_esadmin');
+		$nombreDelUsuario=$this->session->userdata('usua_nombres');
+		$datos['nombreDelUsuario']=$nombreDelUsuario;
+		$datos['titulo']='Datos de Usuario';
+		if($this->session->userdata('usua_login')&&$tipoDeUsuario==0){
+			$this->load->view('Usuarios/header',$datos);
+			
+			$this->load->view('Usuarios/footer');
+		}else{
+			redirect(base_url().'Login');
+		} 
+		
 	}
 
 	public function salir(){
