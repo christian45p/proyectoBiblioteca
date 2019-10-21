@@ -99,30 +99,34 @@ class Login extends CI_Controller {
                 'usua_esadmin'=>$usua_esadmin,
                 'usua_password'=>($usua_password),
             );
-            $insertar_ejemplar = $this->loginModelo->insertar_usuarios($insertData);
-            redirect(base_url()."index.php/Login");
+           
+            
 
-          /*$verifica_doble = $this->loginModelo->verifica_doble($usua_login);
+            $verifica_doble = $this->loginModelo->verifica_doble($usua_login);
             if($verifica_doble == 0){
                 $insertar_ejemplar = $this->loginModelo->insertar_usuarios($insertData);
                 if($insertar_ejemplar){
                     $this->session->set_flashdata('successMsg', 'Usuario registrado correctamente');
-                    redirect('home');
+                    redirect(base_url()."index.php/Login/");
                 }else{
                     $data['errorMsg'] = 'Error al guardar usuario, intente otra vez';
-                    $this->load->view('admin/adduser_view', $data);
+                    redirect(base_url()."index.php/Login/Registro");
+
+                    //$this->load->view('Login/Registro', $data);
                 }
             }else{
                 $data['errorMsg'] = 'Codigo y/o nombre de usuario repetido , ingrese de nuevo';
-                $this->load->view('registroView', $data);
-            }*/
+                redirect(base_url()."index.php/Login/Registro");
+                //$this->load->view('Login/Registro', $data);
+            }
 
         }else{
           
-          /*$data['errorMsg'] = 'Error al guardar usuario, intente otra vez';
-            $this->load->view('registroView', $data);*/
+          $data['errorMsg'] = 'Error al guardar usuario, intente otra vez';
+          redirect(base_url()."index.php/Login/Registro");
+           // $this->load->view('Login/Registro', $data);
           
-            redirect(base_url()."index.php/Login");
+           
         }
     }	
 }

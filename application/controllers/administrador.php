@@ -221,7 +221,7 @@ class administrador extends CI_Controller {
 		redirect(base_url('Administrador/Ejemplar'));
 	}
 
-	public function edit($id){
+	public function edit($id){ //editar ejemplar
 		$tipoDeUsuario = $this->session->userdata('usua_esadmin');
 	  	$nombreDelUsuario = $this->session->userdata('usua_nombres');
 	  	$datos['nombreDelUsuario'] = $nombreDelUsuario;
@@ -247,6 +247,70 @@ class administrador extends CI_Controller {
 		$this->pm->delete($id);
 		redirect(base_url('administrador/'));
 	}
+
+
+
+
+
+
+	//***************************************************************************************
+	public function peticionesDeLibros(){
+		$tipoDeUsuario=$this->session->userdata('usua_esadmin');
+		$nombreDelUsuario=$this->session->userdata('usua_nombres');
+		$datos['nombreDelUsuario']=$nombreDelUsuario;
+		$datos['titulo']="Peticiones de Libros";
+		if($this->session->userdata('usua_login')&&$tipoDeUsuario==1){
+			$this->load->view('Administrador/header',$datos);
+			
+			$this->load->view('Administrador/footer');
+		}else{
+			redirect(base_url().'Login');
+		} 
+	}
+	public function librosPrestados(){
+		$tipoDeUsuario=$this->session->userdata('usua_esadmin');
+		$nombreDelUsuario=$this->session->userdata('usua_nombres');
+		$datos['nombreDelUsuario']=$nombreDelUsuario;
+		$datos['titulo']="Libros Prestados";
+		if($this->session->userdata('usua_login')&&$tipoDeUsuario==1){
+			$this->load->view('Administrador/header',$datos);
+			
+			$this->load->view('Administrador/footer');
+		}else{
+			redirect(base_url().'Login');
+		} 
+	}
+
+	public function reportes(){
+		$tipoDeUsuario=$this->session->userdata('usua_esadmin');
+		$nombreDelUsuario=$this->session->userdata('usua_nombres');
+		$datos['nombreDelUsuario']=$nombreDelUsuario;
+		$datos['titulo']="Reportes";
+		if($this->session->userdata('usua_login')&&$tipoDeUsuario==1){
+			$this->load->view('Administrador/header',$datos);
+			
+			$this->load->view('Administrador/footer');
+		}else{
+			redirect(base_url().'Login');
+		} 
+	}
+
+	public function datosDelAdministrador(){
+		$tipoDeUsuario=$this->session->userdata('usua_esadmin');
+		$nombreDelUsuario=$this->session->userdata('usua_nombres');
+		$datos['nombreDelUsuario']=$nombreDelUsuario;
+		$datos['titulo']="Datos del Administrador";
+		if($this->session->userdata('usua_login')&&$tipoDeUsuario==1){
+			$this->load->view('Administrador/header',$datos);
+			
+			$this->load->view('Administrador/footer');
+		}else{
+			redirect(base_url().'Login');
+		} 
+	}
+
+
+	//***************************************************************************************
 
 	public function salir(){
 	  

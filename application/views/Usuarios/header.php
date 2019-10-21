@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>BiblioSis</title>
+    <title><?php echo $titulo; ?></title>
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.css"/>
@@ -41,7 +41,7 @@
       <li class="nav-item active">
         <a class="nav-link" href="<?php echo base_url();?>index.php/usuario/index">
           <i class="fas fa-plus-circle"></i>
-          <span class="text-white">Dashboard</span></a>
+          <span class="text-white">Portada</span></a>
       </li>
 
       <!-- Divider -->
@@ -55,33 +55,37 @@
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
+<<<<<<< HEAD
         <a class="nav-link" href="<?php base_url()?>index.php/usuario/buscar_libro">
+=======
+        <a class="nav-link" href="<?php echo base_url().'index.php/usuario/buscarLibro/';?>">
+>>>>>>> 70b6143188087f61ce3ebc91be306bc492ef933c
           <i class="fas fa-fw fa-search"></i>
           <span class="text-white">Buscar Libro</span></a>
       </li>
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="<?php echo base_url().'index.php/usuario/librosPrestados/';?>">
           <i class="fas fa-fw fa-book"></i>
           <span class="text-white">Libros Prestados</span></a>
       </li>
             <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="<?php echo base_url().'index.php/usuario/misLibrosFavoritos/';?>">
           <i class="fas fa-fw fa-thumbs-up"></i>
           <span class="text-white">Mis libros Favoritos</span></a>
       </li>
             <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="<?php echo base_url().'index.php/usuario/historialDeBusqueda/';?>">
           <i class="fas fa-fw fa-history"></i>
           <span class="text-white">Historial de Busqueda</span></a>
       </li>
       <hr class="sidebar-divider d-none d-md-block">
             <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="<?php echo base_url().'index.php/usuario/datosDeUsuario/';?>">
           <i class="fas fa-fw fa-user-secret"></i>
           <span class="text-white">Datos de Usuario</span></a>
       </li>

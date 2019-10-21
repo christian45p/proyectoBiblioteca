@@ -42,6 +42,29 @@
               <div class="topbar-divider d-none d-sm-block" style="border: 1px solid black; align-items: center;"></div>
               <div class="form-group col-md-5">
 
+                <?php
+
+    if($this->session->flashdata('successMsg'))
+    {
+      echo '<div class="alert alert-success alert-dismissible fade show" role="alert">';
+      echo $this->session->flashdata('successMsg');
+      echo '<button type="button" class="close" data-dismiss="alert" aria-label="Close">';
+      echo '<span aria-hidden="true">&times;</span>';
+      echo '</button>';
+      echo '</div>';
+    }
+    
+    if($this->session->flashdata('errorMsg'))
+    {
+      echo '<div class="alert alert-info alert-dismissible fade show" role="alert">';
+      echo $this->session->flashdata('errorMsg');
+      echo '<button type="button" class="close" data-dismiss="alert" aria-label="Close">';
+      echo '<span aria-hidden="true">&times;</span>';
+      echo '</button>';
+      echo '</div>';
+    }
+?>
+
                 <h1 class="font-italic h4">Registarse</h1>
 
                 <div class="row p-4">

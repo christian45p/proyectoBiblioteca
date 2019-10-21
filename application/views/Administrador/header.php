@@ -77,7 +77,7 @@
                 
                 <!-- Nav Item - Tables -->
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="<?php echo base_url();?>administrador/peticionesDeLibros">
                         <i class="fas fa-fw fa-table"></i>
                         <span>Peticiones de Libros</span>
                     </a>
@@ -85,7 +85,7 @@
                 
                 <!-- Nav Item - Tables -->
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="<?php echo base_url();?>administrador/librosPrestados">
                         <i class="fas fa-fw fa-table"></i>
                         <span>Libros Prestados</span>
                     </a>
@@ -93,13 +93,14 @@
 
                 <!-- Nav Item - Tables -->
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="fas fa-fw fa-file"></i>
+
+                    <a class="nav-link" href="<?php echo base_url();?>administrador/reportes">
+                        <i class="fas fa-fw fa-table"></i>
                         <span>Reportes</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="<?php echo base_url();?>administrador/datosDelAdministrador">
                         <i class="fas fa-fw fa-table"></i>
                         <span>Datos del Administrador</span>
                     </a>
