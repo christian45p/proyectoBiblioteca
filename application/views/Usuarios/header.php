@@ -55,11 +55,8 @@
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
-<<<<<<< HEAD
+
         <a class="nav-link" href="<?php base_url()?>index.php/usuario/buscar_libro">
-=======
-        <a class="nav-link" href="<?php echo base_url().'index.php/usuario/buscarLibro/';?>">
->>>>>>> 70b6143188087f61ce3ebc91be306bc492ef933c
           <i class="fas fa-fw fa-search"></i>
           <span class="text-white">Buscar Libro</span></a>
       </li>
