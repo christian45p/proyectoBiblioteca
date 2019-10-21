@@ -1,6 +1,6 @@
-<div class="text-right container">
+<!-- <div class="text-right container">
 <a href='<?= base_url('index.php/administrador/add_usuario')?>' class='btn btn-primary'>Crear registro</a>
-</div>
+</div> -->
 <h2>Usuarios</h2>
 <table class='table table-bordered table-dark'>
 <tr class='info'>

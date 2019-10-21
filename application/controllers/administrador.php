@@ -130,6 +130,7 @@ class administrador extends CI_Controller {
 		$tipoDeUsuario=$this->session->userdata('usua_esadmin');
 		$nombreDelUsuario=$this->session->userdata('usua_nombres');
 	  	$datos['nombreDelUsuario']=$nombreDelUsuario;
+	  	$datos['titulo'] = "Editar Usuario!";
 		if($this->session->userdata('usua_login')&&$tipoDeUsuario==1){
 //---------------------------------------------------------------------------------------------
 			$this->load->view('Administrador/header',$datos);
@@ -224,6 +225,7 @@ class administrador extends CI_Controller {
 		$tipoDeUsuario = $this->session->userdata('usua_esadmin');
 	  	$nombreDelUsuario = $this->session->userdata('usua_nombres');
 	  	$datos['nombreDelUsuario'] = $nombreDelUsuario;
+	  	$datos['titulo'] = "Editar Ejemplar!";
 		if($this->session->userdata('usua_login') && $tipoDeUsuario == 1){
 			$data = [
 				'ejemplar'=> $this->pm->getById($id)

@@ -49,7 +49,7 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputPassword4">Confirmar Contraseña</label>
-                    <input type="text" class="form-control form-control-sm border border-warning" value="" id="" name="confirmar" >
+                    <input type="password" class="form-control form-control-sm border border-warning" value="" id="" name="confirmar" >
                 </div>
             </div>
             <!-- Divider -->

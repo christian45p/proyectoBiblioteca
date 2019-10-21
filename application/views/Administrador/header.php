@@ -22,7 +22,7 @@
         <!-- Page Wrapper -->
         <div id="wrapper">
             <!-- Sidebar -->
-            <ul class="navbar-nav bg-gradient-danger sidebar sidebar-dark accordion" id="accordionSidebar">
+            <ul class="navbar-nav bg-gradient-warning sidebar sidebar-dark accordion" id="accordionSidebar">
 
                 <!-- Sidebar - Brand -->
                 <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
@@ -70,7 +70,7 @@
                 <!-- Nav Item - Tables -->
                 <li class="nav-item <?php if($metodo=='autor') echo 'active';?>">
                     <a class="nav-link" href="<?php echo base_url();?>administrador/autor">
-                        <i class="fas fa-autor"></i>
+                        <i class="fas fa-user"></i>
                         <span>Autor</span>
                     </a>
                 </li>      
@@ -94,13 +94,10 @@
                 <!-- Nav Item - Tables -->
                 <li class="nav-item">
                     <a class="nav-link" href="#">
-                        <i class="fas fa-fw fa-table"></i>
+                        <i class="fas fa-fw fa-file"></i>
                         <span>Reportes</span>
                     </a>
                 </li>
-
-                <!-- Nav Item - Tables -->
-                <br>
                 <li class="nav-item">
                     <a class="nav-link" href="#">
                         <i class="fas fa-fw fa-table"></i>

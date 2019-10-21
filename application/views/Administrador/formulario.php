@@ -1,43 +1,56 @@
-<h2>Ejemplar</h2>
-<form class="form-horizontal" action="<?= base_url('administrador/insert')?>" method="post">
-	<input type="hidden" name="id" value="">
-    <div class="form-group">
-        <label for="titulo" class="col-sm-2 control-label">Titulo</label>
-        <div class="col-5">
-            <input type="text" class="form-control" id="titulo" name="titulo" value="" placeholder="Titulo">
-        </div>
+<div class="card mb-4 border border-warning m-5 rounded-lg">
+    <div class="card-header py-3">
+        <h2>Ejemplar</h2>
     </div>
-    <div class="form-row">
-        <div class="form-group">
-            <label for="editorial" class="col-sm-2 control-label">Editorial</label>
-            <div class="col">
-                <input type="text" class="form-control" id="editorial" name="editorial" value="" placeholder="Editorial">
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="paginas" class="col-sm-2 control-label">Pagina</label>
-            <div class="col">
-                <input type="text" class="form-control" id="paginas" name="paginas" value="" placeholder="Paginas">
-            </div>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="isbn" class="col-sm-2 control-label">Isbn</label>
-        <div class="col-5">
-            <input type="text" class="form-control" id="isbn" name="isbn" value="" placeholder="Isbn">
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="idioma" class="col-sm-2 control-label">Idioma</label>
-        <div class="col-5">
-            <input type="text" class="form-control" id="idioma" name="idioma" value="" placeholder="Idioma">
-        </div>
-    </div>
+    <div class="card-body">
+        <form class="form-horizontal" action="<?= base_url('administrador/insert')?>" method="post">
+          <div class="form-row">
+            <div class="form-group col-md-12">
 
-    <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-primary col-3">Guardar</button>
-            <a href="<?= base_url('administrador/ejemplar')?>" class="btn btn-danger col-3">Cancelar</a>
-        </div>
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                <label for="titulo">Titulo</label>
+                <div>
+                    <input type="text" class="form-control form-control-md border border-warning" id="titulo" name="titulo" value="" placeholder="Titulo">
+                </div>
+            </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="editorial">Editorial</label>
+                    <div>
+                        <input type="text" class="form-control form-control-md border border-warning" id="editorial" name="editorial" value="" placeholder="Editorial">
+                    </div>
+                </div>
+                <div class="form-group col-md-12">
+                    <label for="paginas">Pagina</label>
+                    <div>
+                        <input type="text" class="form-control form-control-md border border-warning" id="paginas" name="paginas" value="" placeholder="Paginas">
+                    </div>
+                </div>
+              </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                <label for="isbn">Isbn</label>
+                <div>
+                    <input type="text" class="form-control form-control-md border border-warning" id="isbn" name="isbn" value="" placeholder="Isbn">
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="idioma" >Idioma</label>
+                <div>
+                    <input type="text" class="form-control form-control-md border border-warning" id="idioma" name="idioma" value="" placeholder="Idioma">
+                </div>
+            </div>
+              </div>
+                </div>
+              </div>
+            <hr class="sidebar-divider my-2">
+            <div class="text-center">
+                <a href="<?= base_url('administrador/ejemplar')?>" class="btn btn-danger mb-2 btn-sm">Cancelar</a>
+                <button type="submit" class="btn btn-success mb-2 btn-sm">Guardar</button>
+            </div>
+        </form>
     </div>
-</form>
+</div>
+
