@@ -83,6 +83,15 @@ class administrador extends CI_Controller {
 		} 
 	}
 
+	public function insert_autor(){
+		$data = [
+			'auto_nombres' => $this->input->post('aut_nombres'),
+			'auto_apellidos' => $this->input->post('aut_apellidos')
+		];
+		$this->db->insert('autor',$data);
+		redirect(base_url('Administrador/autor'));
+	}
+
 	public function usuario(){
 		$tipoDeUsuario = $this->session->userdata('usua_esadmin');
 	  	$nombreDelUsuario = $this->session->userdata('usua_nombres');

@@ -15,9 +15,8 @@ class autor_model extends CI_Model{
 		}
 		function insert_usuario(){
 			$data = [
-				''=>$this->input->post('codigo'),
-				'NOMBRES_AUT'=>$this->input->post('nombres'),
-				'APELLIDOS_AUT'=>$this->input->post('apellidos'),
+				'auto_nombres'=>$this->input->post('aut_nombres'),
+				'auto_apellidos'=>$this->input->post('aut_apellidos'),
 			];
 			$this->db->insert('usuario',$data);
 		}
