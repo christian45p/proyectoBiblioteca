@@ -261,7 +261,14 @@ class administrador extends CI_Controller {
 	}
 
 	public function insert(){
-		$this->pm->insert();
+		$data = [
+			'ejem_titulo'=>$this->input->post('titulo'),
+			'ejem_editorial'=>$this->input->post('editorial'),
+			'ejem_paginas'=>$this->input->post('paginas'),
+			'ejem_isbn'=>$this->input->post('isbn'),
+			'ejem_idioma'=>$this->input->post('idioma'),
+		];
+		$this->pm->insert($data);
 		redirect(base_url('Administrador/Ejemplar'));
 	}
 

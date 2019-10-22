@@ -15,14 +15,8 @@ class ejemplar_model extends CI_Model{
 		}
 	}
 	
-	function insert(){
-		$data = [
-			'ejem_titulo'=>$this->input->post('titulo'),
-			'ejem_editorial'=>$this->input->post('editorial'),
-			'ejem_paginas'=>$this->input->post('paginas'),
-			'ejem_isbn'=>$this->input->post('isbn'),
-			'ejem_idioma'=>$this->input->post('idioma'),
-		];
+	function insert($data){
+		
 		$this->db->insert('ejemplar',$data);
 	}
 
