@@ -18,7 +18,7 @@
             <!-- Divider -->
             <hr class="sidebar-divider my-2">
             <div class="text-center">
-                <a href="<?= base_url('administrador/listado_autor')?>" class="btn btn-danger mb-2 btn-sm">Cancelar</a>
+                <a href="<?= base_url('administrador/autor')?>" class="btn btn-danger mb-2 btn-sm">Cancelar</a>
                 <button type="submit" class="btn btn-success mb-2 btn-sm">Actualizar Datos</button>
             </div>
         </form>

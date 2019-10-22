@@ -24,7 +24,8 @@
                                         </div> -->
 
                                         <hr class="sidebar-divider my-3 mb-2">
-                                        <button type="submit" class="btn btn-warning btn-block mb-2">Registrar</button>
+                                        <button type="submit" class="btn btn-success btn-block mb-2">Registrar</button>
+                                        <a href="<?= base_url('administrador/autor')?>" class="btn btn-danger btn-block mb-2">Cancelar</a>
                                     </div>
                                 </div>
                             </div>
