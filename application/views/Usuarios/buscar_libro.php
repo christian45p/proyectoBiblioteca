@@ -1,59 +1,52 @@
-
- <div class="card shadow mb-4">
+<div class="card mb-4 border border-bottom-info m-5 rounded-lg">
             <div class="card-header py-3">
-				<div class="form-row mb-4"> 
-					<div class=" col-md-2" >
-						    <select id="inputState" class="form-control form-control-sm" name="ejem_tipo_id"  >
-						      <option value="1" >Area - Categoria</option>
-						    </select>
-					</div>
-	                <div class=" col-md-8">
-	                	<input type="text" class="form-control form-control-sm" id="" >
+                <div class="form-row mb-4"> 
+                    <div class=" col-md-2" >
+                            <select id="inputState" class="form-control form-control-sm" name=""  >
+                              <option value="1" >Area - Categoria</option>
+                            </select>
+                    </div>
+                    <div class=" col-md-8">
+                        <input type="text" class="form-control form-control-sm" id="" >
 
-	                </div>
+                    </div>
 
-					<div class="col-md-2">             
-					   <a href="?busqueda" class="btn btn-primary btn-icon-split btn-sm ">
-			                <span class="icon text-white-50">
-			                 <i class="fas fa-search"></i>
-			                </span>
-			                <span class="text">Buscar libro</span>
-			              </a>
-					</div>
-            	</div>
-            	<div class="form-inline "> 
+                    <div class="col-md-2">             
+                       <a href="?busqueda" class="btn btn bg-gradient-info btn-icon-split btn-sm text-gray-100">
+                            <span class="icon text-white-50">
+                             <i class="fas fa-search"></i>
+                            </span>
+                            <span class="text">Buscar libro</span>
+                          </a>
+                    </div>
+                </div>
+                <div class="form-inline "> 
                     <div class="form-check mr-3">
-                        <input type="text" name="usua_esadmin" value="0" hidden="1"> 
-                        <input type="checkbox" class="form-check-input" name="usua_esadmin" value="1" id="titulo">
+                        <input type="text" name="" value="0" hidden="1"> 
+                        <input type="checkbox" class="form-check-input" name="" value="1" id="titulo">
                         <label class="form-check-label" for="titulo">Titulo</label>
                     </div>
-					<div class="form-check mr-3">
-                        <input type="text" name="usua_esadmin" value="0" hidden="1"> 
-                        <input type="checkbox" class="form-check-input"  name="usua_esadmin" value="1" id="autor">
+                    <div class="form-check mr-3">
+                        <input type="text" name="" value="0" hidden="1"> 
+                        <input type="checkbox" class="form-check-input"  name="" value="1" id="autor">
                         <label class="form-check-label" for="autor">Autor</label>
                     </div>
                     <div class="form-check mr-3">
-                        <input type="text" name="usua_esadmin" value="0" hidden="1"> 
-                        <input type="checkbox" class="form-check-input"  name="usua_esadmin" value="1" id="anio">
-                        <label class="form-check-label" for="anio">Anio</label>
+                        <input type="text" name="" value="0" hidden="1"> 
+                        <input type="checkbox" class="form-check-input"  name="" value="1" id="año">
+                        <label class="form-check-label" for="anio">Año</label>
                     </div>
                     <div class="form-check mr-3">
-                        <input type="text" name="usua_esadmin" value="0" hidden="1"> 
-                        <input type="checkbox" class="form-check-input"  name="usua_esadmin" value="1" id="isbn">
+                        <input type="text" name="" value="0" hidden="1"> 
+                        <input type="checkbox" class="form-check-input"  name="" value="1" id="isbn">
                         <label class="form-check-label" for="isbn">ISBN</label>
                     </div>
                     <div class="form-check mr-3">
-                        <input type="text" name="usua_esadmin" value="0" hidden="1"> 
-                        <input type="checkbox" class="form-check-input"  name="usua_esadmin" value="1" id="editorial">
+                        <input type="text" name="" value="0" hidden="1"> 
+                        <input type="checkbox" class="form-check-input"  name="" value="1" id="editorial">
                         <label class="form-check-label" for="editorial">Editorial</label>
                     </div>
-            	</div>
-    		</div>
+                </div>
 
- <!-- <div class="card-body">
-            	<form>
-           		</form>
-
-			</div>
-        -->
     </div>
+</div>

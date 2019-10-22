@@ -26,7 +26,7 @@ class usuario extends CI_Controller {
 	  	$datos['titulo']='Portada';
 		if($this->session->userdata('usua_login')&&$tipoDeUsuario==0){
 			$this->load->view('Usuarios/header',$datos);
-			
+			$this->load->view('Usuarios/dashboard');			
 			$this->load->view('Usuarios/footer');
 		}else{
 			redirect(base_url().'Login');

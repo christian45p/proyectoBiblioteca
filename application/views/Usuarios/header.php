@@ -1,6 +1,8 @@
+<?php
+    $metodo=$this->router->fetch_method();
+?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -38,7 +40,7 @@
       <hr class="sidebar-divider my-0">
 
       <!-- Nav Item - Dashboard -->
-      <li class="nav-item active">
+      <li class="nav-item <?php if($metodo=='index') echo 'active';?>">
         <a class="nav-link" href="<?php echo base_url();?>index.php/usuario/index">
           <i class="fas fa-plus-circle"></i>
           <span class="text-white">Portada</span></a>
@@ -54,34 +56,34 @@
 
 
       <!-- Nav Item - Charts -->
-      <li class="nav-item">
+      <li class="nav-item <?php if($metodo=='buscarLibro') echo 'active';?>">
 
-        <a class="nav-link" href="<?php base_url()?>index.php/usuario/buscar_libro">
+        <a class="nav-link" href="<?php echo base_url().'index.php/usuario/buscarLibro/';?>">
           <i class="fas fa-fw fa-search"></i>
           <span class="text-white">Buscar Libro</span></a>
       </li>
 
       <!-- Nav Item - Charts -->
-      <li class="nav-item">
+      <li class="nav-item <?php if($metodo=='librosPrestados') echo 'active';?>">
         <a class="nav-link" href="<?php echo base_url().'index.php/usuario/librosPrestados/';?>">
           <i class="fas fa-fw fa-book"></i>
           <span class="text-white">Libros Prestados</span></a>
       </li>
             <!-- Nav Item - Charts -->
-      <li class="nav-item">
+      <li class="nav-item <?php if($metodo=='misLibrosFavoritos') echo 'active';?>">
         <a class="nav-link" href="<?php echo base_url().'index.php/usuario/misLibrosFavoritos/';?>">
           <i class="fas fa-fw fa-thumbs-up"></i>
           <span class="text-white">Mis libros Favoritos</span></a>
       </li>
             <!-- Nav Item - Charts -->
-      <li class="nav-item">
+      <li class="nav-item <?php if($metodo=='historialDeBusqueda') echo 'active';?>">
         <a class="nav-link" href="<?php echo base_url().'index.php/usuario/historialDeBusqueda/';?>">
           <i class="fas fa-fw fa-history"></i>
           <span class="text-white">Historial de Busqueda</span></a>
       </li>
       <hr class="sidebar-divider d-none d-md-block">
             <!-- Nav Item - Charts -->
-      <li class="nav-item">
+      <li class="nav-item <?php if($metodo=='datosDeUsuario') echo 'active';?>">
         <a class="nav-link" href="<?php echo base_url().'index.php/usuario/datosDeUsuario/';?>">
           <i class="fas fa-fw fa-user-secret"></i>
           <span class="text-white">Datos de Usuario</span></a>
@@ -95,10 +97,7 @@
       </div>
 
     </ul>
-    <!-- End of Sidebar -->
-
-    <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column">
+ <div id="content-wrapper" class="d-flex flex-column">
 
       <!-- Main Content -->
       <div id="content">
@@ -166,100 +165,6 @@
           </ul>
 
         </nav>
-        <!-- End of Topbar -->
-
-        <!-- Begin Page Content -->
-        <div class="container-fluid">
-          <!-- Content Row -->
-          <div class="row">
-
-            <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Earnings (Monthly)</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Earnings (Annual)</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-info shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks</div>
-                      <div class="row no-gutters align-items-center">
-                        <div class="col-auto">
-                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
-                        </div>
-                        <div class="col">
-                          <div class="progress progress-sm mr-2">
-                            <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Pending Requests Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-warning shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Pending Requests</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-comments fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-        <!-- /.container-fluid -->
-
-  <!-- End of Page Wrapper -->
-
-  <!-- Scroll to Top Button-->
-  <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-  </a>
 
   <!-- Logout Modal-->
   <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -48,7 +48,7 @@
 
                 <!-- Heading -->
                 <div class="sidebar-heading">
-                    Interfaz
+                    ADMINISTRADOR
                 </div>
 
                 <!-- Nav Item - Charts -->
@@ -76,7 +76,7 @@
                 </li>      
                 
                 <!-- Nav Item - Tables -->
-                <li class="nav-item">
+                <li class="nav-item <?php if($metodo=='peticionesDeLibros') echo 'active';?>">
                     <a class="nav-link" href="<?php echo base_url();?>administrador/peticionesDeLibros">
                         <i class="fas fa-fw fa-table"></i>
                         <span>Peticiones de Libros</span>
@@ -84,7 +84,7 @@
                 </li>      
                 
                 <!-- Nav Item - Tables -->
-                <li class="nav-item">
+                <li class="nav-item <?php if($metodo=='librosPrestados') echo 'active';?>">
                     <a class="nav-link" href="<?php echo base_url();?>administrador/librosPrestados">
                         <i class="fas fa-fw fa-table"></i>
                         <span>Libros Prestados</span>
@@ -92,14 +92,15 @@
                 </li>
 
                 <!-- Nav Item - Tables -->
-                <li class="nav-item">
+                <li class="nav-item <?php if($metodo=='reportes') echo 'active';?>">
 
                     <a class="nav-link" href="<?php echo base_url();?>administrador/reportes">
                         <i class="fas fa-fw fa-table"></i>
                         <span>Reportes</span>
                     </a>
                 </li>
-                <li class="nav-item">
+                <hr class="sidebar-divider d-none d-md-block">
+                <li class="nav-item <?php if($metodo=='datosDelAdministrador') echo 'active';?>">
                     <a class="nav-link" href="<?php echo base_url();?>administrador/datosDelAdministrador">
                         <i class="fas fa-fw fa-table"></i>
                         <span>Datos del Administrador</span>
@@ -107,7 +108,6 @@
                 </li>
                 
                 <!-- Divider -->
-                <hr class="sidebar-divider d-none d-md-block">
 
                 <!-- Sidebar Toggler (Sidebar) -->
                 <div class="text-center d-none d-md-inline">
@@ -189,11 +189,6 @@
 
                     <!-- Begin Page Content -->
                     <div class="container-fluid">
-
-                        <!-- Scroll to Top Button-->
-                        <a class="scroll-to-top rounded" href="#page-top">
-                            <i class="fas fa-angle-up"></i>
-                        </a>
 
                         <!-- Logout Modal-->
                         <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
