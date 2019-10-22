@@ -3,7 +3,7 @@
         <h2>Usuario # <?= $usuario->usua_id?> </h2>
     </div>
     <div class="card-body">
-        <form action="<?= base_url('index.php/administrador/update_usuario')?>" method="post">
+        <form action="<?= base_url('administrador/update_usuario')?>" method="post">
             <input type="hidden" name="id" value="<?= $usuario->usua_id?>">
             <div class="form-row">
                 <div class="form-group col-md-3 disabled">
@@ -15,7 +15,7 @@
                 <div class="form-group col-md-6">
                     <label for="inputEmail4">Nombres</label>
                     <input type="text" class="form-control form-control-sm border border-warning" value="<?= $usuario->usua_nombres?>" id="" name="usua_nombres" >
-                </div>
+                </div> 
                 <div class="form-group col-md-6">
                     <label for="inputPassword4">Apellidos</label>
                     <input type="text" class="form-control form-control-sm border border-warning" value="<?= $usuario->usua_apellidos?>" id="" name="usua_apellidos" >

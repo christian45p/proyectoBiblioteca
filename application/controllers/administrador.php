@@ -83,6 +83,35 @@ class administrador extends CI_Controller {
 		} 
 	}
 
+	public function edit_autor($id){
+		$tipoDeUsuario=$this->session->userdata('usua_esadmin');
+		$nombreDelUsuario=$this->session->userdata('usua_nombres');
+	  	$datos['nombreDelUsuario']=$nombreDelUsuario;
+	  	$datos['titulo'] = "Editar Autor!";
+		if($this->session->userdata('usua_login')&&$tipoDeUsuario==1){
+//---------------------------------------------------------------------------------------------
+			$this->load->view('Administrador/header',$datos);
+			$data=[
+				'autor'=> $this->aut->getById($id)
+			];
+			
+			$this->form_validation->set_rules('auto_nombres', 'aut_nombres', 'trim|required');
+	        $this->form_validation->set_rules('auto_apellidos', 'aut_apellidos', 'trim|required');
+	    if ($this->form_validation->run() == FALSE){
+            $this->load->view('Administrador/editar_autor',$data);
+        }else{
+            $this->update_autor();
+        }
+			
+		$this->load->view('Administrador/footer');
+
+
+//-------------------------------------------------------------------------------------------
+		}else{
+			redirect(base_url().'Login');
+		}
+	}
+
 	public function insert_autor(){
 		$data = [
 			'auto_nombres' => $this->input->post('aut_nombres'),
@@ -90,6 +119,11 @@ class administrador extends CI_Controller {
 		];
 		$this->db->insert('autor',$data);
 		redirect(base_url('Administrador/autor'));
+	}
+
+	public function update_autor(){
+		$this->aut->update_autor();
+		redirect(base_url('Administrador/listado_autor'));
 	}
 
 	public function usuario(){

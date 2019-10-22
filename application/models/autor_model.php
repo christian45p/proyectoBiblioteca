@@ -13,33 +13,29 @@ class autor_model extends CI_Model{
 				return false;
 			}
 		}
-		function insert_usuario(){
+		function insert_autor(){
 			$data = [
 				'auto_nombres'=>$this->input->post('aut_nombres'),
-				'auto_apellidos'=>$this->input->post('aut_apellidos'),
+				'auto_apellidos'=>$this->input->post('aut_apellidos')
 			];
 			$this->db->insert('usuario',$data);
 		}
-		function update_usuario(){
+		function update_autor(){
 			$id=$this->input->post('id');
 			$data = [
-				'usua_codigo'=>$this->input->post('codigo'),
-				'usua_nombres'=>$this->input->post('nombres'),
-				'usua_apellidos'=>$this->input->post('apellidos'),
-				'usua_direccion'=>$this->input->post('direccion'),
-				'usua_email'=>$this->input->post('email'),
-				'usua_telefono'=>$this->input->post('telefono'),
+				'auto_nombres'=>$this->input->post('aut_nombres'),
+				'auto_apellidos'=>$this->input->post('aut_apellidos')
 			];
-			$this->db->where('usua_id',$id);
-			$this->db->update('usuario',$data);
+			$this->db->where('auto_id',$id);
+			$this->db->update('autor',$data);
 		}
 		function delete_usuario($id){
-			$this->db->where('usua_id',$id);
-			$this->db->delete('usuario');
+			$this->db->where('auto_id',$id);
+			$this->db->delete('autor');
 		}
 		function getById($id){
-			$this->db->where('usua_id', $id);
-			$query=$this->db->get('usuario');	
+			$this->db->where('auto_id', $id);
+			$query=$this->db->get('autor');	
 			if($query->num_rows()>0){
 				return $query->row();
 			}else{
