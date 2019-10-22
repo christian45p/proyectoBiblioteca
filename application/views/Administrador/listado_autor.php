@@ -2,7 +2,7 @@
     <a href='<?= base_url('administrador/add_autor')?>' class='btn btn-primary'>Crear registro</a>
 </div>
 <h2>Autor</h2>
-<table class='table table-bordered table-dark'>
+<table class='table table-bordered table-dark bg-gradient-dark'>
     <tr class='info'>
         <th class="text-center">ID</th>
         <th class="text-center">Nombres</th>
