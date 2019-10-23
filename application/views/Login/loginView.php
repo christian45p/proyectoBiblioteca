@@ -29,7 +29,7 @@
       	<input type="text" name="usua_esadmin" value="0" hidden="1"> 
       <input class="border-primary"  style="width:30px;height:30px; pa: 12px;" type="checkbox" value="1" name="usua_esadmin">Administrador?
       </div>
-		  <button type="submit" class="btn btn-warning btn-block mb-2">Acceder</button>
+		  <button type="submit" class="btn btn btn-block mb-2 text-white"  style="background: #15202B;">Acceder</button>
 		  <?php echo $this->session->flashdata('error');?>
 		</form>
                             </div>
@@ -76,7 +76,7 @@
               <div class="col-md-12">
        <div class="text-center mt-5">
 		<ul class="nav navbar-nav">  
-  		<li><a class="btn btn-warning" href="<?php echo base_url()?>Login/Registro">REGISTRO</a></li> 
+  		<li><a class="btn btn text-white" style="background: #15202B;" href="<?php echo base_url()?>Login/Registro">REGISTRO</a></li> 
 		</ul>
 </div>
               </div>

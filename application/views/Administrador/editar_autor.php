@@ -1,4 +1,4 @@
-<div class="card mb-4 border border-warning m-5 rounded-lg">
+<div class="card mb-4 border border-dark m-5 rounded-lg">
     <div class="card-header py-3">
         <h2>Autor # <?= $autor->auto_id?> </h2>
     </div>
@@ -8,11 +8,11 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputEmail4">Nombre(s)</label>
-                    <input type="text" class="form-control form-control-sm border border-warning" value="<?= $autor->auto_nombres?>" id="" name="aut_nombres" >
+                    <input type="text" class="form-control form-control-sm border border-dark" value="<?= $autor->auto_nombres?>" id="" name="aut_nombres" >
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputPassword4">Apellidos</label>
-                    <input type="text" class="form-control form-control-sm border border-warning" value="<?= $autor->auto_apellidos?>" id="" name="aut_apellidos" >
+                    <input type="text" class="form-control form-control-sm border border-dark" value="<?= $autor->auto_apellidos?>" id="" name="aut_apellidos" >
                 </div>
             </div>
             <!-- Divider -->

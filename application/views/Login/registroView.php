@@ -1,7 +1,7 @@
 
 <div class="text-center mt-5">
       <ul class="nav navbar-nav">
-      <li><a class="btn btn-warning" href="<?php echo base_url()?>Login">LOGIN-INICIO</a></li>
+      <li><a class="btn text-white" style="background: #15202B;" href="<?php echo base_url()?>Login">LOGIN-INICIO</a></li>
     </ul>
 </div>
 <div class="row justify-content-center">
@@ -55,7 +55,7 @@
           <input class="border-primary"  style="width:30px;height:30px;" type="checkbox" value="1" name="usua_esadmin">Administrador?
        	  </div> -->
  			<hr class="sidebar-divider my-3 mb-2">
-			<button type="submit" class="btn btn-warning btn-block mb-2">Registrar</button>
+			<button type="submit" class="btn text-white btn-block mb-2" style="background: #15202B;">Registrar</button>
        			</div>
 			</div>
 			</div>
