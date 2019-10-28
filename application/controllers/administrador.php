@@ -5,7 +5,7 @@ class administrador extends CI_Controller {
 
 	public function __construct(){
 		parent::__construct();
-		$this->load->model('ejemplar_model','pm');
+		$this->load->model('ejemplar_model');
 		$this->load->model('usuario_model');
 		$this->load->model('autor_model','aut');
 	}
@@ -43,7 +43,7 @@ class administrador extends CI_Controller {
 	  	$datos['titulo'] = "Ejemplar!";
 		if($this->session->userdata('usua_login') && $tipoDeUsuario == 1){
 			$data = [
-				'ejemplar'=> $this->pm->read()
+				'ejemplar'=> $this->ejemplar_model->read()
 			];
 			$this->load->view('Administrador/header',$datos);
 			$this->load->view('Administrador/listado',$data);
@@ -261,14 +261,30 @@ class administrador extends CI_Controller {
 	}
 
 	public function insert(){
+		
+		$config = array(
+			'upload_path' => "./uploads/",
+			'allowed_types' => "gif|jpg|png|jpeg|pdf",
+			'overwrite' => TRUE,
+			'max_size' => 0,
+			'max_height' => 0,
+			'max_width' => 0
+			);
+
+		  $this->load->library('upload', $config);
+		  if ($this->upload->do_upload('ejem_portada'))
+			$data1 =  $this->upload->data("file_name");
+		else $data1 = NULL;
+
 		$data = [
 			'ejem_titulo'=>$this->input->post('titulo'),
 			'ejem_editorial'=>$this->input->post('editorial'),
 			'ejem_paginas'=>$this->input->post('paginas'),
+			'ejem_portada'=>$data1,
 			'ejem_isbn'=>$this->input->post('isbn'),
 			'ejem_idioma'=>$this->input->post('idioma'),
 		];
-		$this->pm->insert($data);
+		$this->ejemplar_model->insert($data);
 		redirect(base_url('Administrador/Ejemplar'));
 	}
 
@@ -279,7 +295,7 @@ class administrador extends CI_Controller {
 	  	$datos['titulo'] = "Editar Ejemplar!";
 		if($this->session->userdata('usua_login') && $tipoDeUsuario == 1){
 			$data = [
-				'ejemplar'=> $this->pm->getById($id)
+				'ejemplar'=> $this->ejemplar_model->getById($id)
 			];
 			$this->load->view('Administrador/header',$datos);
 			$this->load->view('Administrador/editar',$data);
@@ -290,12 +306,12 @@ class administrador extends CI_Controller {
 	}
 
 	public function update(){
-		$this->pm->update();
+		$this->ejemplar_model->update();
 		redirect(base_url('administrador/ejemplar'));
 	}
 
 	public function delete($id){
-		$this->pm->delete($id);
+		$this->ejemplar_model->delete($id);
 		redirect(base_url('administrador/'));
 	}
 

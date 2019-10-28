@@ -3,7 +3,7 @@
         <h2>Ejemplar</h2>
     </div>
     <div class="card-body">
-        <form class="form-horizontal" action="<?= base_url('administrador/insert')?>" method="post">
+        <form class="form-horizontal" action="<?= base_url('administrador/insert')?>" method="post" enctype="multipart/form-data">
           <div class="form-row">
             <div class="form-group col-md-12">
 
@@ -42,6 +42,12 @@
                     <input type="text" class="form-control form-control-md border border-dark" id="idioma" name="idioma" value="" placeholder="Idioma">
                 </div>
             </div>
+            <div class="form-group col-md-6">		  
+				<div class="custom-file">
+				<input type="file" class="custom-file-input" id="customFile" name="ejem_portada">
+				<label class="custom-file-label" for="customFile">Archivo Digital</label>
+				</div>
+			</div>
               </div>
                 </div>
               </div>
