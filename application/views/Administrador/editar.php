@@ -45,11 +45,11 @@
             </div>
             <div class="form-group col-md-6">
             <select class="custom-select border-dark" name="categoria">
-              <option selected>¿¿Categoría??</option>
+              <option >¿¿Categoría??</option>
               <?php foreach ($categoria as $cate):  ?>
-                <option value="<?php echo $cate->cate_id; ?>"><?php echo $cate->cate_nombre; ?></option>
+                <option <?php if($ejemplar->ejem_cate_id==$cate->cate_id)echo "selected"; ?> value="<?php echo $cate->cate_id; ?>"><?php echo $cate->cate_nombre; ?></option>
               <?php endforeach; ?>
-              
+          
             </select>
             </div>
             <div class="form-group col-md-6">         

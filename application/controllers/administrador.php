@@ -302,7 +302,8 @@ class administrador extends CI_Controller {
 	  	$datos['titulo'] = "Editar Ejemplar!";
 		if($this->session->userdata('usua_login') && $tipoDeUsuario == 1){
 			$data = [
-				'ejemplar'=> $this->ejemplar_model->getById($id)
+				'ejemplar'=> $this->ejemplar_model->getById($id),
+				'categoria'=>$this->ejemplar_model->getCategoria(),
 			];
 			$this->load->view('Administrador/header',$datos);
 			$this->load->view('Administrador/editar',$data);

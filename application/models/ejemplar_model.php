@@ -40,8 +40,8 @@ class ejemplar_model extends CI_Model{
 	}
 
 	function getById($id){
-		$this->db->where('ejem_id', $id);
-		$query=$this->db->get('ejemplar');	
+		//$this->db->where('ejem_id', $id);
+		$query=$this->db->query("SELECT * FROM ejemplar,categoria where ejem_cate_id=cate_id and ejem_id='{$id}'");	
 		if($query->num_rows()>0){
 			return $query->row();
 		}else{
