@@ -42,10 +42,19 @@
                     <input type="text" class="form-control form-control-md border border-dark" id="idioma" name="idioma" value="" placeholder="Idioma">
                 </div>
             </div>
+            <div class="form-group col-md-6">
+            <select class="custom-select border-dark" name="categoria">
+              <option selected>¿¿Categoría??</option>
+              <?php foreach ($categoria as $cate):  ?>
+                <option value="<?php echo $cate->cate_id; ?>"><?php echo $cate->cate_nombre; ?></option>
+              <?php endforeach; ?>
+              
+            </select>
+            </div>
             <div class="form-group col-md-6">		  
 				<div class="custom-file">
 				<input type="file" class="custom-file-input" id="customFile" name="ejem_portada">
-				<label class="custom-file-label" for="customFile">Archivo Digital</label>
+				<label class="custom-file-label border-dark" for="customFile">Archivo Digital</label>
 				</div>
 			</div>
               </div>

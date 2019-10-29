@@ -250,11 +250,17 @@ class administrador extends CI_Controller {
 		$tipoDeUsuario=$this->session->userdata('usua_esadmin');
 	  	$nombreDelUsuario=$this->session->userdata('usua_nombres');
 	  	$datos['nombreDelUsuario']=$nombreDelUsuario;
-	  	$datos['titulo']="Registrar!";
+	  	$datos['titulo']="Registrar Ejemplar!";
 		if($this->session->userdata('usua_login') && $tipoDeUsuario == 1){
+
+			$data=[
+				'categoria'=>$this->ejemplar_model->getCategoria()
+			];
+
 			$this->load->view('Administrador/header',$datos);
-			$this->load->view('Administrador/formulario');
+			$this->load->view('Administrador/formulario',$data);
 			$this->load->view('Administrador/footer');
+
 		}else{
 			redirect(base_url().'Login');
 		} 
@@ -281,6 +287,7 @@ class administrador extends CI_Controller {
 			'ejem_editorial'=>$this->input->post('editorial'),
 			'ejem_paginas'=>$this->input->post('paginas'),
 			'ejem_portada'=>$data1,
+			'ejem_cate_id'=>$this->input->post('categoria'),
 			'ejem_isbn'=>$this->input->post('isbn'),
 			'ejem_idioma'=>$this->input->post('idioma'),
 		];
