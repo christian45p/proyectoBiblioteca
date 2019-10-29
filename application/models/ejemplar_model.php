@@ -20,16 +20,8 @@ class ejemplar_model extends CI_Model{
 		$this->db->insert('ejemplar',$data);
 	}
 
-	function update(){
-		$id=$this->input->post('id');
-		$data = [
-			'ejem_titulo'=>$this->input->post('titulo'),
-			'ejem_editorial'=>$this->input->post('editorial'),
-			'ejem_portada'=>$this->input->post('ejem_portada'),
-			'ejem_paginas'=>$this->input->post('paginas'),
-			'ejem_isbn'=>$this->input->post('isbn'),
-			'ejem_idioma'=>$this->input->post('idioma'),
-		];
+	function update($id,$data){
+		
 		$this->db->where('ejem_id',$id);
 		$this->db->update('ejemplar',$data);
 	}

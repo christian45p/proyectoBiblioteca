@@ -314,7 +314,17 @@ class administrador extends CI_Controller {
 	}
 
 	public function update(){
-		$this->ejemplar_model->update();
+		$id=$this->input->post('id');
+		$data = [
+			'ejem_titulo'=>$this->input->post('titulo'),
+			'ejem_editorial'=>$this->input->post('editorial'),
+			'ejem_portada'=>$this->input->post('ejem_portada'),
+			'ejem_cate_id'=>$this->input->post('categoria'),
+			'ejem_paginas'=>$this->input->post('paginas'),
+			'ejem_isbn'=>$this->input->post('isbn'),
+			'ejem_idioma'=>$this->input->post('idioma'),
+		];
+		$this->ejemplar_model->update($id,$data);
 		redirect(base_url('administrador/ejemplar'));
 	}
 

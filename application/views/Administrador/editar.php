@@ -47,8 +47,8 @@
             <select class="custom-select border-dark" name="categoria">
               <option >¿¿Categoría??</option>
               <?php foreach ($categoria as $cate):  ?>
-                <option <?php if($ejemplar->ejem_cate_id==$cate->cate_id)echo "selected"; ?> value="<?php echo $cate->cate_id; ?>"><?php echo $cate->cate_nombre; ?></option>
-              <?php endforeach; ?>
+                <option value="<?php echo $cate->cate_id; ?>" <?php if($ejemplar->ejem_cate_id==$cate->cate_id){echo "selected";} ?>><?php echo $cate->cate_nombre; ?></option>
+              <?php endforeach;?>
           
             </select>
             </div>
