@@ -17,6 +17,8 @@
         <link rel="icon" type="image/png" href="https://image.flaticon.com/icons/png/512/748/748185.png">
         <!-- Custom styles for this template-->    
         <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assests/css/sb-admin-2.min.css">
+        <link href="<?php echo base_url();?>assests/select2/css/select2.min.css" rel="stylesheet" />
+
     </head>
     <body>
         <!-- Page Wrapper -->

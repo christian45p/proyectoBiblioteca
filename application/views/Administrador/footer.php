@@ -27,5 +27,7 @@
         
         <!-- Page level custom scripts -->
         <script type="text/javascript" language="javascript" src="<?php echo base_url();?>assests/js/demo/datatables-demo.js"></script>
+        <script src="<?php echo base_url();?>assests/select2/js/select2.min.js"></script>
+        <script type="text/javascript" language="javascript" src="<?php echo base_url();?>assests/js/scripts.js"></script>
     </body>
 </html>

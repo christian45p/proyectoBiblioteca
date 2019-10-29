@@ -300,17 +300,20 @@ class administrador extends CI_Controller {
 	  	$nombreDelUsuario = $this->session->userdata('usua_nombres');
 	  	$datos['nombreDelUsuario'] = $nombreDelUsuario;
 	  	$datos['titulo'] = "Editar Ejemplar!";
-		if($this->session->userdata('usua_login') && $tipoDeUsuario == 1){
-			$data = [
-				'ejemplar'=> $this->ejemplar_model->getById($id),
-				'categoria'=>$this->ejemplar_model->getCategoria(),
-			];
-			$this->load->view('Administrador/header',$datos);
-			$this->load->view('Administrador/editar',$data);
-			$this->load->view('Administrador/footer');
-		}else{
+		if(!$this->session->userdata('usua_login') || $tipoDeUsuario != 1)
 			redirect(base_url().'Login');
-		}
+
+		$data = [
+			'ejemplar'=> $this->ejemplar_model->getById($id),
+			'categoria'=>$this->ejemplar_model->getCategoria(),
+			'autores'=>$this->db->query("SELECT * FROM autor")->result(),
+			'autores_sel'=>$this->db->query("SELECT * FROM ejemplar_autor WHERE rela_ejem_id={$id}")->result()
+		];
+		///print_r($data);
+		$this->load->view('Administrador/header',$datos);
+		$this->load->view('Administrador/editar',$data);
+		$this->load->view('Administrador/footer');
+
 	}
 
 	public function update(){
@@ -324,7 +327,13 @@ class administrador extends CI_Controller {
 			'ejem_isbn'=>$this->input->post('isbn'),
 			'ejem_idioma'=>$this->input->post('idioma'),
 		];
+		$autores = $this->input->post('autores');
 		$this->ejemplar_model->update($id,$data);
+
+		$this->db->query("DELETE FROM ejemplar_autor WHERE rela_ejem_id='{$id}'");
+		foreach($autores as $autor){
+			$this->db->insert('ejemplar_autor',array('rela_auto_id'=>$autor,'rela_ejem_id'=>$id));
+		}
 		redirect(base_url('administrador/ejemplar'));
 	}
 
