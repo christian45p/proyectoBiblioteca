@@ -7,6 +7,7 @@ class administrador extends CI_Controller {
 		parent::__construct();
 		$this->load->model('ejemplar_model');
 		$this->load->model('autor_model','aut');
+		$this->load->model('usuario_model');
 	}
 
   //Copia este codigo de abajo antes de escribir código en un NUEVO METODO!!!
@@ -280,10 +281,7 @@ class administrador extends CI_Controller {
 		  $this->load->library('upload', $config);
 		  if ($this->upload->do_upload('ejem_portada'))
 			$data1 =  $this->upload->data("file_name");
-           else $data1 = "imagen.jpg";
-                if ($this->upload->do_upload('ejem_digital'))
-                  $data2 =  $this->upload->data("file_name");
-              	else $data2 = NULL;
+		else $data1 = NULL;
 
 		$data = [
 			'ejem_titulo'=>$this->input->post('titulo'),
@@ -291,7 +289,6 @@ class administrador extends CI_Controller {
 			'ejem_editorial'=>$this->input->post('editorial'),
 			'ejem_paginas'=>$this->input->post('paginas'),
 			'ejem_portada'=>$data1,
-			'ejem_digital'=>$data2,
 			'ejem_cate_id'=>$this->input->post('categoria'),
 			'ejem_isbn'=>$this->input->post('isbn'),
 			'ejem_idioma'=>$this->input->post('idioma'),
@@ -331,6 +328,7 @@ class administrador extends CI_Controller {
 			'ejem_paginas'=>$this->input->post('paginas'),
 			'ejem_isbn'=>$this->input->post('isbn'),
 			'ejem_idioma'=>$this->input->post('idioma'),
+
 		];
 		$autores = $this->input->post('autores');
 		$this->ejemplar_model->update($id,$data);
