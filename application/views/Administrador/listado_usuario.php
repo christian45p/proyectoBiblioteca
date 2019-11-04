@@ -2,7 +2,8 @@
 <a href='<?= base_url('index.php/administrador/add_usuario')?>' class='btn btn-primary'>Crear registro</a>
 </div> -->
 <h2>Usuarios</h2>
-<table class='table table-bordered table-dark bg-gradient-dark'>
+<table class='table table-bordered'>
+<thead class="thead-dark">
 <tr class='info'>
 <th class="text-center">ID</th>
 <th class="text-center">Codigo</th>
@@ -13,16 +14,17 @@
 <th class="text-center">Telefono</th>
 <th class="text-center">Opciones</th>
 </tr>
+</thead>
   <?php if(!empty($usuario)): ?>
   <?php foreach ($usuario as $us): ?>
   <tr>
-    <td class="text-center"><?= $us->usua_id?></td>
-    <td class="text-center"><?= $us->usua_codigo?></td>
-    <td class="text-center"><?= $us->usua_nombres?></td>
-    <td class="text-center"><?= $us->usua_apellidos?></td>
-    <td class="text-center"><?= $us->usua_direccion?></td>
-    <td class="text-center"><?= $us->usua_email?></td>
-    <td class="text-center"><?= $us->usua_telefono?></td>
+    <td class="text-center text-dark"><?= $us->usua_id?></td>
+    <td class="text-center text-dark"><?= $us->usua_codigo?></td>
+    <td class="text-center text-dark"><?= $us->usua_nombres?></td>
+    <td class="text-center text-dark"><?= $us->usua_apellidos?></td>
+    <td class="text-center text-dark"><?= $us->usua_direccion?></td>
+    <td class="text-center text-dark"><?= $us->usua_email?></td>
+    <td class="text-center text-dark"><?= $us->usua_telefono?></td>
       <td class='text-center'>
         <a href="<?= base_url('index.php/administrador/delete_usuario/'.$us->usua_id)?>" class='btn btn-danger eliminar'>Eliminar</a>
         <a href="<?= base_url('index.php/administrador/edit_usuario/'.$us->usua_id)?>" class='btn btn-success'>Editar</a>

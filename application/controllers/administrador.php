@@ -6,7 +6,6 @@ class administrador extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('ejemplar_model');
-		$this->load->model('usuario_model');
 		$this->load->model('autor_model','aut');
 	}
 
@@ -254,7 +253,8 @@ class administrador extends CI_Controller {
 		if($this->session->userdata('usua_login') && $tipoDeUsuario == 1){
 
 			$data=[
-				'categoria'=>$this->ejemplar_model->getCategoria()
+				'categoria'=>$this->ejemplar_model->getCategoria(),
+				'autores[]'=>$this->ejemplar_model->getAutor()		
 			];
 
 			$this->load->view('Administrador/header',$datos);
@@ -280,13 +280,18 @@ class administrador extends CI_Controller {
 		  $this->load->library('upload', $config);
 		  if ($this->upload->do_upload('ejem_portada'))
 			$data1 =  $this->upload->data("file_name");
-		else $data1 = NULL;
+           else $data1 = "imagen.jpg";
+                if ($this->upload->do_upload('ejem_digital'))
+                  $data2 =  $this->upload->data("file_name");
+              	else $data2 = NULL;
 
 		$data = [
 			'ejem_titulo'=>$this->input->post('titulo'),
+			'ejem_autor'=>$this->input->post('autores'),
 			'ejem_editorial'=>$this->input->post('editorial'),
 			'ejem_paginas'=>$this->input->post('paginas'),
 			'ejem_portada'=>$data1,
+			'ejem_digital'=>$data2,
 			'ejem_cate_id'=>$this->input->post('categoria'),
 			'ejem_isbn'=>$this->input->post('isbn'),
 			'ejem_idioma'=>$this->input->post('idioma'),

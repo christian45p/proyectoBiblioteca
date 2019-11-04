@@ -21,7 +21,7 @@
             <div class="form-group col-md-12">
               <label for="titulo">Autores</label>
               <div>
-                <select class="cmultiple" name="autores[]" multiple>
+                <select class="cmultiple form-control form-control-md border border-dark" name="autores[]" multiple>
                   <?php foreach ($autores as $autor) :  ?>
                     <option value="<?php echo $autor->auto_id; ?>" 
                     <?php foreach ($autores_sel as $sel) {
@@ -68,15 +68,17 @@
                 <option>¿¿Categoría??</option>
                 <?php foreach ($categoria as $cate) :  ?>
                   <option value="<?php echo $cate->cate_id; ?>" <?php if ($ejemplar->ejem_cate_id == $cate->cate_id) {
-                                                                    echo "selected";
-                                                                  } ?>><?php echo $cate->cate_nombre; ?></option>
+                   echo "selected";
+                } ?>><?php echo $cate->cate_nombre; ?></option>
                 <?php endforeach; ?>
 
               </select>
             </div>
             <div class="form-group col-md-6">
               <div class="custom-file">
-                <input type="file" class="custom-file-input" id="customFile" name="ejem_portada">
+              <div class="card"><img class="card-img-top" src="<?php echo base_url('uploads/'. $ejemplar->ejem_portada)?>"  alt="...">
+                <input type="file" class="custom-file-input" id="customFile" name="ejem_portada" value="<?= $ejemplar->ejem_idioma ?>">
+                </div>
                 <label class="custom-file-label border-dark" for="customFile">Archivo Digital</label>
               </div>
             </div>

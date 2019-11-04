@@ -5,6 +5,7 @@ class usuario extends CI_Controller {
 	
 	public function __construct(){
 		parent::__construct();
+		$this->load->model('usuario_model');
 	}
 
   //Copia este codigo de abajo antes de escribir código en un NUEVO METODO!!!
@@ -25,6 +26,7 @@ class usuario extends CI_Controller {
 	  	$datos['nombreDelUsuario']=$nombreDelUsuario;
 	  	$datos['titulo']='Portada';
 		if($this->session->userdata('usua_login')&&$tipoDeUsuario==0){
+			$datos['resultado']  = $this->usuario_model->obtiene_ejemplares();
 			$this->load->view('Usuarios/header',$datos);
 			$this->load->view('Usuarios/dashboard');			
 			$this->load->view('Usuarios/footer');
