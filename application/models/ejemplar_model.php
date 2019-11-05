@@ -7,7 +7,7 @@ class ejemplar_model extends CI_Model{
 	}
 	
 	function read(){
-		$query=$this->db->query('SELECT * FROM ejemplar,categoria, ejemplar_autor, autor where ejem_id=rela_ejem_id and rela_auto_id=auto_id and ejem_cate_id=cate_id');
+		$query=$this->db->query('SELECT * FROM ejemplar,categoria,ejemplar_tipo,ejemplar_autor, autor WHERE ejem_cate_id=cate_id AND ejem_tipo_id=tipo_id AND ejem_id=rela_ejem_id AND rela_auto_id=auto_id');
 		if($query->num_rows()>0){
 			return $query->result();
 		}else{

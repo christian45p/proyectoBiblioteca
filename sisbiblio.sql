@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-11-2019 a las 01:49:54
+-- Tiempo de generación: 05-11-2019 a las 04:42:46
 -- Versión del servidor: 10.4.6-MariaDB
 -- Versión de PHP: 7.3.9
 
@@ -94,11 +94,12 @@ CREATE TABLE `ejemplar` (
 --
 
 INSERT INTO `ejemplar` (`ejem_id`, `ejem_titulo`, `ejem_editorial`, `ejem_paginas`, `ejem_isbn`, `ejem_idioma`, `ejem_portada`, `ejem_digital`, `ejem_audio`, `ejem_resumen`, `ejem_tipo_id`, `ejem_cate_id`, `ejem_valoracion`, `ejem_anio`, `ejem_nprestamos`) VALUES
-(2, 'Análisis Matemático I', 'El limeñito', 200, '13-1234-1234', 'Español', 'analisis_matematico_i.jpg', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL),
-(3, 'Poder Sin Límites', 'DelBolsillo', 479, '1123-134-1234', 'Español', 'podersinlimites.jfif', NULL, NULL, NULL, NULL, 3, NULL, NULL, NULL),
-(5, 'Analisis Matemático III', 'la espina', 500, '11234-32344-1234', 'Español', 'analisis-matematico-espinoza.jpeg', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL),
-(6, 'Los Heraldos Negros', 'Talleres de la Penitenciaría de Lima', 128, '978-612-305-078-8', 'Español', 'heraldos_negros.jpg', NULL, NULL, NULL, NULL, 3, NULL, NULL, NULL),
-(7, 'Biología Humana', 'Médica Panamericana S.A', 345, '234-123-76574', 'Español', 'biologiahumana.jpg', NULL, NULL, NULL, NULL, 2, NULL, NULL, NULL);
+(2, 'Análisis Matemático I', 'El limeñito', 200, '13-1234-1234', 'Español', 'analisis_matematico_i.jpg', NULL, NULL, NULL, 1, 1, NULL, NULL, NULL),
+(3, 'Poder Sin Límites', 'DelBolsillo', 479, '1123-134-1234', 'Español', 'podersinlimites.jfif', NULL, NULL, NULL, 2, 3, NULL, NULL, NULL),
+(5, 'Analisis Matemático III', 'la espina', 500, '11234-32344-1234', 'Español', 'analisis-matematico-espinoza.jpeg', NULL, NULL, NULL, 1, 1, NULL, NULL, NULL),
+(6, 'Los Heraldos Negros', 'Talleres de la Penitenciaría de Lima', 128, '978-612-305-078-8', 'Español', 'heraldos_negros.jpg', NULL, NULL, NULL, 2, 3, NULL, NULL, NULL),
+(7, 'Biología Humana', 'Médica Panamericana S.A', 345, '234-123-76574', 'Español', 'biologiahumana.jpg', NULL, NULL, NULL, 1, 2, NULL, NULL, NULL),
+(8, 'asdasdasd', 'asdf234', 900, '43214-1234-123478', 'Español', 'ellibrodelafisica.jpg', NULL, NULL, NULL, 1, 3, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -120,6 +121,7 @@ INSERT INTO `ejemplar_autor` (`rela_auto_id`, `rela_ejem_id`) VALUES
 (1, 5),
 (3, 3),
 (4, 6),
+(4, 8),
 (5, 7);
 
 -- --------------------------------------------------------
@@ -132,6 +134,15 @@ CREATE TABLE `ejemplar_tipo` (
   `tipo_id` int(11) NOT NULL,
   `tipo_nombre` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `ejemplar_tipo`
+--
+
+INSERT INTO `ejemplar_tipo` (`tipo_id`, `tipo_nombre`) VALUES
+(1, 'Libro'),
+(2, 'Revista'),
+(3, 'Audio-Libro');
 
 -- --------------------------------------------------------
 
@@ -311,13 +322,13 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT de la tabla `ejemplar`
 --
 ALTER TABLE `ejemplar`
-  MODIFY `ejem_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ejem_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `ejemplar_tipo`
 --
 ALTER TABLE `ejemplar_tipo`
-  MODIFY `tipo_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `tipo_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `peticion`

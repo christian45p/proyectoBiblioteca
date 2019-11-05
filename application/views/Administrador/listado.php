@@ -13,7 +13,7 @@
 <th class="text-center">Editorial</th>
 <th class="text-center">Paginas</th>
 <th class="text-center">Isbn</th>
-<th class="text-center">Idioma</th>
+<th class="text-center">Tipo</th>
 <th class="text-center">Opciones</th>
   </thead>
 </tr>
@@ -30,7 +30,7 @@
     <td class="text-center"><?= $admi->ejem_editorial?></td>
     <td class="text-center"><?= $admi->ejem_paginas?></td>
     <td class="text-center"><?= $admi->ejem_isbn?></td>
-    <td class="text-center"><?= $admi->ejem_idioma?></td>
+    <td class="text-center"><?= $admi->tipo_nombre?></td>
 
       <td class='text-center'>
         <a href="<?= base_url('administrador/delete/'.$admi->ejem_id)?>" class='btn btn-danger eliminar'>Eliminar</a>
