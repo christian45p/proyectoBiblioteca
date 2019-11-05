@@ -43,7 +43,7 @@ class administrador extends CI_Controller {
 	  	$datos['titulo'] = "Ejemplar!";
 		if($this->session->userdata('usua_login') && $tipoDeUsuario == 1){
 			$data = [
-				'ejemplar'=> $this->ejemplar_model->read()
+				'ejemplar'=> $this->ejemplar_model->read(),
 			];
 			$this->load->view('Administrador/header',$datos);
 			$this->load->view('Administrador/listado',$data);
