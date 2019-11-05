@@ -52,5 +52,10 @@ class usuario_model extends CI_Model{
 				return false;
 			}
 		}
+		public function resultado($valor){
+        return $this->db->like('ejem_titulo',$valor)
+        				->get('ejemplar')
+        				->result();
+    			}    
 }
 ?>

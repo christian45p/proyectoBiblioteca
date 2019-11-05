@@ -1,52 +1,96 @@
-<div class="card mb-4 border border-bottom-secondary m-5 rounded-lg">
-            <div class="card-header py-3">
-                <div class="form-row mb-4"> 
-                    <div class=" col-md-2" >
-                            <select id="inputState" class="form-control form-control-sm" name=""  >
-                              <option value="1" >Area - Categoria</option>
-                            </select>
-                    </div>
-                    <div class=" col-md-8">
-                        <input type="text" class="form-control form-control-sm" id="" >
-
-                    </div>
-
-                    <div class="col-md-2">             
-                       <a href="?busqueda" class="btn border border-bottom btn-icon-split btn-sm text-dark">
-                            <span class="icon text-white-50">
-                             <i class="fas fa-search"></i>
-                            </span>
-                            <span class="text">Buscar libro</span>
-                          </a>
-                    </div>
+    <div class="container-fluid mt--6">
+      <div class="row">
+        <div class="col-xl-12">
+          <div class="card bg-white">
+            <div class="card-header bg-transparent">
+              <div class="row align-items-center">
+                <div class="col">
+                  <h5 class="h3 mb-0 text-dark">Buscar Libro</h5>
                 </div>
-                <div class="form-inline "> 
-                    <div class="form-check mr-3">
-                        <input type="text" name="" value="0" hidden="1"> 
-                        <input type="checkbox" class="form-check-input" name="" value="1" id="titulo">
-                        <label class="form-check-label" for="titulo">Titulo</label>
+              </div> 
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-xl-12">
+                  <div class="card-header py-0">
+                    <form action="<?php echo base_url('usuario/buscarLibro');?>" method = "post">
+                    <div class="form-row">
+                        <div class=" col-md-2" >
+                                <select id="inputState" class="form-control" name=""  >
+                                  <option value="1" >Area - Categoria</option>
+                                </select>
+                        </div>                    
+                      <div class="col-md-10 d-block">
+                        <div class="navbar-search navbar-search-light" id="navbar-search-main">
+                          <div class="form-group md-10">
+                            <div class="input-group input-group-alternative input-group-merge">
+                              <input class="form-control" placeholder="Buscar" type="text" name="valor">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fa fa-search"></i></span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>                   
+                      </div>
                     </div>
-                    <div class="form-check mr-3">
-                        <input type="text" name="" value="0" hidden="1"> 
-                        <input type="checkbox" class="form-check-input"  name="" value="1" id="autor">
-                        <label class="form-check-label" for="autor">Autor</label>
-                    </div>
-                    <div class="form-check mr-3">
-                        <input type="text" name="" value="0" hidden="1"> 
-                        <input type="checkbox" class="form-check-input"  name="" value="1" id="año">
-                        <label class="form-check-label" for="anio">Año</label>
-                    </div>
-                    <div class="form-check mr-3">
-                        <input type="text" name="" value="0" hidden="1"> 
-                        <input type="checkbox" class="form-check-input"  name="" value="1" id="isbn">
-                        <label class="form-check-label" for="isbn">ISBN</label>
-                    </div>
-                    <div class="form-check mr-3">
-                        <input type="text" name="" value="0" hidden="1"> 
-                        <input type="checkbox" class="form-check-input"  name="" value="1" id="editorial">
-                        <label class="form-check-label" for="editorial">Editorial</label>
-                    </div>
-                </div>
+                    <div class="form-inline ">
+                      <div class="form-check mr-3">
+                          <input class="form-check-input"  id="chk-todo-task-2" type="checkbox" checked>
+                          <label class="form-check-input" for="chk-todo-task-2">Titulo</label>
+                      </div>  
+                      <div class="form-check mr-3">
+                          <input class="form-check-input" id="chk-todo-task-2" type="checkbox">
+                          <label class="form-check-input" for="chk-todo-task-2">Autor</label>
+                      </div>  
+                      <div class="form-check mr-3">
+                          <input class="form-check-input" id="chk-todo-task-3" type="checkbox">
+                          <label class="form-check-input" for="chk-todo-task-3">Anio</label>
+                      </div>  
+                      <div class="form-check mr-3">
+                          <input class="form-check-input" id="chk-todo-task-4" type="checkbox">
+                          <label class="form-check-input" for="chk-todo-task-4">Isbn</label>
+                      </div>  
+                      <div class="form-check mr-3">
+                          <input class="form-check-input" id="chk-todo-task-5" type="checkbox">
+                          <label class="form-check-input" for="chk-todo-task-5">Editorial</label>
 
+                      </div>                      
+                    </div>
+                  </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <?php foreach ($resultado as $dato):?>
+            <div class="card-body">
+              <ul class="list-group list-group-flush list my--3">
+                <li class="list-group-item px-0">
+                  <div class="row align-items-center">
+                    <div class="col-auto">
+                      <a href="#" class="rounded">
+                        <img alt="..." class="img-fluid shadow shadow-lg--hover" src="<?php echo base_url('uploads/'.$dato->ejem_portada)?>" style="width: 100px">
+                      </a>
+                    </div>
+                    <div class="col-md-7">
+                      <h4 class="mb-0">
+                        <a href="<?php echo base_url(). 'ejemplar/ver_ejemplar/'. $dato->ejem_id; ?>"><?php echo $dato->ejem_titulo; ?></a>
+                      </h4>
+                      <small><?php echo $dato->ejem_resumen; ?></small>
+                    </div>
+                    <!-- <div class="col-auto test-right">
+                      <a href="<?php echo base_url().'usuario/agregar_favorito/'.$dato->ejem_id?>"  class="table-action btn btn-success btn-sm text-white" >
+                        <i class="fa fa-star"></i>
+                      </a>
+                      <a href="<?php echo base_url().'ejemplar/ver_ejemplar/'.$dato->ejem_id?>"  class="table-action btn btn-info btn-sm text-white" >
+                        Generar peticion
+                      </a>
+                    </div> -->
+                  </div>
+                </li>
+              </ul>
+            </div>
+          <?php endforeach;?>
+          </div>
+        </div>
+      </div>
     </div>
-</div>

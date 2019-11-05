@@ -40,7 +40,8 @@ class usuario extends CI_Controller {
 		$datos['nombreDelUsuario']=$nombreDelUsuario;
 		$datos['titulo']='Busqueda de Libros';
 		if($this->session->userdata('usua_login')&&$tipoDeUsuario==0){
-		
+		$valor = $this->input->post('valor');
+        $datos['resultado'] = $this->usuario_model->resultado($valor);
 		$this->load->view('Usuarios/header',$datos);
 		$this->load->view('Usuarios/buscar_libro');
 		$this->load->view('Usuarios/footer');
