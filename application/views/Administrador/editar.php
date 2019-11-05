@@ -84,7 +84,7 @@
             </div>
             <label class="form-control-label" for="validationCustom05">Actualizar portada</label>
             <div class="custom-file">
-            <input type="file" class="custom-file-input" id="customFileLang" lang="es" name="new_ejem_portada">
+             <input type="file" class="custom-file-input" id="customFileLang" name="new_ejem_portada">
              <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
             </div>
           </div>

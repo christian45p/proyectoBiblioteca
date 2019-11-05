@@ -1,4 +1,4 @@
-<div class="card mb-4 border border-bottom-info m-5 rounded-lg">
+<div class="card mb-4 border border-bottom-secondary m-5 rounded-lg">
             <div class="card-header py-3">
                 <div class="form-row mb-4"> 
                     <div class=" col-md-2" >
@@ -12,7 +12,7 @@
                     </div>
 
                     <div class="col-md-2">             
-                       <a href="?busqueda" class="btn btn bg-gradient-info btn-icon-split btn-sm text-gray-100">
+                       <a href="?busqueda" class="btn border border-bottom btn-icon-split btn-sm text-dark">
                             <span class="icon text-white-50">
                              <i class="fas fa-search"></i>
                             </span>

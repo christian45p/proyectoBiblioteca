@@ -42,7 +42,7 @@ class Login extends CI_Controller {
            			    redirect(base_url().'usuario');
            			}
          		}else{
-         			$this->session->set_flashdata('error','Invalido usuario y password');
+         			$this->session->set_flashdata('error','<div class="alert alert-danger h6" role="alert">Invalido Usuario y Password.</div>');
          			redirect(base_url().'Login');
          		}
       	}else{

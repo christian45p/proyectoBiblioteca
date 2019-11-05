@@ -287,11 +287,12 @@ class administrador extends CI_Controller {
               	else $data2 = NULL;
 
 		$data = [
+			'ejem_portada'=>$data1,
 			'ejem_titulo'=>$this->input->post('titulo'),
 			/*'ejem_autor'=>$this->input->post('autores'),*/
+			'ejem_tipo_id' => $this->input->post('tipo'),
 			'ejem_editorial'=>$this->input->post('editorial'),
 			'ejem_paginas'=>$this->input->post('paginas'),
-			'ejem_portada'=>$data1,
 			'ejem_digital'=>$data2,
 			'ejem_cate_id'=>$this->input->post('categoria'),
 			'ejem_isbn'=>$this->input->post('isbn'),
@@ -338,7 +339,6 @@ class administrador extends CI_Controller {
 			                  );
 
 		 	$this->load->library('upload', $config);
-                $this->load->library('upload', $config);
                 if ($this->upload->do_upload('new_ejem_portada'))
                   $data1 =  $this->upload->data("file_name");
               	else $data1 = $this->input->post('ejem_portada');
@@ -348,7 +348,7 @@ class administrador extends CI_Controller {
 		$data = [
 			'ejem_titulo'=>$this->input->post('titulo'),
 			'ejem_editorial'=>$this->input->post('editorial'),
-			'ejem_portada'=>$data1,
+			'ejem_portada'=>$this->input->post('new_ejem_portada'),
 			'ejem_digital'=>$this->input->post('ejem_digital'),
 			'ejem_cate_id'=>$this->input->post('categoria'),
 			'ejem_paginas'=>$this->input->post('paginas'),

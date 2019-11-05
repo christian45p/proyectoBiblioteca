@@ -27,6 +27,7 @@
            
              </div>
            </div>
+           <input type="text" value="1" hidden name="tipo">
            </div>
               <div class="form-row">
                 <div class="form-group col-md-12">
