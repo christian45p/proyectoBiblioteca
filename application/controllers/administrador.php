@@ -255,8 +255,7 @@ class administrador extends CI_Controller {
 
 			$data=[
 				'categoria'=>$this->ejemplar_model->getCategoria(),
-				'autores'=>$this->db->query("SELECT * FROM autor")->result(),
-			
+				'autores'=>$this->db->query("SELECT * FROM autor")->result(),	
 			];
 
 			$this->load->view('Administrador/header',$datos);
@@ -299,6 +298,11 @@ class administrador extends CI_Controller {
 			'ejem_idioma'=>$this->input->post('idioma'),
 		];
 		$this->ejemplar_model->insert($data);
+		$id = $this->db->insert_id();
+		$autores = $this->input->post('autores');
+		foreach($autores as $autor){
+			$this->db->insert('ejemplar_autor',array('rela_auto_id'=>$autor,'rela_ejem_id'=>$id));
+		}
 		redirect(base_url('Administrador/Ejemplar'));
 	}
 
