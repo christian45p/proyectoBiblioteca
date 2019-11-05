@@ -21,13 +21,7 @@
              <div>
                <select class="cmultiple form-control form-control-md border border-dark" name="autores[]" multiple>
                  <?php foreach ($autores as $autor) :  ?>
-                   <option value="<?php echo $autor->auto_id; ?>" 
-                   <?php foreach ($autores_sel as $sel) {
-                         if ($autor->auto_id == $sel->rela_auto_id) {
-                           echo "selected";
-                         }
-                       }
-                       ?>><?php echo $autor->auto_nombres; ?></option>
+                   <option value="<?php echo $autor->auto_id; ?>"><?php echo $autor->auto_nombres; ?></option>
                  <?php endforeach; ?>
                </select>
            

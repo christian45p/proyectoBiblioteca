@@ -254,7 +254,9 @@ class administrador extends CI_Controller {
 		if($this->session->userdata('usua_login') && $tipoDeUsuario == 1){
 
 			$data=[
-				'categoria'=>$this->ejemplar_model->getCategoria()	
+				'categoria'=>$this->ejemplar_model->getCategoria(),
+				'autores'=>$this->db->query("SELECT * FROM autor")->result(),
+			
 			];
 
 			$this->load->view('Administrador/header',$datos);
