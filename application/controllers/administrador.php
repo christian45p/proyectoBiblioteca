@@ -254,8 +254,7 @@ class administrador extends CI_Controller {
 		if($this->session->userdata('usua_login') && $tipoDeUsuario == 1){
 
 			$data=[
-				'categoria'=>$this->ejemplar_model->getCategoria(),
-				'autores[]'=>$this->ejemplar_model->getAutor()		
+				'categoria'=>$this->ejemplar_model->getCategoria()	
 			];
 
 			$this->load->view('Administrador/header',$datos);
@@ -281,14 +280,18 @@ class administrador extends CI_Controller {
 		  $this->load->library('upload', $config);
 		  if ($this->upload->do_upload('ejem_portada'))
 			$data1 =  $this->upload->data("file_name");
-		else $data1 = NULL;
+		else $data1 ="imagen.jpg";
+        if ($this->upload->do_upload('ejem_digital'))
+                  $data2 =  $this->upload->data("file_name");
+              	else $data2 = NULL;
 
 		$data = [
 			'ejem_titulo'=>$this->input->post('titulo'),
-			'ejem_autor'=>$this->input->post('autores'),
+			/*'ejem_autor'=>$this->input->post('autores'),*/
 			'ejem_editorial'=>$this->input->post('editorial'),
 			'ejem_paginas'=>$this->input->post('paginas'),
 			'ejem_portada'=>$data1,
+			'ejem_digital'=>$data2,
 			'ejem_cate_id'=>$this->input->post('categoria'),
 			'ejem_isbn'=>$this->input->post('isbn'),
 			'ejem_idioma'=>$this->input->post('idioma'),
@@ -320,15 +323,31 @@ class administrador extends CI_Controller {
 
 	public function update(){
 		$id=$this->input->post('id');
+		$config = array('upload_path' => "./uploads/",
+			                  'allowed_types' => "gif|jpg|png|jpeg|pdf|mp3",
+			                  'overwrite' => TRUE,
+			                  'max_size' => 0,
+			                  'max_height' => 0,
+			                  'max_width' => 0
+			                  );
+
+		 	$this->load->library('upload', $config);
+                $this->load->library('upload', $config);
+                if ($this->upload->do_upload('new_ejem_portada'))
+                  $data1 =  $this->upload->data("file_name");
+              	else $data1 = $this->input->post('ejem_portada');
+                if ($this->upload->do_upload('ejem_digital'))
+                  $data2 =  $this->upload->data("file_name");
+              	else $data2 = NULL;
 		$data = [
 			'ejem_titulo'=>$this->input->post('titulo'),
 			'ejem_editorial'=>$this->input->post('editorial'),
-			'ejem_portada'=>$this->input->post('ejem_portada'),
+			'ejem_portada'=>$data1,
+			'ejem_digital'=>$this->input->post('ejem_digital'),
 			'ejem_cate_id'=>$this->input->post('categoria'),
 			'ejem_paginas'=>$this->input->post('paginas'),
 			'ejem_isbn'=>$this->input->post('isbn'),
 			'ejem_idioma'=>$this->input->post('idioma'),
-
 		];
 		$autores = $this->input->post('autores');
 		$this->ejemplar_model->update($id,$data);

@@ -15,25 +15,25 @@
                 </div>
             </div>
               </div>
-            <div class="form-row">
-            <div class="form-group col-md-12">
-              <label for="titulo">Autores</label>
-              <div>
-                <select class="cmultiple form-control form-control-md border border-dark" name="autores[]" multiple>
-                  <?php foreach ($autores as $autor) :  ?>
-                    <option value="<?php echo $autor->auto_id; ?>" 
-                    <?php foreach ($autores_sel as $sel) {
-                          if ($autor->auto_id == $sel->rela_auto_id) {
-                            echo "selected";
-                          }
-                        }
-                        ?>><?php echo $autor->auto_nombres; ?></option>
-                  <?php endforeach; ?>
-                </select>
-            
-              </div>
-            </div>
-          </div>
+<!--             <div class="form-row">
+<div class="form-group col-md-12">
+  <label for="titulo">Autores</label>
+  <div>
+    <select class="cmultiple form-control form-control-md border border-dark" name="autores[]" multiple>
+      <?php foreach ($autores as $autor) :  ?>
+        <option value="<?php echo $autor->auto_id; ?>" 
+        <?php foreach ($autores_sel as $sel) {
+              if ($autor->auto_id == $sel->rela_auto_id) {
+                echo "selected";
+              }
+            }
+            ?>><?php echo $autor->auto_nombres; ?></option>
+      <?php endforeach; ?>
+    </select>
+
+  </div>
+</div>
+          </div> -->
               <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="editorial">Editorial</label>

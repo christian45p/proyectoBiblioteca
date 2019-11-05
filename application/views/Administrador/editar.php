@@ -68,19 +68,24 @@
                 <option>¿¿Categoría??</option>
                 <?php foreach ($categoria as $cate) :  ?>
                   <option value="<?php echo $cate->cate_id; ?>" <?php if ($ejemplar->ejem_cate_id == $cate->cate_id) {
-                   echo "selected";
-                } ?>><?php echo $cate->cate_nombre; ?></option>
+                        echo "selected";} ?>>
+                        <?php echo $cate->cate_nombre; ?></option>
                 <?php endforeach; ?>
 
               </select>
             </div>
-            <div class="form-group col-md-6">
-              <div class="custom-file">
-              <div class="card"><img class="card-img-top" src="<?php echo base_url('uploads/'. $ejemplar->ejem_portada)?>"  alt="...">
-                <input type="file" class="custom-file-input" id="customFile" name="ejem_portada" value="<?= $ejemplar->ejem_idioma ?>">
-                </div>
-                <label class="custom-file-label border-dark" for="customFile">Archivo Digital</label>
-              </div>
+          </div>
+            <div class="form-group col-md-3 mb-3">
+            <div class="custom-file">
+            <label class="form-control-label" for="validationCustom05">Imagen de portada</label>
+            <input type="text" name="ejem_portada" value="<?= $ejemplar->ejem_portada ?>" hidden>
+            <div class="card"><img class="card-img-top" src="<?php echo base_url('uploads/'.$ejemplar->ejem_portada)?>"  alt="...">
+            </div>
+            </div>
+            <label class="form-control-label" for="validationCustom05">Actualizar portada</label>
+            <div class="custom-file">
+            <input type="file" class="custom-file-input" id="customFileLang" lang="es" name="new_ejem_portada">
+             <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
             </div>
           </div>
         </div>
