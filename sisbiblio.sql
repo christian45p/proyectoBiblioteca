@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-10-2019 a las 06:25:48
+-- Tiempo de generación: 05-11-2019 a las 01:49:54
 -- Versión del servidor: 10.4.6-MariaDB
 -- Versión de PHP: 7.3.9
 
@@ -40,7 +40,10 @@ CREATE TABLE `autor` (
 --
 
 INSERT INTO `autor` (`auto_id`, `auto_nombres`, `auto_apellidos`, `auto_biografia`) VALUES
-(1, 'Eduardo', 'Espinoza Ramos', 'Eduardo Espinoza Ramos es un político y matemático peruano. Es un congresista que representa a Cajamarca para el período 2006-2011, y pertenece al partido Unión para Perú.');
+(1, 'Eduardo', 'Espinoza Ramos', 'Eduardo Espinoza Ramos es un político y matemático peruano. Es un congresista que representa a Cajamarca para el período 2006-2011, y pertenece al partido Unión para Perú.'),
+(3, 'Anthony', 'Robbins', NULL),
+(4, 'César', 'Vallejo', NULL),
+(5, 'Cardellá', 'Hernández', NULL);
 
 -- --------------------------------------------------------
 
@@ -91,7 +94,7 @@ CREATE TABLE `ejemplar` (
 --
 
 INSERT INTO `ejemplar` (`ejem_id`, `ejem_titulo`, `ejem_editorial`, `ejem_paginas`, `ejem_isbn`, `ejem_idioma`, `ejem_portada`, `ejem_digital`, `ejem_audio`, `ejem_resumen`, `ejem_tipo_id`, `ejem_cate_id`, `ejem_valoracion`, `ejem_anio`, `ejem_nprestamos`) VALUES
-(2, 'Análisis Matemático I', 'El limeño', 200, '13-1234-1234', 'Español', 'analisis_matematico_i.jpg', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL),
+(2, 'Análisis Matemático I', 'El limeñito', 200, '13-1234-1234', 'Español', 'analisis_matematico_i.jpg', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL),
 (3, 'Poder Sin Límites', 'DelBolsillo', 479, '1123-134-1234', 'Español', 'podersinlimites.jfif', NULL, NULL, NULL, NULL, 3, NULL, NULL, NULL),
 (5, 'Analisis Matemático III', 'la espina', 500, '11234-32344-1234', 'Español', 'analisis-matematico-espinoza.jpeg', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL),
 (6, 'Los Heraldos Negros', 'Talleres de la Penitenciaría de Lima', 128, '978-612-305-078-8', 'Español', 'heraldos_negros.jpg', NULL, NULL, NULL, NULL, 3, NULL, NULL, NULL),
@@ -107,6 +110,17 @@ CREATE TABLE `ejemplar_autor` (
   `rela_auto_id` int(11) NOT NULL,
   `rela_ejem_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `ejemplar_autor`
+--
+
+INSERT INTO `ejemplar_autor` (`rela_auto_id`, `rela_ejem_id`) VALUES
+(1, 2),
+(1, 5),
+(3, 3),
+(4, 6),
+(5, 7);
 
 -- --------------------------------------------------------
 
@@ -285,7 +299,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `autor`
 --
 ALTER TABLE `autor`
-  MODIFY `auto_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `auto_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `categoria`
