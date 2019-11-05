@@ -25,6 +25,7 @@
       <img class="avatar rounded mr-3" alt="..." src="<?php echo base_url().'uploads/'. $admi->ejem_portada?>" style="width: 100px;" >
     </td>
     <td class="text-center"><?= $admi->ejem_titulo?></td>
+    <td class="text-center"><?= $admi->auto_nombres?></td>
     <td class="text-center"><?= $admi->cate_nombre?></td>
     <td class="text-center"><?= $admi->ejem_editorial?></td>
     <td class="text-center"><?= $admi->ejem_paginas?></td>
