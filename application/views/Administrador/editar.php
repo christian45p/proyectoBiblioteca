@@ -3,7 +3,7 @@
     <h2>Ejemplar # <?= $ejemplar->ejem_id ?> </h2>
   </div>
   <div class="card-body">
-    <form class="form-horizontal" action="<?= base_url('index.php/administrador/update') ?>" method="post">
+    <form class="form-horizontal" action="<?= base_url('index.php/administrador/update') ?>" method="post" enctype="multipart/form-data">
       <input type="hidden" name="id" value="<?= $ejemplar->ejem_id ?>">
       <div class="form-row">
         <div class="form-group col-md-12">
