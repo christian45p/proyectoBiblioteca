@@ -27,7 +27,9 @@
            
              </div>
            </div>
-           <input type="text" value="1" hidden name="tipo">
+             <div>          
+             </div>   
+          
            </div>
               <div class="form-row">
                 <div class="form-group col-md-12">
@@ -61,8 +63,14 @@
               <option selected>¿¿Categoría??</option>
               <?php foreach ($categoria as $cate):  ?>
                 <option value="<?php echo $cate->cate_id; ?>"><?php echo $cate->cate_nombre; ?></option>
-              <?php endforeach; ?>
-              
+              <?php endforeach; ?> 
+            </select>
+
+            <select class="custom-select border-dark" name="tipo">
+                  <option selected>¿¿Tipo??</option>
+                 <?php foreach ($tipo as $t) :  ?>
+                   <option value="<?php echo $t->tipo_id;?>"><?php echo $t->tipo_nombre;?></option>
+                 <?php endforeach; ?>
             </select>
             </div>
             <div class="form-group col-md-6">		  

@@ -255,7 +255,8 @@ class administrador extends CI_Controller {
 
 			$data=[
 				'categoria'=>$this->ejemplar_model->getCategoria(),
-				'autores'=>$this->db->query("SELECT * FROM autor")->result(),	
+				'autores'=>$this->db->query("SELECT * FROM autor")->result(),
+				'tipo'	=>$this->db->query("SELECT * FROM ejemplar_tipo")->result(),
 			];
 
 			$this->load->view('Administrador/header',$datos);
