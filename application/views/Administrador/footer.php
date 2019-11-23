@@ -6,7 +6,8 @@
         
         <!-- Page level plugins -->
         <script type="text/javascript" language="javascript" src="<?php echo base_url();?>assests/vendor/chart.js/Chart.min.js"></script>
-
+        <script src="htpps://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" type="text/javascript" charset="utf-8" async defer></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.js"></script>
         <!-- Page level custom scripts -->
         <script type="text/javascript" language="javascript" src="<?php echo base_url();?>assests/js/demo/chart-area-demo.js"></script>
         <script type="text/javascript" language="javascript" src="<?php echo base_url();?>assests/js/demo/chart-pie-demo.js"></script>

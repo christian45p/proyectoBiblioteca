@@ -2,7 +2,7 @@
     <a href='<?= base_url('administrador/add_autor')?>' class='btn btn-primary'>Crear registro</a>
 </div>
 <h2>Autor</h2>
-<table class='table table-bordered'>
+<table id="myTable" class='table table-bordered'>
 <thead class="thead-dark">
     <tr class='info'>
         <th class="text-center">ID</th>
@@ -26,6 +26,9 @@
     <?php endif; ?>
 </table>
 <script>
+    $(document).ready(function(){
+    $('#myTable').DataTable();
+});
     $(document).ready(function(){
         $('.eliminar').click(function(){
             $elem = $(this);

@@ -115,7 +115,7 @@ class Login extends CI_Controller {
                     //$this->load->view('Login/Registro', $data);
                 }
             }else{
-                $data['errorMsg'] = 'Codigo y/o nombre de usuario repetido , ingrese de nuevo';
+                $data['errorMsg'] = '<div class="alert alert-danger h6" role="alert">Codigo y/o nombre de usuario repetido , ingrese de nuevo</div>';
                 redirect(base_url()."index.php/Login/Registro");
                 //$this->load->view('Login/Registro', $data);
             }

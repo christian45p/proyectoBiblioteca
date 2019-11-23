@@ -18,6 +18,7 @@
         <!-- Custom styles for this template-->    
         <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assests/css/sb-admin-2.min.css">
         <link href="<?php echo base_url();?>assests/select2/css/select2.min.css" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.css"/>
 
     </head>
     <body>

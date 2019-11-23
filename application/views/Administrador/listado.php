@@ -2,7 +2,7 @@
 <a href='<?= base_url('administrador/add')?>' class='btn btn-primary'>Crear registro</a>
 </div>
 <h2>Ejemplar</h2>
-<table class='table table-bordered'>
+<table  id="myTable" class='table table-bordered'>
 <thead class="thead-dark">
 <tr class='info'>
 <th class="text-center">ID</th>
@@ -43,6 +43,9 @@
 
 
 <script>
+  $(document).ready(function(){
+    $('#myTable').DataTable();
+});
   $(document).ready(function(){
     $('.eliminar').click(function(){
       
