@@ -44,7 +44,9 @@
 
 <script>
   $(document).ready(function(){
-    $('#myTable').DataTable();
+$('#myTable').DataTable( {
+    responsive: true
+}) 
 });
   $(document).ready(function(){
     $('.eliminar').click(function(){
