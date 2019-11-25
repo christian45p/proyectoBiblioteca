@@ -36,9 +36,16 @@ class usuario_model extends CI_Model{
 		}
 		function editar_usuario($data,$id){
 			
-			$this->db->where('usua_id',$id);
-			$this->db->update('usuario',$data);
+			if($this->db->update('usuario', $data, 'usua_id = '.$id))
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
+
 		function delete_usuario($id){
 			$this->db->where('usua_id',$id);
 			$this->db->delete('usuario');
