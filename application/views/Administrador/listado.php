@@ -33,8 +33,8 @@
     <td class="text-center"><?= $admi->tipo_nombre?></td>
 
       <td class='text-center'>
-        <a href="<?= base_url('administrador/delete/'.$admi->ejem_id)?>" class='btn btn-danger eliminar'>Eliminar</a>
-        <a href="<?= base_url('administrador/edit/'.$admi->ejem_id)?>" class='btn btn-success'>Editar</a>
+        <a href="<?= base_url('administrador/delete/'.$admi->ejem_id)?>" class='btn btn-danger eliminar'><i class="fas fa-trash-alt"></i></a>
+        <a href="<?= base_url('administrador/edit/'.$admi->ejem_id)?>" class='btn btn-success'><i class="fas fa-edit"></i></a>
       </td>
   </tr>
   <?php endforeach;?>

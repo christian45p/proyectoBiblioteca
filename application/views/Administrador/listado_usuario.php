@@ -26,8 +26,8 @@
     <td class="text-center text-dark"><?= $us->usua_email?></td>
     <td class="text-center text-dark"><?= $us->usua_telefono?></td>
       <td class='text-center'>
-        <a href="<?= base_url('index.php/administrador/delete_usuario/'.$us->usua_id)?>" class='btn btn-danger eliminar'>Eliminar</a>
-        <a href="<?= base_url('index.php/administrador/edit_usuario/'.$us->usua_id)?>" class='btn btn-success'>Editar</a>
+        <a href="<?= base_url('index.php/administrador/delete_usuario/'.$us->usua_id)?>" class='btn btn-danger eliminar'><i class="fas fa-trash-alt"></i></a>
+        <a href="<?= base_url('index.php/administrador/edit_usuario/'.$us->usua_id)?>" class='btn btn-success'><i class="fas fa-edit"></i></a>
       </td>
   </tr>
   <?php endif; endforeach; endif;?>
