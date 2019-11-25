@@ -318,7 +318,7 @@ class administrador extends CI_Controller {
 			'categoria'=>$this->ejemplar_model->getCategoria(),
 			'autores'=>$this->db->query("SELECT * FROM autor")->result(),
 			'autores_sel'=>$this->db->query("SELECT * FROM ejemplar_autor WHERE rela_ejem_id={$id}")->result(),
-			'tipo'=>$this->db->query("SELECT * FROM ejemplar,ejemplar_tipo WHERE ejem_id={$id} AND (ejem_tipo_id = tipo_id)")->result()
+			'tipo'=>$this->db->query("SELECT * FROM ejemplar,ejemplar_tipo WHERE ejem_id={$id}")->result()
 		];
 
 

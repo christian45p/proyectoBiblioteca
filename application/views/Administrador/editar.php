@@ -77,8 +77,7 @@
               <select class="custom-select border-dark" name="categoria">
                 <option>¿¿Tipo??</option>
                 <?php foreach ($tipo as $t) :  ?>
-                  <option value="<?php echo $t->tipo_id; ?>" <?php if ($t->ejem_tipo_id == $t->tipo_id) {
-                        echo "selected";} ?>>
+                  <option value="<?php echo $t->tipo_id; ?>" <?php if ($t->ejem_tipo_id == $t->tipo_id) {echo "selected";} ?>>
                         <?php echo $t->tipo_nombre; ?></option>
                 <?php endforeach; ?>
               </select>
