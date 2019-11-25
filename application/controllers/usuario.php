@@ -103,6 +103,27 @@ class usuario extends CI_Controller {
 		$datos['titulo']='Datos de Usuario';
 		if($this->session->userdata('usua_login')&&$tipoDeUsuario==0){
 			$this->load->view('Usuarios/header',$datos);
+			$usuarioId=$this->session->userdata('usua_id');
+			$data['usuarioInfo'] = $this->usuario_model->obtenerUsuarioPorId($usuarioId);
+
+			$this->form_validation->set_rules('usua_codigo', 'Codigo', 'trim|required');
+	        $this->form_validation->set_rules('usua_nombres', 'Nombres', 'trim|required');
+	        $this->form_validation->set_rules('usua_apellidos', 'Apellidos', 'trim|required');
+	        $this->form_validation->set_rules('usua_direccion', 'Direccion', 'trim|required');
+	        $this->form_validation->set_rules('usua_login', 'Usuario', 'trim|required');
+	        $this->form_validation->set_rules('usua_password', 'Password', 'trim|required');
+	        $this->form_validation->set_rules('confirmar', 'Confirmar', 'trim|required');
+	        $this->form_validation->set_rules('usua_email', 'E-mail', 'trim|required');
+	        $this->form_validation->set_rules('usua_telefono', 'Telefono', 'trim|required');
+	        $this->form_validation->set_rules('usua_esadmin', 'Tipo Usuario', 'trim|required');
+	        $this->form_validation->set_error_delimiters('<div class="col-md-12 col-md-offset-3"><div class="alert alert-danger alert-dismissible fade show" role="alert">','</div></div>');
+        if ($this->form_validation->run() == FALSE){
+            $this->load->view('Usuarios/datos_usuario',$data);
+        }else{
+            $this->update_usuario();
+        }
+
+
 			
 			$this->load->view('Usuarios/footer');
 		}else{

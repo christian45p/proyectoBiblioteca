@@ -52,6 +52,15 @@ class usuario_model extends CI_Model{
 				return false;
 			}
 		}
+
+		function obtenerUsuarioPorId($id){
+				$this->db->select('*');
+				$this->db->like('usua_id', $id);
+				$qry = $this->db->get('usuario');
+				$rs = $qry->result_array();
+				return $rs[0];	
+		}
+
 		public function resultado($valor){
         return $this->db->like('ejem_titulo',$valor)
         				->get('ejemplar')
