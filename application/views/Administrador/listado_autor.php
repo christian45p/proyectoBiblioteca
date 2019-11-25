@@ -18,8 +18,8 @@
         <td class="text-center text-dark"><?= $aut->auto_nombres?></td>
         <td class="text-center text-dark"><?= $aut->auto_apellidos?></td>
         <td class='text-center'>
-            <a href="<?= base_url('administrador/delete_autor/'.$aut->auto_id)?>" class='btn btn-danger eliminar'>Eliminar</a>
-            <a href="<?= base_url('administrador/edit_autor/'.$aut->auto_id)?>" class='btn btn-success'>Editar</a>
+            <a href="<?= base_url('administrador/delete_autor/'.$aut->auto_id)?>" class='btn btn-danger eliminar'><i class="fas fa-trash-alt"></i></a>
+            <a href="<?= base_url('administrador/edit_autor/'.$aut->auto_id)?>" class='btn btn-success'><i class="fas fa-edit"></i></a>
         </td>
     </tr>
     <?php endforeach;?>
