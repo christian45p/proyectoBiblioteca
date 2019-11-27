@@ -2,7 +2,7 @@
 <a href='<?= base_url('administrador/add')?>' class='btn btn-primary'>Crear registro</a>
 </div>
 <h2>Ejemplar</h2>
-<table  id="myTable" class='table table-bordered'>
+<table  id="myTable" class='table-responsive table table-bordered'>
 <thead class="thead-dark">
 <tr class='info'>
 <th class="text-center">ID</th>
@@ -15,8 +15,8 @@
 <th class="text-center">Isbn</th>
 <th class="text-center">Tipo</th>
 <th class="text-center">Opciones</th>
-  </thead>
 </tr>
+  </thead>
   <?php if(!empty($ejemplar)): ?>
   <?php foreach ($ejemplar as $admi): ?>
   <tr>

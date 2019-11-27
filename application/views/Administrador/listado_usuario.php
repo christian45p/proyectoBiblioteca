@@ -1,6 +1,3 @@
-<!-- <div class="text-right container">
-<a href='<?= base_url('index.php/administrador/add_usuario')?>' class='btn btn-primary'>Crear registro</a>
-</div> -->
 <h2>Usuarios</h2>
 <table id="myTable" class='table table-bordered'>
 <thead class="thead-dark">
@@ -30,11 +27,14 @@
         <a href="<?= base_url('index.php/administrador/edit_usuario/'.$us->usua_id)?>" class='btn btn-success'><i class="fas fa-edit"></i></a>
       </td>
   </tr>
-  <?php endif; endforeach; endif;?>
+  <?php endif;?>
+  <?php endforeach;?>
+<?php endif;?>
 </table>
 <script>
   $(document).ready(function(){
     $('#myTable').DataTable();
+
 });
   $(document).ready(function(){
     $('.eliminar').click(function(){

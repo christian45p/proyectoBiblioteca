@@ -8,6 +8,13 @@ class administrador extends CI_Controller {
 		$this->load->model('ejemplar_model');
 		$this->load->model('autor_model','aut');
 		$this->load->model('usuario_model');
+		// $tipoDeUsuario = $this->session->userdata('usua_esadmin');
+	 //  	$nombreDelUsuario = $this->session->userdata('usua_nombres');
+	 //  	$datos['nombreDelUsuario'] = $nombreDelUsuario;
+	 //  	$datos['titulo'] = "Editar Ejemplar!";
+		// if(!$this->session->userdata('usua_login') || $tipoDeUsuario != 1)
+		// 	redirect(base_url().'Login');
+
 	}
 
   //Copia este codigo de abajo antes de escribir código en un NUEVO METODO!!!
@@ -24,16 +31,14 @@ class administrador extends CI_Controller {
 
 	public function index(){
 		$tipoDeUsuario = $this->session->userdata('usua_esadmin');
-	 	$nombreDelUsuario = $this->session->userdata('usua_nombres');
+	  	$nombreDelUsuario = $this->session->userdata('usua_nombres');
 	  	$datos['nombreDelUsuario'] = $nombreDelUsuario;
 	  	$datos['titulo'] = "Dashboard!";
-		if($this->session->userdata('usua_login') && $tipoDeUsuario == 1){
+		if(!$this->session->userdata('usua_login') || $tipoDeUsuario != 1)
+			redirect(base_url().'Login');
 			$this->load->view('Administrador/header',$datos);
 			$this->load->view('Administrador/dashboard');
 			$this->load->view('Administrador/footer');
-		}else{
-			redirect(base_url().'Login');
-		} 
 	}	
 
 	public function ejemplar(){
@@ -41,33 +46,32 @@ class administrador extends CI_Controller {
 	  	$nombreDelUsuario = $this->session->userdata('usua_nombres');
 	  	$datos['nombreDelUsuario'] = $nombreDelUsuario;
 	  	$datos['titulo'] = "Ejemplar!";
-		if($this->session->userdata('usua_login') && $tipoDeUsuario == 1){
+		if(!$this->session->userdata('usua_login') || $tipoDeUsuario != 1)
+			redirect(base_url().'Login');
+
 			$data = [
 				'ejemplar'=> $this->ejemplar_model->read(),
 			];
 			$this->load->view('Administrador/header',$datos);
 			$this->load->view('Administrador/listado',$data);
 			$this->load->view('Administrador/footer');
-		}else{
-			redirect(base_url().'Login');
-		} 
+
 	}
 
 	public function autor(){
 		$tipoDeUsuario = $this->session->userdata('usua_esadmin');
 	  	$nombreDelUsuario = $this->session->userdata('usua_nombres');
 	  	$datos['nombreDelUsuario'] = $nombreDelUsuario;
-	  	$datos['titulo'] = "Autor!";
-		if($this->session->userdata('usua_login') && $tipoDeUsuario == 1){
+	  	$datos['titulo'] = "Autor";
+		if(!$this->session->userdata('usua_login') || $tipoDeUsuario != 1)
+			redirect(base_url().'Login');
 			$data = [
 				'autor' => $this->aut->read()
 			];
 			$this->load->view('Administrador/header',$datos);
 			$this->load->view('Administrador/listado_autor',$data);
 			$this->load->view('Administrador/footer');
-		}else{
-			redirect(base_url().'Login');
-		}
+
 	}
 
 	public function add_autor(){
@@ -234,6 +238,7 @@ class administrador extends CI_Controller {
                 'usua_password'=>($usua_password),
             );
             $editar_usuario = $this->usuario_model->editar_usuario($insertData,$id);
+            $editar_administrador = $this->usuario_model->editar_administrador($insertData,$id);
 		//$this->usuario_model->update_usuario();
 		redirect(base_url('administrador/usuario'));
 		}
@@ -295,6 +300,7 @@ class administrador extends CI_Controller {
 			'ejem_cate_id'=>$this->input->post('categoria'),
 			'ejem_isbn'=>$this->input->post('isbn'),
 			'ejem_idioma'=>$this->input->post('idioma'),
+			'ejem_resumen'=>$this->input->post('resumen'),
 		];
 		$this->ejemplar_model->insert($data);
 		$id = $this->db->insert_id();
@@ -353,6 +359,7 @@ class administrador extends CI_Controller {
 			'ejem_paginas'=>$this->input->post('paginas'),
 			'ejem_isbn'=>$this->input->post('isbn'),
 			'ejem_idioma'=>$this->input->post('idioma'),
+			'ejem_resumen'=>$this->input->post('resumen'),
 		];
 		$autores = $this->input->post('autores');
 		$this->ejemplar_model->update($id,$data);
@@ -421,9 +428,29 @@ class administrador extends CI_Controller {
 		$nombreDelUsuario=$this->session->userdata('usua_nombres');
 		$datos['nombreDelUsuario']=$nombreDelUsuario;
 		$datos['titulo']="Datos del Administrador";
-		if($this->session->userdata('usua_login')&&$tipoDeUsuario==1){
+		if($this->session->userdata('usua_login')&&$tipoDeUsuario==1){			
 			$this->load->view('Administrador/header',$datos);
+		$obtener_usuario_id =  $this->session->userdata('usua_id');
+    	$data['usuarioInfo'] = $this->ejemplar_model->obtener_usuario_por_id($obtener_usuario_id);
 			
+			$this->form_validation->set_rules('usua_codigo', 'Codigo', 'trim|required');
+	        $this->form_validation->set_rules('usua_nombres', 'Nombres', 'trim|required');
+	        $this->form_validation->set_rules('usua_apellidos', 'Apellidos', 'trim|required');
+	        $this->form_validation->set_rules('usua_direccion', 'Direccion', 'trim|required');
+	        $this->form_validation->set_rules('usua_login', 'Usuario', 'trim|required');
+	        $this->form_validation->set_rules('usua_password', 'Password', 'trim|required');
+	        $this->form_validation->set_rules('confirmar', 'Confirmar', 'trim|required');
+	        $this->form_validation->set_rules('usua_email', 'E-mail', 'trim|required');
+	        $this->form_validation->set_rules('usua_telefono', 'Telefono', 'trim|required');
+	        $this->form_validation->set_rules('usua_esadmin', 'Tipo Usuario', 'trim|required');
+	        $this->form_validation->set_error_delimiters('<div class="col-md-12 col-md-offset-3"><div class="alert alert-danger alert-dismissible fade show" role="alert">','</div></div>');
+        if ($this->form_validation->run() == FALSE){
+            $this->load->view('Administrador/editar_administrador',$data);
+        }else{
+            $this->update_usuario();
+        }
+			
+
 			$this->load->view('Administrador/footer');
 		}else{
 			redirect(base_url().'Login');

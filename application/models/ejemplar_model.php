@@ -14,7 +14,14 @@ class ejemplar_model extends CI_Model{
 			return false;
 		}
 	}
-	
+	function obtener_usuario_por_id($id)
+	{
+		$this->db->select('*');
+		$this->db->like('usua_id', $id);
+		$qry = $this->db->get('usuario');
+		$rs = $qry->result_array();
+		return $rs[0];
+	}
 	function insert($data){
 		
 		$this->db->insert('ejemplar',$data);
