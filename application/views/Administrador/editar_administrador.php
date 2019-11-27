@@ -3,8 +3,8 @@
         <h2></h2>
     </div>
     <div class="card-body">
-        <form action="<?php echo base_url().'index.php/administrador/update_usuario/'?>" method="post">
-		<input type="hidden" name="id" value="<?= $usuarioInfo->usua_id?>">
+        <form action="" method="post">
+		<input type="hidden" name="id" value="">
             <div class="form-row">
                 <div class="form-group col-md-3 disabled">
                     <label for="">Codigo del Estudiante</label>
@@ -14,7 +14,7 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputEmail4">Nombres</label>
-                    <input type="text" class="form-control form-control-sm border border-dark" value="<?= $usuario->usua_nombres?>" id="" name="usua_nombres" >
+                    <input type="text" class="form-control form-control-sm border border-dark" value="" id="" name="usua_nombres" >
                 </div> 
                 <div class="form-group col-md-6">
                     <label for="inputPassword4">Apellidos</label>

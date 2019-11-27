@@ -2,7 +2,8 @@
 <a href='<?= base_url('administrador/add')?>' class='btn btn-primary'>Crear registro</a>
 </div>
 <h2>Ejemplar</h2>
-<table  id="myTable" class='table-responsive table table-bordered'>
+<div class="table-responsive py-4">
+<table  id="myTable" class='table table-bordered'>
 <thead class="thead-dark">
 <tr class='info'>
 <th class="text-center">ID</th>
@@ -40,6 +41,7 @@
   <?php endforeach;?>
   <?php endif; ?>
 </table>
+</div>
 
 
 <script>

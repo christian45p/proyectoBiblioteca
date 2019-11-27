@@ -337,6 +337,12 @@ class administrador extends CI_Controller {
 	}
 
 	public function update(){
+		$tipoDeUsuario = $this->session->userdata('usua_esadmin');
+	  	$nombreDelUsuario = $this->session->userdata('usua_nombres');
+	  	$datos['nombreDelUsuario'] = $nombreDelUsuario;
+	  	$datos['titulo'] = "Editar Ejemplar!";
+		if(!$this->session->userdata('usua_login') || $tipoDeUsuario != 1)
+			redirect(base_url().'Login');
 		$id=$this->input->post('id');
 		$config = array('upload_path' => "./uploads/",
 			                  'allowed_types' => "gif|jpg|png|jpeg|pdf|mp3",

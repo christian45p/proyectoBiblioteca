@@ -2,6 +2,7 @@
     <a href='<?= base_url('administrador/add_autor')?>' class='btn btn-primary'>Crear registro</a>
 </div>
 <h2>Autor</h2>
+<div class="table-responsive py-4">
 <table id="myTable" class='table table-bordered'>
 <thead class="thead-dark">
     <tr class='info'>
@@ -25,6 +26,7 @@
     <?php endforeach;?>
     <?php endif; ?>
 </table>
+</div>
 <script>
     $(document).ready(function(){
     $('#myTable').DataTable();

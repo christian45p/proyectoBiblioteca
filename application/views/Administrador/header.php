@@ -103,7 +103,7 @@
                 <hr class="sidebar-divider d-none d-md-block">
                 <li class="nav-item <?php if($metodo=='datosDelAdministrador') echo 'active';?>">
                     <a class="nav-link" href="<?php echo base_url();?>administrador/datosDelAdministrador">
-                        <i class="fas fa-fw fa-table"></i>
+                        <i class="fa fa-lock"></i>
                         <span>Datos del Administrador</span>
                     </a>
                 </li>

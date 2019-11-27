@@ -84,6 +84,12 @@
               </select>
             </div>
           </div>
+        <div class="form-row">
+        <div class="form-group col-md-12">
+            <label for="">Resumen</label>
+              <textarea class="form-control border-dark" id="exampleFormControlTextarea1" rows="2" name="resumen" id="resumen" value="<?= $ejemplar->ejem_resumen;?>" ></textarea>
+          </div> 
+        </div>
         </div>
     <div class="form-group col-md-6">
         <div class="form-row">
@@ -100,12 +106,6 @@
              <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
             </div>
           </div>
-        <div class="form-row">
-<!--           <div class="form-group col-md-12">
-            <label for="">Resumen</label>
-              <textarea class="form-control form-control-md border-dark" name="resumen" rows="11" id="resumen" value="<?php echo ('$ejemplar->ejem_resumen');?>" ></textarea>
-          </div> -->
-        </div>
         </div>
       </div>
         </div>

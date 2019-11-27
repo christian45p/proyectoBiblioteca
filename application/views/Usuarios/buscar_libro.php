@@ -73,9 +73,9 @@
                     </div>
                     <div class="col-md-7">
                       <h4 class="mb-0">
-                        <a href="<?php echo base_url(). 'ejemplar/ver_ejemplar/'. $dato->ejem_id; ?>"><?php echo $dato->ejem_titulo; ?></a>
+                        <a href="<?php echo base_url(). 'ejemplar/ver_ejemplar/'. $dato->ejem_id;?>"><?php echo $dato->ejem_titulo; ?></a>
                       </h4>
-                      <small><?php echo $dato->ejem_resumen; ?></small>
+                      <p><?php echo $dato->ejem_resumen; ?></p>
                     </div>
                     <!-- <div class="col-auto test-right">
                       <a href="<?php echo base_url().'usuario/agregar_favorito/'.$dato->ejem_id?>"  class="table-action btn btn-success btn-sm text-white" >

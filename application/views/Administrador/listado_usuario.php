@@ -1,4 +1,5 @@
 <h2>Usuarios</h2>
+<div class="table-responsive py-4">
 <table id="myTable" class='table table-bordered'>
 <thead class="thead-dark">
 <tr class='info'>
@@ -31,6 +32,7 @@
   <?php endforeach;?>
 <?php endif;?>
 </table>
+</div>
 <script>
   $(document).ready(function(){
     $('#myTable').DataTable();
