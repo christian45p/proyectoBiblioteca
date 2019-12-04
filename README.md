@@ -10,3 +10,5 @@ Usuario y la contraseña a continuación.
 ### System Administrator Account : 
   * email : administrador 
   * password : 1234 
+# Imagen
+https://github.com/christian45p/proyectoBiblioteca/issues/1#issue-532797989
