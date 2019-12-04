@@ -11,4 +11,4 @@ Usuario y la contraseña a continuación.
   * email : administrador 
   * password : 1234 
 # Imagen
-https://github.com/christian45p/proyectoBiblioteca/issues/1#issue-532797989
+![Anotación 2019-12-04 112808](https://user-images.githubusercontent.com/45461497/70161523-2c22d680-168a-11ea-9001-a49a4023fd53.png)
