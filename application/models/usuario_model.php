@@ -50,6 +50,7 @@ class usuario_model extends CI_Model{
 			$this->db->where('usua_id',$id);
 			$this->db->delete('usuario');
 		}
+		
 		function getById($id){
 			$this->db->where('usua_id', $id);
 			$query=$this->db->get('usuario');	

@@ -87,6 +87,21 @@ class administrador extends CI_Controller {
 			redirect(base_url().'Login');
 		} 
 	}
+	public function insert_autor(){
+		$data = [
+			'auto_nombres' => $this->input->post('aut_nombres'),
+			'auto_apellidos' => $this->input->post('aut_apellidos'),
+			'auto_biografia' => $this->input->post('auto_biografia')
+
+		];
+		if($this->db->insert('autor',$data)){
+			redirect(base_url('Administrador/autor'));
+		}else{
+
+			redirect(base_url('Administrador/add_autor'));
+		}
+		
+	}
 
 	public function edit_autor($id){
 		$tipoDeUsuario=$this->session->userdata('usua_esadmin');
@@ -102,6 +117,7 @@ class administrador extends CI_Controller {
 			
 			$this->form_validation->set_rules('auto_nombres', 'aut_nombres', 'trim|required');
 	        $this->form_validation->set_rules('auto_apellidos', 'aut_apellidos', 'trim|required');
+	        $this->form_validation->set_rules('auto_biografia', 'auto_biografia', 'trim|required');
 	    if ($this->form_validation->run() == FALSE){
             $this->load->view('Administrador/editar_autor',$data);
         }else{
@@ -117,14 +133,19 @@ class administrador extends CI_Controller {
 		}
 	}
 
-	public function insert_autor(){
-		$data = [
-			'auto_nombres' => $this->input->post('aut_nombres'),
-			'auto_apellidos' => $this->input->post('aut_apellidos')
-		];
-		$this->db->insert('autor',$data);
-		redirect(base_url('Administrador/autor'));
+	public function delete_autor($id){
+		$tipoDeUsuario=$this->session->userdata('usua_esadmin');
+		$nombreDelUsuario=$this->session->userdata('usua_nombres');
+		$datos['nombreDelUsuario']=$nombreDelUsuario;
+		if($this->session->userdata('usua_login')&&$tipoDeUsuario==1){
+			$this->aut->delete_autor($id);
+			redirect(base_url('administrador/autor'));
+		}else{
+			redirect(base_url().'Login');
+		} 
 	}
+
+	
 
 	public function update_autor(){
 		$this->aut->update_autor();

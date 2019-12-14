@@ -17,7 +17,11 @@
                                             <label for="text">Apellidos</label>
                                             <input type="text" class="form-control border border-dark" id="autorlastname" name="aut_apellidos" placeholder="apellidos del autor">
                                         </div>
-                                        
+                                        <div class="form-group">
+                                            <label for="exampleFormControlTextarea1">Biografia</label>
+                                            <textarea class="form-control" id="exampleFormControlTextarea1" name="auto_biografia"  rows="3"></textarea>
+                                        </div>
+                                                                                
 
                                   <!--  <div class="form-group">
                                             <input class="border-primary"  style="width:30px;height:30px;" type="checkbox" value="1" name="usua_esadmin">Administrador?
