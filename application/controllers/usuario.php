@@ -103,6 +103,7 @@ class usuario extends CI_Controller {
 		$datos['titulo']='Datos de Usuario';
 		if($this->session->userdata('usua_login')&&$tipoDeUsuario==0){
 			$this->load->view('Usuarios/header',$datos);
+			$this->load->view('Usuarios/footer');
 			$usuarioId=$this->session->userdata('usua_id');
 
 			$data=[
@@ -123,11 +124,22 @@ class usuario extends CI_Controller {
         if ($this->form_validation->run() == FALSE)
         {
             $this->load->view('Usuarios/datos_usuario',$data);
-            $this->load->view('Usuarios/footer');
+            
         }
         else
         {
-        	$usua_codigo = $this->security->xss_clean($this->input->post('usua_codigo'));
+        	
+        	$this->evaluaActualizarDatos();
+        }
+        $this->load->view('Usuarios/footer');
+
+		}else{
+			redirect(base_url().'Login');
+		} 
+		
+	}
+	public function evaluaActualizarDatos(){
+			$usua_codigo = $this->security->xss_clean($this->input->post('usua_codigo'));
 	        $usua_nombres = $this->security->xss_clean($this->input->post('usua_nombres'));
 	        $usua_apellidos = $this->security->xss_clean($this->input->post('usua_apellidos'));
 	        $usua_direccion = $this->security->xss_clean($this->input->post('usua_direccion'));
@@ -137,7 +149,7 @@ class usuario extends CI_Controller {
 	        $usua_esadmin = $this->security->xss_clean($this->input->post('usua_esadmin'));
 	        $usua_password = $this->security->xss_clean(md5($this->input->post('usua_password')));
 	        $confirmar = $this->security->xss_clean(md5($this->input->post('confirmar')));
-
+	        $usuarioId=$this->session->userdata('usua_id');
 	        if(md5($usua_password) == md5($confirmar)){
 	            $insertData = array(
 	                'usua_codigo'=>$usua_codigo,
@@ -160,13 +172,6 @@ class usuario extends CI_Controller {
 			//$this->usuario_model->update_usuario();
 			
 			}
-
-        }
-
-		}else{
-			redirect(base_url().'Login');
-		} 
-		
 	}
 
 	public function salir(){

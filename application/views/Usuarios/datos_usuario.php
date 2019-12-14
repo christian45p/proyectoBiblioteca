@@ -3,7 +3,7 @@
         <h2>Datos de su Usuario: <?= $usuario->usua_id?> </h2>
     </div>
     <div class="card-body">
-        <form action="<?= base_url('usuario/datosDeUsuario/').$usuario->usua_id?>" method="post">
+        <form action="<?= base_url('usuario/evaluaActualizarDatos/')?>" method="post">
             <input type="hidden" name="id" value="<?= $usuario->usua_id?>">
             <div class="form-row">
                 <div class="form-group col-md-3 disabled">
@@ -55,7 +55,7 @@
             <!-- Divider -->
             <hr class="sidebar-divider my-2">
             <div class="text-center">
-                <a href="<?= base_url('administrador/usuario')?>" class="btn btn-danger mb-2 btn-sm">Cancelar</a>
+                
                 <button type="submit" class="btn btn-success mb-2 btn-sm">Actualizar Datos</button>
             </div>
         </form>
