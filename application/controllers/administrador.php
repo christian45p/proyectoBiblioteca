@@ -457,8 +457,11 @@ class administrador extends CI_Controller {
 		$datos['titulo']="Datos del Administrador";
 		if($this->session->userdata('usua_login')&&$tipoDeUsuario==1){			
 			$this->load->view('Administrador/header',$datos);
-		$obtener_usuario_id =  $this->session->userdata('usua_id');
-    	$data['usuarioInfo'] = $this->ejemplar_model->obtener_usuario_por_id($obtener_usuario_id);
+
+		$usuarioId=$this->session->userdata('usua_id');
+    	$data=[
+				'usuario'=> $this->usuario_model->getById($usuarioId)
+			];
 			
 			$this->form_validation->set_rules('usua_codigo', 'Codigo', 'trim|required');
 	        $this->form_validation->set_rules('usua_nombres', 'Nombres', 'trim|required');
@@ -474,7 +477,7 @@ class administrador extends CI_Controller {
         if ($this->form_validation->run() == FALSE){
             $this->load->view('Administrador/editar_administrador',$data);
         }else{
-            $this->update_usuario();
+            $this->evaluaActualizarDatos();
         }
 			
 
@@ -482,6 +485,42 @@ class administrador extends CI_Controller {
 		}else{
 			redirect(base_url().'Login');
 		} 
+	}
+	public function evaluaActualizarDatos(){
+			$usua_codigo = $this->security->xss_clean($this->input->post('usua_codigo'));
+	        $usua_nombres = $this->security->xss_clean($this->input->post('usua_nombres'));
+	        $usua_apellidos = $this->security->xss_clean($this->input->post('usua_apellidos'));
+	        $usua_direccion = $this->security->xss_clean($this->input->post('usua_direccion'));
+	        $usua_email = $this->security->xss_clean($this->input->post('usua_email'));
+	        $usua_telefono = $this->security->xss_clean($this->input->post('usua_telefono'));
+	        $usua_login = $this->security->xss_clean($this->input->post('usua_login'));
+	        $usua_esadmin = $this->security->xss_clean($this->input->post('usua_esadmin'));
+	        $usua_password = $this->security->xss_clean(md5($this->input->post('usua_password')));
+	        $confirmar = $this->security->xss_clean(md5($this->input->post('confirmar')));
+	        $usuarioId=$this->session->userdata('usua_id');
+	        if(md5($usua_password) == md5($confirmar)){
+	            $insertData = array(
+	                'usua_codigo'=>$usua_codigo,
+	                'usua_nombres'=>$usua_nombres,
+	                'usua_apellidos'=>$usua_apellidos,
+	                'usua_direccion'=>$usua_direccion,
+	                'usua_email'=>$usua_email,
+	                'usua_telefono'=>$usua_telefono,
+	                'usua_login'=>$usua_login,
+	                'usua_esadmin'=>$usua_esadmin,
+	                'usua_password'=>($usua_password),
+	            );
+	            $editar_usuario = $this->usuario_model->editar_usuario($insertData,$usuarioId);
+
+	            if($editar_usuario){
+	            	echo "<script>alert(\"La actualización fue un exito!\");</script>";
+	            	redirect(base_url('administrador/index'));
+	            }else{
+	            	redirect(base_url('administrador/datosDelAdministrador'));
+	            }
+			//$this->usuario_model->update_usuario();
+			
+			}
 	}
 
 

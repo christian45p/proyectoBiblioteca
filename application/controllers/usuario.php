@@ -131,7 +131,7 @@ class usuario extends CI_Controller {
         	
         	$this->evaluaActualizarDatos();
         }
-        $this->load->view('Usuarios/footer');
+        
 
 		}else{
 			redirect(base_url().'Login');
@@ -165,6 +165,7 @@ class usuario extends CI_Controller {
 	            $editar_usuario = $this->usuario_model->editar_usuario($insertData,$usuarioId);
 
 	            if($editar_usuario){
+	            	echo "<script>alert(\"La actualización fue un exito!\");</script>";
 	            	redirect(base_url('usuario/index'));
 	            }else{
 	            	redirect(base_url('usuario/datosDeUsuario'));
