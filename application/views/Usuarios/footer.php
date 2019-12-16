@@ -9,6 +9,7 @@
   <!-- Page level custom scripts -->
   <script type="text/javascript" language="javascript" src="<?php echo base_url();?>assests/js/demo/chart-area-demo.js"></script>
   <script type="text/javascript" language="javascript" src="<?php echo base_url();?>assests/js/demo/chart-pie-demo.js"></script>
+  <script type="text/javascript" language="javascript" src="<?php echo base_url();?>assests/js/contenido.js"></script>
   <!-- Bootstrap core JavaScript-->
  
   <script type="text/javascript" language="javascript" src="<?php echo base_url();?>assests/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

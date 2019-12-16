@@ -34,6 +34,10 @@ class usuario extends CI_Controller {
 			redirect(base_url().'Login');
 		}		
 	}
+	public function contenido(){
+		$datos['resultado']  = $this->usuario_model->obtiene_ejemplares();
+		$this->load->view('Usuarios/contenido',$datos);
+	}
 	public function buscarLibro(){
 		$tipoDeUsuario=$this->session->userdata('usua_esadmin');
 		$nombreDelUsuario=$this->session->userdata('usua_nombres');

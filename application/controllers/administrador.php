@@ -259,7 +259,7 @@ class administrador extends CI_Controller {
                 'usua_password'=>($usua_password),
             );
             $editar_usuario = $this->usuario_model->editar_usuario($insertData,$id);
-            $editar_administrador = $this->usuario_model->editar_administrador($insertData,$id);
+            
 		//$this->usuario_model->update_usuario();
 		redirect(base_url('administrador/usuario'));
 		}
