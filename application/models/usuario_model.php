@@ -10,7 +10,8 @@ class usuario_model extends CI_Model{
 		$this->db->from('ejemplar_autor');
 		$this->db->join('ejemplar', 'ejemplar.ejem_id = ejemplar_autor.rela_ejem_id');
 		$this->db->join('autor', 'autor.auto_id = ejemplar_autor.rela_auto_id');
-		/*$this->db->join('ejemplar_categoria', 'ejemplar_categoria.cate_id = ejemplar.ejem_cate_id');*/
+		$this->db->join('categoria', 'categoria.cate_id = ejemplar.ejem_cate_id');
+		$this->db->join('ejemplar_tipo', 'ejemplar_tipo.tipo_id = ejemplar.ejem_cate_id');
 		$query = $this->db->get();
 		return $query->result();
    		}
@@ -22,6 +23,12 @@ class usuario_model extends CI_Model{
 				return false;
 			}
 		}
+		 function obtiene_ejemplar_tipo(){
+        return $this->db->get('ejemplar_tipo')->result();
+    			}	
+		function obtiene_ejemplar_area(){
+        return $this->db->get('ejemplar_area')->result();
+    			}
 		function insert_usuario(){
 			$data = [
 				'usua_codigo'=>$this->input->post('codigo'),

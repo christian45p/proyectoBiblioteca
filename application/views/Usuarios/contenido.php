@@ -1,11 +1,10 @@
-      <?php $id_usuario=$_GET['id'];
-      echo $id_usuario;?>
+<!--       <?php $id_usuario=$_GET['id'];
+echo $id_usuario;?> -->
       <div class="row">
         <div class="col">
           <div class="card-wrapper">
                 <h3 class="mb-0"></h3>
               </div>
-              
                 <form class="needs-validation" novalidate action="" method="post">
                   <div class="form-row">
                     <div class="col-md-3 mb-3">
@@ -39,50 +38,59 @@
                     </div>                    
                     <div class="col-md-3 mb-3">
                       <div class="form-group">
-                        <p class="h5 text-dark font-weight-bold">Area:<?php echo $dato->ejem_id;?></p>
-                      </div>
-                      <div class="form-group">
                         <p class="h5 text-dark font-weight-bold">Categoria:</p>
-
+                      <h1 class="h6" id="paginas"><?php echo $dato->cate_nombre;?></h1>
                       </div>
                       <div class="form-group">
                         <p class="h5 text-dark font-weight-bold">Tipo:</p>
-                        <h1 class="h6 text-dark font-weight-bold"></h1>
+                        <h1 class="h6"><?php echo $dato->tipo_nombre;?></h1>
                       </div>
                       <div class="form-group">
                         <p class="h5 text-dark font-weight-bold">ISBN:</p>
                       <h1 class="h6 " id="isbn"><?php echo $dato->ejem_isbn;?></h1>
                       </div>
+                      <div class="form-group">
+                        <p class="h5 text-dark font-weight-bold">Paginas:</p>
+                        <h1 class="h6" id="paginas"><?php echo $dato->ejem_paginas;?></h1>
+                      </div>
                     </div>
                   </div>                  
                   <div class="form-row">
-                    <div class="col-md-6 mb-10">
+                    <div class="col-md-12">
                       <div class="form-group">
                         <p class="h5 text-dark font-weight-bold">Resumen:</p>
                       <h1 class="h6" id="resumen"><?php echo $dato->ejem_resumen;?></h1>
                       </div>
                     </div>
                     <div class="col-md-6 mb-3">
-                      <div class="form-group">
-                        <p class="h5 text-dark font-weight-bold">Paginas:</p>
-                        <h1 class="h6" id="paginas"><?php echo $dato->ejem_paginas;?></h1>
-                      </div>
                       </div>
                     </div>
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label for="año">Dias de prestamo</label>
+                    <div>
+                        <input type="date" class="form-control form-control-md border border-dark" id="prestamo" name="prestamo" value="">
+                    </div>
+                </div>
+            <div class="form-group col-md-4">
+              <label>Generar peticion</label>
+                <div>
+                <button type="button" class="btn btn-primary">Generar peticion</button>
+                </div>
+            </div>
+             </div>
+
                   <?php endif;?>
-                    <?php endforeach;?>
-                  
-                  <hr>
-              </div>
+                  <?php endforeach;?>
+                </div>
+             </div>
             </div>
           </div>
-        </div>
+       </div>
       </div>
     </div>
-
-    </div>
-</form>
-      </div>
-    </div>
-  </div>
+  </form>
+</div>
+</div>
+</div>
 </div>

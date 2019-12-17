@@ -36,24 +36,30 @@
             </div>
           </div>
           <div class="form-row">
-            <div class="form-group col-md-12">
+            <div class="form-group col-md-6">
               <label for="editorial">Editorial</label>
               <div>
                 <input type="text" class="form-control form-control-md border border-dark" id="editorial" name="editorial" value="<?= $ejemplar->ejem_editorial ?>" placeholder="Editorial">
               </div>
             </div>
-            <div class="form-group col-md-12">
+            <div class="form-group col-md-6">
               <label for="paginas">Pagina</label>
               <div>
                 <input type="text" class="form-control form-control-md border border-dark" id="paginas" name="paginas" value="<?= $ejemplar->ejem_paginas ?>" placeholder="Paginas">
               </div>
             </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-12">
               <label for="isbn">Isbn</label>
               <div>
                 <input type="text" class="form-control form-control-md border border-dark" id="isbn" name="isbn" value="<?= $ejemplar->ejem_isbn ?>" placeholder="Isbn">
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="año">Año</label>
+              <div>
+                <input type="text" class="form-control form-control-md border border-dark" id="año" name="año" value="<?= $ejemplar->ejem_anio ?>" placeholder="año">
               </div>
             </div>
             <div class="form-group col-md-6">

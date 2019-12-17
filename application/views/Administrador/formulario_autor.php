@@ -1,10 +1,12 @@
 <div class="row justify-content-center">
     <div class="col-xl-6 col-lg-8 col-md-10 ">
         <div class="col-md-12 p-3 ">
-        <h2 class="font-italic text-muted col-md-12 h4">Autor</h2>
             <div class="form-row ">
                 <div class="form-group col-md-12">
                     <div class="card o-hidden border-1 shadow-sm p-3 mb-5 bg-white rounded border border-dark">
+                        <div class="card-header py-3">
+                   <h2 class="font-italic text-muted col-md-12 h4">Autor</h2>
+                    </div>
                         <div class="card-body p-0">
                             <div class="col-md-12">
                                 <div class="p-4">
@@ -19,7 +21,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleFormControlTextarea1">Biografia</label>
-                                            <textarea class="form-control" id="exampleFormControlTextarea1" name="auto_biografia"  rows="3"></textarea>
+                                            <textarea class="form-control border border-dark" id="exampleFormControlTextarea1" name="auto_biografia"  rows="3"></textarea>
                                         </div>
                                                                                 
 

@@ -37,14 +37,20 @@
                         <input type="text" class="form-control form-control-md border border-dark" id="paginas" name="paginas" value="" placeholder="Paginas">
                     </div>
                 </div>
-              </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
+            <div class="form-group col-md-12">
                 <label for="isbn">Isbn</label>
                 <div>
                     <input type="text" class="form-control form-control-md border border-dark" id="isbn" name="isbn" value="" placeholder="Isbn">
                 </div>
             </div>
+              </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="año">Año</label>
+                    <div>
+                        <input type="text" class="form-control form-control-md border border-dark" id="año" name="año" value="" placeholder="Año">
+                    </div>
+                </div>
             <div class="form-group col-md-6">
                 <label for="idioma" >Idioma</label>
                 <div>

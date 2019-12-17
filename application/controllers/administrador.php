@@ -8,12 +8,6 @@ class administrador extends CI_Controller {
 		$this->load->model('ejemplar_model');
 		$this->load->model('autor_model','aut');
 		$this->load->model('usuario_model');
-		// $tipoDeUsuario = $this->session->userdata('usua_esadmin');
-	 //  	$nombreDelUsuario = $this->session->userdata('usua_nombres');
-	 //  	$datos['nombreDelUsuario'] = $nombreDelUsuario;
-	 //  	$datos['titulo'] = "Editar Ejemplar!";
-		// if(!$this->session->userdata('usua_login') || $tipoDeUsuario != 1)
-		// 	redirect(base_url().'Login');
 
 	}
 
@@ -320,6 +314,7 @@ class administrador extends CI_Controller {
 			'ejem_paginas'=>$this->input->post('paginas'),
 			'ejem_cate_id'=>$this->input->post('categoria'),
 			'ejem_isbn'=>$this->input->post('isbn'),
+			'ejem_anio'=>$this->input->post('año'),
 			'ejem_idioma'=>$this->input->post('idioma'),
 			'ejem_resumen'=>$this->input->post('resumen'),
 		];
@@ -385,6 +380,7 @@ class administrador extends CI_Controller {
 			'ejem_cate_id'=>$this->input->post('categoria'),
 			'ejem_paginas'=>$this->input->post('paginas'),
 			'ejem_isbn'=>$this->input->post('isbn'),
+			'ejem_anio'=>$this->input->post('año'),
 			'ejem_idioma'=>$this->input->post('idioma'),
 			'ejem_resumen'=>$this->input->post('resumen'),
 		];

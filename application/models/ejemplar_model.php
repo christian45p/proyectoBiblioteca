@@ -21,7 +21,7 @@ class ejemplar_model extends CI_Model{
 		$qry = $this->db->get('usuario');
 		$rs = $qry->result_array();
 		return $rs[0];
-	}
+	}	
 	function insert($data){
 		
 		$this->db->insert('ejemplar',$data);
