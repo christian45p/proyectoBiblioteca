@@ -7,13 +7,14 @@ class ejemplar_model extends CI_Model{
 	}
 	
 	function read(){
-		$query=$this->db->query('SELECT ejem_titulo, cate_nombre, ejem_editorial, ejem_paginas, ejem_isbn, tipo_nombre, ejem_id, GROUP_CONCAT(auto_nombres)as auto_nombres, ejem_portada FROM ejemplar,categoria,ejemplar_tipo,ejemplar_autor, autor WHERE ejem_cate_id=cate_id AND ejem_tipo_id=tipo_id AND ejem_id=rela_ejem_id AND rela_auto_id=auto_id GROUP BY ejem_id ORDER BY ejem_id DESC');
+		$query=$this->db->query('SELECT ejem_titulo, cate_nombre, ejem_editorial, ejem_paginas, ejem_isbn, tipo_nombre, ejem_id,ejem_anio,ejem_resumen, GROUP_CONCAT(auto_nombres)as auto_nombres, ejem_portada FROM ejemplar,categoria,ejemplar_tipo,ejemplar_autor, autor WHERE ejem_cate_id=cate_id AND ejem_tipo_id=tipo_id AND ejem_id=rela_ejem_id AND rela_auto_id=auto_id GROUP BY ejem_id ORDER BY ejem_id DESC');
 		if($query->num_rows()>0){
 			return $query->result();
 		}else{
 			return false;
 		}
 	}
+	
 	function obtener_usuario_por_id($id)
 	{
 		$this->db->select('*');

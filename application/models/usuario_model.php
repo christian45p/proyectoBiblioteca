@@ -5,16 +5,7 @@ class usuario_model extends CI_Model{
 	public function __construct(){
 			parent::__construct();
 		}
-	public function obtiene_ejemplares(){
-		$this->db->select('*');
-		$this->db->from('ejemplar_autor');
-		$this->db->join('ejemplar', 'ejemplar.ejem_id = ejemplar_autor.rela_ejem_id');
-		$this->db->join('autor', 'autor.auto_id = ejemplar_autor.rela_auto_id');
-		$this->db->join('categoria', 'categoria.cate_id = ejemplar.ejem_cate_id');
-		$this->db->join('ejemplar_tipo', 'ejemplar_tipo.tipo_id = ejemplar.ejem_cate_id');
-		$query = $this->db->get();
-		return $query->result();
-   		}
+	
 		function read(){
 			$query=$this->db->get('usuario');
 			if($query->num_rows()>0){

@@ -52,6 +52,143 @@ class administrador extends CI_Controller {
 
 	}
 
+	//Ejemplar........
+	
+	public function add(){
+		$tipoDeUsuario=$this->session->userdata('usua_esadmin');
+	  	$nombreDelUsuario=$this->session->userdata('usua_nombres');
+	  	$datos['nombreDelUsuario']=$nombreDelUsuario;
+	  	$datos['titulo']="Registrar Ejemplar!";
+		if($this->session->userdata('usua_login') && $tipoDeUsuario == 1){
+
+			$data=[
+				'categoria'=>$this->ejemplar_model->getCategoria(),
+				'autores'=>$this->db->query("SELECT * FROM autor")->result(),
+				'tipo'	=>$this->db->query("SELECT * FROM ejemplar_tipo")->result(),
+			];
+
+			$this->load->view('Administrador/header',$datos);
+			$this->load->view('Administrador/formulario',$data);
+			$this->load->view('Administrador/footer');
+
+		}else{
+			redirect(base_url().'Login');
+		} 
+	}
+
+	public function insert(){
+		
+		$config = array(
+			'upload_path' => "./uploads/",
+			'allowed_types' => "gif|jpg|png|jpeg|pdf",
+			'overwrite' => TRUE,
+			'max_size' => 0,
+			'max_height' => 0,
+			'max_width' => 0
+			);
+
+		  $this->load->library('upload', $config);
+		  if ($this->upload->do_upload('ejem_portada'))
+			$data1 =  $this->upload->data("file_name");
+		else $data1 ="imagen.jpg";
+
+
+		$data = [
+			'ejem_portada'=>$data1,
+			'ejem_titulo'=>$this->input->post('titulo'),
+			/*'ejem_autor'=>$this->input->post('autores'),*/
+			'ejem_tipo_id' => $this->input->post('tipo'),
+			'ejem_editorial'=>$this->input->post('editorial'),
+			'ejem_paginas'=>$this->input->post('paginas'),
+			'ejem_cate_id'=>$this->input->post('categoria'),
+			'ejem_isbn'=>$this->input->post('isbn'),
+			'ejem_anio'=>$this->input->post('año'),
+			'ejem_idioma'=>$this->input->post('idioma'),
+			'ejem_resumen'=>$this->input->post('resumen'),
+		];
+		$this->ejemplar_model->insert($data);
+		$id = $this->db->insert_id();
+		$autores = $this->input->post('autores');
+		foreach($autores as $autor){
+			$this->db->insert('ejemplar_autor',array('rela_auto_id'=>$autor,'rela_ejem_id'=>$id));
+		}
+		redirect(base_url('Administrador/Ejemplar'));
+	}
+
+	public function edit($id){ //editar ejemplar
+		$tipoDeUsuario = $this->session->userdata('usua_esadmin');
+	  	$nombreDelUsuario = $this->session->userdata('usua_nombres');
+	  	$datos['nombreDelUsuario'] = $nombreDelUsuario;
+	  	$datos['titulo'] = "Editar Ejemplar!";
+		if(!$this->session->userdata('usua_login') || $tipoDeUsuario != 1)
+			redirect(base_url().'Login');
+
+		$data = [
+			'ejemplar'=> $this->ejemplar_model->getById($id),
+			'categoria'=>$this->ejemplar_model->getCategoria(),
+			'autores'=>$this->db->query("SELECT * FROM autor")->result(),
+			'autores_sel'=>$this->db->query("SELECT * FROM ejemplar_autor WHERE rela_ejem_id={$id}")->result(),
+			'tipo'=>$this->db->query("SELECT * FROM ejemplar,ejemplar_tipo WHERE ejem_id={$id}")->result()
+		];
+
+
+
+		///print_r($data);
+		$this->load->view('Administrador/header',$datos);
+		$this->load->view('Administrador/editar',$data);
+		$this->load->view('Administrador/footer');
+
+	}
+
+	public function update(){
+		$tipoDeUsuario = $this->session->userdata('usua_esadmin');
+	  	$nombreDelUsuario = $this->session->userdata('usua_nombres');
+	  	$datos['nombreDelUsuario'] = $nombreDelUsuario;
+	  	$datos['titulo'] = "Editar Ejemplar!";
+		if(!$this->session->userdata('usua_login') || $tipoDeUsuario != 1)
+			redirect(base_url().'Login');
+		$id=$this->input->post('id');
+		$config = array('upload_path' => "./uploads/",
+			                  'allowed_types' => "gif|jpg|png|jpeg|pdf|mp3",
+			                  'overwrite' => TRUE,
+			                  'max_size' => 0,
+			                  'max_height' => 0,
+			                  'max_width' => 0
+			                  );
+
+		 	$this->load->library('upload', $config);
+                if ($this->upload->do_upload('new_ejem_portada'))
+                  $data1 =  $this->upload->data("file_name");
+              	else $data1 = $this->input->post('ejem_portada');
+
+		$data = [
+			'ejem_titulo'=>$this->input->post('titulo'),
+			'ejem_editorial'=>$this->input->post('editorial'),
+			'ejem_portada'=>$data1,
+			'ejem_cate_id'=>$this->input->post('categoria'),
+			'ejem_tipo_id'=>$this->input->post('tipo'),
+			'ejem_paginas'=>$this->input->post('paginas'),
+			'ejem_isbn'=>$this->input->post('isbn'),
+			'ejem_anio'=>$this->input->post('año'),
+			'ejem_idioma'=>$this->input->post('idioma'),
+			'ejem_resumen'=>$this->input->post('resumen'),
+		];
+		$autores = $this->input->post('autores');
+		$this->ejemplar_model->update($id,$data);
+
+		$this->db->query("DELETE FROM ejemplar_autor WHERE rela_ejem_id='{$id}'");
+		foreach($autores as $autor){
+			$this->db->insert('ejemplar_autor',array('rela_auto_id'=>$autor,'rela_ejem_id'=>$id));
+		}
+		redirect(base_url('administrador/ejemplar'));
+	}
+
+	public function delete($id){
+		$this->ejemplar_model->delete($id);
+		redirect(base_url('administrador/'));
+	}
+
+
 	public function autor(){
 		$tipoDeUsuario = $this->session->userdata('usua_esadmin');
 	  	$nombreDelUsuario = $this->session->userdata('usua_nombres');
@@ -264,141 +401,7 @@ class administrador extends CI_Controller {
 		redirect(base_url('administrador/usuario'));
 	}
 
-	//Ejemplar........
 	
-	public function add(){
-		$tipoDeUsuario=$this->session->userdata('usua_esadmin');
-	  	$nombreDelUsuario=$this->session->userdata('usua_nombres');
-	  	$datos['nombreDelUsuario']=$nombreDelUsuario;
-	  	$datos['titulo']="Registrar Ejemplar!";
-		if($this->session->userdata('usua_login') && $tipoDeUsuario == 1){
-
-			$data=[
-				'categoria'=>$this->ejemplar_model->getCategoria(),
-				'autores'=>$this->db->query("SELECT * FROM autor")->result(),
-				'tipo'	=>$this->db->query("SELECT * FROM ejemplar_tipo")->result(),
-			];
-
-			$this->load->view('Administrador/header',$datos);
-			$this->load->view('Administrador/formulario',$data);
-			$this->load->view('Administrador/footer');
-
-		}else{
-			redirect(base_url().'Login');
-		} 
-	}
-
-	public function insert(){
-		
-		$config = array(
-			'upload_path' => "./uploads/",
-			'allowed_types' => "gif|jpg|png|jpeg|pdf",
-			'overwrite' => TRUE,
-			'max_size' => 0,
-			'max_height' => 0,
-			'max_width' => 0
-			);
-
-		  $this->load->library('upload', $config);
-		  if ($this->upload->do_upload('ejem_portada'))
-			$data1 =  $this->upload->data("file_name");
-		else $data1 ="imagen.jpg";
-
-
-		$data = [
-			'ejem_portada'=>$data1,
-			'ejem_titulo'=>$this->input->post('titulo'),
-			/*'ejem_autor'=>$this->input->post('autores'),*/
-			'ejem_tipo_id' => $this->input->post('tipo'),
-			'ejem_editorial'=>$this->input->post('editorial'),
-			'ejem_paginas'=>$this->input->post('paginas'),
-			'ejem_cate_id'=>$this->input->post('categoria'),
-			'ejem_isbn'=>$this->input->post('isbn'),
-			'ejem_anio'=>$this->input->post('año'),
-			'ejem_idioma'=>$this->input->post('idioma'),
-			'ejem_resumen'=>$this->input->post('resumen'),
-		];
-		$this->ejemplar_model->insert($data);
-		$id = $this->db->insert_id();
-		$autores = $this->input->post('autores');
-		foreach($autores as $autor){
-			$this->db->insert('ejemplar_autor',array('rela_auto_id'=>$autor,'rela_ejem_id'=>$id));
-		}
-		redirect(base_url('Administrador/Ejemplar'));
-	}
-
-	public function edit($id){ //editar ejemplar
-		$tipoDeUsuario = $this->session->userdata('usua_esadmin');
-	  	$nombreDelUsuario = $this->session->userdata('usua_nombres');
-	  	$datos['nombreDelUsuario'] = $nombreDelUsuario;
-	  	$datos['titulo'] = "Editar Ejemplar!";
-		if(!$this->session->userdata('usua_login') || $tipoDeUsuario != 1)
-			redirect(base_url().'Login');
-
-		$data = [
-			'ejemplar'=> $this->ejemplar_model->getById($id),
-			'categoria'=>$this->ejemplar_model->getCategoria(),
-			'autores'=>$this->db->query("SELECT * FROM autor")->result(),
-			'autores_sel'=>$this->db->query("SELECT * FROM ejemplar_autor WHERE rela_ejem_id={$id}")->result(),
-			'tipo'=>$this->db->query("SELECT * FROM ejemplar,ejemplar_tipo WHERE ejem_id={$id}")->result()
-		];
-
-
-
-		///print_r($data);
-		$this->load->view('Administrador/header',$datos);
-		$this->load->view('Administrador/editar',$data);
-		$this->load->view('Administrador/footer');
-
-	}
-
-	public function update(){
-		$tipoDeUsuario = $this->session->userdata('usua_esadmin');
-	  	$nombreDelUsuario = $this->session->userdata('usua_nombres');
-	  	$datos['nombreDelUsuario'] = $nombreDelUsuario;
-	  	$datos['titulo'] = "Editar Ejemplar!";
-		if(!$this->session->userdata('usua_login') || $tipoDeUsuario != 1)
-			redirect(base_url().'Login');
-		$id=$this->input->post('id');
-		$config = array('upload_path' => "./uploads/",
-			                  'allowed_types' => "gif|jpg|png|jpeg|pdf|mp3",
-			                  'overwrite' => TRUE,
-			                  'max_size' => 0,
-			                  'max_height' => 0,
-			                  'max_width' => 0
-			                  );
-
-		 	$this->load->library('upload', $config);
-                if ($this->upload->do_upload('new_ejem_portada'))
-                  $data1 =  $this->upload->data("file_name");
-              	else $data1 = $this->input->post('ejem_portada');
-
-		$data = [
-			'ejem_titulo'=>$this->input->post('titulo'),
-			'ejem_editorial'=>$this->input->post('editorial'),
-			'ejem_portada'=>$data1,
-			'ejem_cate_id'=>$this->input->post('categoria'),
-			'ejem_paginas'=>$this->input->post('paginas'),
-			'ejem_isbn'=>$this->input->post('isbn'),
-			'ejem_anio'=>$this->input->post('año'),
-			'ejem_idioma'=>$this->input->post('idioma'),
-			'ejem_resumen'=>$this->input->post('resumen'),
-		];
-		$autores = $this->input->post('autores');
-		$this->ejemplar_model->update($id,$data);
-
-		$this->db->query("DELETE FROM ejemplar_autor WHERE rela_ejem_id='{$id}'");
-		foreach($autores as $autor){
-			$this->db->insert('ejemplar_autor',array('rela_auto_id'=>$autor,'rela_ejem_id'=>$id));
-		}
-		redirect(base_url('administrador/ejemplar'));
-	}
-
-	public function delete($id){
-		$this->ejemplar_model->delete($id);
-		redirect(base_url('administrador/'));
-	}
-
 
 
 

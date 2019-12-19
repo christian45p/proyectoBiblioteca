@@ -73,7 +73,7 @@
               <select class="custom-select border-dark" name="categoria">
                 <option>¿¿Categoría??</option>
                 <?php foreach ($categoria as $cate) :  ?>
-                  <option value="<?php echo $cate->cate_id; ?>" <?php if ($ejemplar->ejem_cate_id == $cate->cate_id) {
+                  <option value="<?php echo $cate->cate_id;?>" <?php if($ejemplar->ejem_cate_id == $cate->cate_id){
                         echo "selected";} ?>>
                         <?php echo $cate->cate_nombre; ?></option>
                 <?php endforeach; ?>
@@ -81,7 +81,7 @@
             </div>
             <div class="form-group col-md-6">
                <label for="isbn">Tipo</label>
-              <select class="custom-select border-dark" name="categoria">
+              <select class="custom-select border-dark" name="tipo">
                 <option>¿¿Tipo??</option>
                 <?php foreach ($tipo as $t) :  ?>
                   <option value="<?php echo $t->tipo_id; ?>" <?php if ($t->ejem_tipo_id == $t->tipo_id) {echo "selected";} ?>>
@@ -93,7 +93,7 @@
         <div class="form-row">
         <div class="form-group col-md-12">
             <label for="">Resumen</label>
-              <textarea class="form-control border-dark" id="exampleFormControlTextarea1" rows="2" name="resumen" id="resumen" value="<?= $ejemplar->ejem_resumen;?>" ></textarea>
+              <textarea class="form-control border-dark" id="exampleFormControlTextarea1" rows="2" name="resumen" id="resumen"><?= $ejemplar->ejem_resumen;?></textarea>
           </div> 
         </div>
         </div>

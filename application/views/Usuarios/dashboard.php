@@ -56,3 +56,19 @@
     </div>
   </div>
 </div>
+
+
+<script>
+  $('.modal').find('form').submit(function(){
+
+      $.ajax({
+        method: "POST",
+        url: $(this).attr('action'),
+        data: $( this ).serialize()
+      })
+      return false;
+  })
+
+  </script>
+
+//select * FROM peticion,ejemplar,usuario where peti_ejem_id=ejem_id and peti_usua_id=usua_id

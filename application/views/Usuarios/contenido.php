@@ -5,7 +5,7 @@ echo $id_usuario;?> -->
           <div class="card-wrapper">
                 <h3 class="mb-0"></h3>
               </div>
-                <form class="needs-validation" novalidate action="" method="post">
+                <form class="needs-validation" novalidate action="<?php echo base_url().'usuario/pedir' ?>" method="post">
                   <div class="form-row">
                     <div class="col-md-3 mb-3">
                       <div class="custom-file">
@@ -17,6 +17,7 @@ echo $id_usuario;?> -->
                         </div>
                       </div>
                     </div>
+                    <input type="hidden" name="ide" value="<?php echo $dato->ejem_id; ?>" >
                     <div class="col-md--1"></div>
                     <div class="col-md-5 mb-3">
                       <div class="form-group">
@@ -69,13 +70,13 @@ echo $id_usuario;?> -->
                 <div class="form-group col-md-3">
                     <label for="año">Dias de prestamo</label>
                     <div>
-                        <input type="date" class="form-control form-control-md border border-dark" id="prestamo" name="prestamo" value="">
+                        <input type="date" class="form-control form-control-md border border-dark" id="prestamo" name="fecha" value="">
                     </div>
                 </div>
             <div class="form-group col-md-4">
               <label>Generar peticion</label>
                 <div>
-                <button type="button" class="btn btn-primary">Generar peticion</button>
+                <button type="submit" class="btn btn-primary pedir">Generar peticion</button>
                 </div>
             </div>
              </div>
