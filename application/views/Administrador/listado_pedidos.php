@@ -19,7 +19,7 @@
       <img class="avatar rounded mr-3" alt="..." src="<?php echo base_url().'uploads/'. $pedido->ejem_portada?>" style="width: 100px;" >
     </td>
     <td class="text-center"><?= $pedido->ejem_titulo?></td>
-    <td class="text-center"><?= $pedido->usua_nombres?></td>
+    <td class="text-center"><strong><?= $pedido->usua_nombres?></strong></td>
     <td class="text-center"><?= $pedido->peti_fechareg?></td>
       <td class='text-center'>
         <a href="<?= base_url('administrador/delete/'.$pedido->ejem_id)?>" class='btn btn-danger eliminar'><i class="fas fa-trash-alt"></i></a>
