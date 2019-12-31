@@ -59,5 +59,14 @@ class ejemplar_model extends CI_Model{
 			return false;
 		}
 	}
+
+	function getPeticion(){
+		$query=$this->db->query('SELECT peti_id,peti_fechareg,peti_usua_id,peti_ejem_id,ejem_id,ejem_portada,ejem_titulo,usua_id,usua_nombres FROM ejemplar,usuario,peticion WHERE peti_ejem_id=ejem_id AND peti_usua_id=usua_id');
+		if($query->num_rows()>0){
+			return $query->result();
+		}else{
+			return false;
+		}
+	}
 }
 ?>

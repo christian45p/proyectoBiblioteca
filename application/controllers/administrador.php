@@ -408,19 +408,7 @@ class administrador extends CI_Controller {
 
 
 	//***************************************************************************************
-	public function peticionesDeLibros(){
-		$tipoDeUsuario=$this->session->userdata('usua_esadmin');
-		$nombreDelUsuario=$this->session->userdata('usua_nombres');
-		$datos['nombreDelUsuario']=$nombreDelUsuario;
-		$datos['titulo']="Peticiones de Libros";
-		if($this->session->userdata('usua_login')&&$tipoDeUsuario==1){
-			$this->load->view('Administrador/header',$datos);
-			
-			$this->load->view('Administrador/footer');
-		}else{
-			redirect(base_url().'Login');
-		} 
-	}
+
 	public function librosPrestados(){
 		$tipoDeUsuario=$this->session->userdata('usua_esadmin');
 		$nombreDelUsuario=$this->session->userdata('usua_nombres');
@@ -524,7 +512,23 @@ class administrador extends CI_Controller {
 
 
 	//***************************************************************************************
+	public function peticionesDeLibros(){
+		$tipoDeUsuario=$this->session->userdata('usua_esadmin');
+		$nombreDelUsuario=$this->session->userdata('usua_nombres');
+		$datos['nombreDelUsuario']=$nombreDelUsuario;
+		$datos['titulo']="Peticiones de Libros";
+		if($this->session->userdata('usua_login')&&$tipoDeUsuario==1){
 
+			$data = [
+				'ejemplar'=> $this->ejemplar_model->getPeticion(),
+			];
+			$this->load->view('Administrador/header',$datos);
+			$this->load->view('Administrador/listado_pedidos',$data);
+			$this->load->view('Administrador/footer');
+		}else{
+			redirect(base_url().'Login');
+		} 
+	}
 	public function salir(){
 	  
 	  //NO COPIES ACÁ EL CÓDIGO

@@ -194,6 +194,7 @@ class usuario extends CI_Controller {
 
 		$this->db->query("INSERT INTO peticion(peti_ejem_id,peti_usua_id,peti_fechareg)
 			VALUES('{$ide}','{$idu}','{$fecha}')");
-
+		
+		redirect(base_url().'usuario/misLibrosFavoritos/');
 	}
 }
