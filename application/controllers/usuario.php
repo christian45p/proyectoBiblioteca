@@ -28,6 +28,7 @@ class usuario extends CI_Controller {
 	  	$datos['titulo']='Portada';
 		if($this->session->userdata('usua_login')&&$tipoDeUsuario==0){
 			$datos['resultado']  = $this->ejemplar_model->read();
+			$datos['categoria']  = $this->ejemplar_model->obtiene_ejemplar_categoria();
 			$this->load->view('Usuarios/header',$datos);
 			$this->load->view('Usuarios/dashboard');			
 			$this->load->view('Usuarios/footer');

@@ -1,18 +1,18 @@
-
     <div class="container-fluid mt--6">
       <div class="row">
         <div class="col-xl-12">
+          <?php foreach ($categoria as $cate): ?>
           <div class="card bg-white">
             <div class="card-header bg-transparent">
               <div class="row align-items-center">
                 <div class="col">
-                  <h5 class="h3 mb-0">Portada</h5>
+                  <h5 class="h3 mb-0"><?php echo $cate->cate_nombre;?></h5>
                 </div>
               </div>
             </div>
             <div class="card-body">
-              <div class="row">
-                <?php foreach ($resultado as $dato):?>
+            <div class="row">
+              <?php foreach ($resultado as $dato): if($dato->ejem_cate_id == $cate->cate_id):?>
                 <div class="p-2">
                   <div class="card card-profile border-bottom-secondary shadow h-100 boton" style="width: 180px; height: 450px;" rel="<?php echo $dato->ejem_id;?>" data-toggle="modal" data-target=".bd-example-modal-lg">
                     <img src="<?php echo base_url().'uploads/'.$dato->ejem_portada?>" alt="Image placeholder" class="card-img-top">
@@ -30,10 +30,11 @@
                     </div>
                   </div>
                 </div>
-                <?php endforeach; ?>
+                <?php endif; endforeach; ?>
               </div>
             </div>
           </div>
+        <?php endforeach;?>
         </div>
       </div>
     </div>
