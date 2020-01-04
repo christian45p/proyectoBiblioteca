@@ -70,5 +70,14 @@ class ejemplar_model extends CI_Model{
 			return false;
 		}
 	}
+
+	function getPeticionPorId($id){
+		$query=$this->db->query("SELECT * FROM peticion WHERE peti_id='{$id}'");
+		if($query->num_rows()>0){
+			return $query->row();
+		}else{
+			return false;
+		}
+	}
 }
 ?>

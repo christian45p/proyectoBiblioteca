@@ -68,11 +68,15 @@ echo $id_usuario;?> -->
                     </div>
             <div class="form-row">
                 <div class="form-group col-md-3">
-                    <label for="año">Dias de prestamo</label>
+                    <label for="año">Fecha de prestamo</label>
                     <div>
                         <input type="date" class="form-control form-control-md border border-dark" id="prestamo" name="fecha" value="">
                     </div>
                 </div>
+                <div class="form-group">
+                <label for="inputAddress">Días(cantidad)</label>
+                <input type="text" class="form-control form-control-sm border border-dark"  id="inputAddress" name="peti_dias" >
+                 </div>
             <div class="form-group col-md-4">
               <label>Generar peticion</label>
                 <div>

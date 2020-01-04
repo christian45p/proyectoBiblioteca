@@ -192,8 +192,9 @@ class usuario extends CI_Controller {
 		$ide = $this->input->post('ide');
 		$fecha = $this->input->post('fecha');
 		$idu = $this->session->userdata('usua_id');
+		$dias=$this->input->post('peti_dias');
 
-		$this->db->query("INSERT INTO peticion(peti_ejem_id,peti_usua_id,peti_fechareg)
+		$this->db->query("INSERT INTO peticion(peti_ejem_id,peti_usua_id,peti_fechareg,peti_dias)
 			VALUES('{$ide}','{$idu}','{$fecha}')");
 		
 		redirect(base_url().'usuario/misLibrosFavoritos/');

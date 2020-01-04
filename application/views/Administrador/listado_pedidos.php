@@ -22,8 +22,8 @@
     <td class="text-center"><strong><?= $pedido->usua_nombres?></strong></td>
     <td class="text-center"><?= $pedido->peti_fechareg?></td>
       <td class='text-center'>
-        <a href="<?= base_url('administrador/delete/'.$pedido->ejem_id)?>" class='btn btn-danger eliminar'><i class="fas fa-trash-alt"></i></a>
-        <a href="<?= base_url('administrador/edit/'.$pedido->ejem_id)?>" class='btn btn-success'><i class="fas fa-edit"></i></a>
+        <a href="<?= base_url('administrador/aceptarPedido/'.$pedido->peti_id)?>" class='btn btn-success eliminar'><i class="fas fa-edit"></i>Aceptar Pedido</a>
+        <a href="<?= base_url('administrador/declinarPedido/'.$pedido->peti_id)?>" class='btn btn-danger eliminar'><i class="fas fa-trash-alt"></i>Declinar Pedido</a>
       </td>
   </tr>
   <?php endforeach;?>

@@ -529,6 +529,29 @@ class administrador extends CI_Controller {
 			redirect(base_url().'Login');
 		} 
 	}
+	public function aceptarPedido($id){
+
+		$datos=$this->ejemplar_model->getPeticionPorId($id);
+		$idEjem=$datos->peti_id;
+		$dias=$datos->peti_dias;
+		$idUsuario=$datos->peti_usua_id;
+		$fechaPrestamo=$datos->peti_fechareg;
+		$hoy = date("Y-m-d H:i:s");
+		$hoydia=date(date("d")+03);	
+		$devolucion= date("Y-m-".$hoydia." H:i:s");
+
+
+
+		
+		echo $hoy;
+		echo "<br>";
+		echo $devolucion;
+	}
+	public function declinarPedido($id){
+		
+	
+	}
+
 	public function salir(){
 	  
 	  //NO COPIES ACÁ EL CÓDIGO
