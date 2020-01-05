@@ -73,9 +73,9 @@ echo $id_usuario;?> -->
                         <input type="date" class="form-control form-control-md border border-dark" id="prestamo" name="fecha" value="">
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group col-md-3">
                 <label for="inputAddress">Días(cantidad)</label>
-                <input type="text" class="form-control form-control-sm border border-dark"  id="inputAddress" name="peti_dias" >
+                <input type="text" class="form-control form-control-md border border-dark"  id="inputAddress" name="peti_dias" >
                  </div>
             <div class="form-group col-md-4">
               <label>Generar peticion</label>

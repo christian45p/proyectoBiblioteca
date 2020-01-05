@@ -81,10 +81,10 @@
                       <a class="table-action btn btn-primary rounded btn-sm text-white" >
                         Generar peticion
                       </a>
-                      <a href=""  class="table-action btn btn-secondary btn-sm text-white" >
+                    </div>
+                    <a href=""  class="table-action btn btn-secondary btn-sm text-white" >
                         <i class="fa fa-star"></i>
                       </a>
-                    </div>
                   </div>
                 </li>
               </ul>
