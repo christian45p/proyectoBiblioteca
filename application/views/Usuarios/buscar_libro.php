@@ -78,7 +78,7 @@
                       <p><?php echo $dato->ejem_resumen; ?></p>
                     </div>
                    <div class="col-auto test-right boton" rel="<?php echo $dato->ejem_id;?>" data-toggle="modal" data-target=".bd-example-modal-lg">
-                      <a class="table-action btn btn-primary rounded btn-sm text-white" >
+                      <a class="table-action btn btn rounded btn-sm text-white" style="background: #15202B;" >
                         Generar peticion
                       </a>
                     </div>

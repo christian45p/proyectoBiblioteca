@@ -80,7 +80,7 @@ echo $id_usuario;?> -->
             <div class="form-group col-md-4">
               <label>Generar peticion</label>
                 <div>
-                <button type="submit" class="btn btn-primary pedir">Generar peticion</button>
+                <button type="submit" class="btn btn pedir text-white" style="background: #15202B;">Generar peticion</button>
                 </div>
             </div>
              </div>
