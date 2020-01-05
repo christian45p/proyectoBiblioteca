@@ -2,11 +2,11 @@
       <div class="row">
         <div class="col-xl-12">
           <?php foreach ($categoria as $cate): ?>
-          <div class="card bg-white">
-            <div class="card-header bg-transparent">
+          <div class="card bg-white mb-4">
+            <div class="card-header" style="background: #15202B;">
               <div class="row align-items-center">
                 <div class="col">
-                  <h5 class="h3 mb-0"><?php echo $cate->cate_nombre;?></h5>
+                  <h5 class="h3 text-white mb-0"><?php echo $cate->cate_nombre;?></h5>
                 </div>
               </div>
             </div>
@@ -71,5 +71,3 @@
   })
 
   </script>
-
-//select * FROM peticion,ejemplar,usuario where peti_ejem_id=ejem_id and peti_usua_id=usua_id
