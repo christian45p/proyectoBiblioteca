@@ -29,9 +29,9 @@
     <ul class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion" style="background: #15202B;" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url();?>index.php/usuario/index">
         <div class="sidebar-brand-icon rotate-n-45">
-          <i class="fas fa-laugh-wink"></i>
+          <i class="fas fa-laugh-wink <?php if($metodo=='index') echo 'active';?>"></i>
         </div>
         <div class="sidebar-brand-text mx-3">SisBiblio</div>
       </a>
@@ -142,21 +142,13 @@
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                <a class="dropdown-item" href="<?php echo base_url().'index.php/usuario/datosDeUsuario/';?>">
+                  <i class="fas fa-user fa-sm fa-fw mr-2 text-dark-400"></i>
                   Perfil
-                </a>
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Ajustes
-                </a>
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Registro de Actividades
                 </a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-dark-400"></i>
                   Salir
                 </a>
               </div>
@@ -172,16 +164,16 @@
   <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">¿En serio quiere salir?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+        <div class="modal-header" style="background: #15202B;">
+          <h5 class="modal-title text-white" id="exampleModalLabel">¿En serio quiere salir?</h5>
+          <button class="close white" type="button" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">×</span>
           </button>
         </div>
-        <div class="modal-body">Selecciona "Salir" abajo si estás listo para terminar su actual sesión.</div>
+        <div class="modal-body text-dark">Selecciona "Salir" abajo si estás listo para terminar su actual sesión.</div>
         <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-          <a class="btn btn-primary" href="<?php echo base_url();?>administrador/salir">Salir</a>
+          <button class="btn btn-secondary text-white" type="button" data-dismiss="modal">Cancelar</button>
+          <a class="btn btn text-white" style="background: #15202B;" href="<?php echo base_url();?>administrador/salir">Salir</a>
         </div>
       </div>
     </div>
