@@ -520,7 +520,7 @@ class administrador extends CI_Controller {
 	public function aceptarPedido($id){
 
 		$datos=$this->ejemplar_model->getPeticionPorId($id);
-		$idEjem=$datos->peti_id;
+		$idEjem=$datos->peti_ejem_id;
 		$dias=$datos->peti_dias;
 		$idUsuario=$datos->peti_usua_id;
 		$fechaPrestamo=$datos->peti_fechareg;
@@ -537,11 +537,10 @@ class administrador extends CI_Controller {
 			'pres_fechadevolucion'=>$devolucion,
 		];
 
-		$eliminar=$this->ejemplar_model->deletePeticion($id);
+		
 		$insertar=$this->db->insert('prestamo',$insertData);
+		$eliminar=$this->ejemplar_model->deletePeticion($id);
 		if($insertar && $eliminar){
-			redirect(base_url('Administrador/librosPrestados'));
-		}else{
 			redirect(base_url('Administrador/peticionesDeLibros'));
 		}
 

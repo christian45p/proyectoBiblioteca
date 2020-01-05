@@ -18,7 +18,7 @@
   <?php foreach ($prestados as $pres): ?>
   <tr>
     <td class="text-center"><?= $pres->pres_id?></td>
-    <td class="text-center"><strong><?= $pres->usua_nombres?></strong>></td>
+    <td class="text-center"><strong><?= $pres->usua_nombres?></strong></td>
     <td class="text-center">
       <img class="avatar rounded mr-3" alt="..." src="<?php echo base_url().'uploads/'. $pres->ejem_portada?>" style="width: 100px;" >
     </td>
