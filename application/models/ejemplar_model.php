@@ -79,5 +79,9 @@ class ejemplar_model extends CI_Model{
 			return false;
 		}
 	}
+
+	function deletePeticion($id){
+		return $this->db->delete('peticion', array('peti_id' => $id)) ? true:false;
+	}
 }
 ?>

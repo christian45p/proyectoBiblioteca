@@ -1,4 +1,4 @@
-<h2>Ejemplar</h2>
+<h2>Peticiones de Libros</h2>
 <div class="table-responsive py-4">
 <table  id="myTable" class='table table-bordered'>
 <thead class="thead-dark">

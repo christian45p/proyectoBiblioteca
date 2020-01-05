@@ -540,16 +540,29 @@ class administrador extends CI_Controller {
 		$hoydia=date(date("d")+03);	
 		$devolucion= date("Y-m-".$hoydia." H:i:s");
 
+		$insertData = [
+			'pres_usua_id'=> $idUsuario,
+			'pres_ejem_id'=> $idEjem,
+			'pres_fechareg'=> $hoy,
+			'pres_dias'=> $dias,
+			'pres_fechaprestamo'=>$fechaPrestamo,
+			'pres_fechadevolucion'=>$devolucion,
+		];
 
+		$eliminar=$this->ejemplar_model->deletePeticion($id);
+		$insertar=$this->db->insert('prestamo',$insertData);
+		if($insertar && $eliminar){
+			redirect(base_url('Administrador/librosPrestados'));
+		}else{
+			redirect(base_url('Administrador/peticionesDeLibros'));
+		}
 
-		
-		echo $hoy;
-		echo "<br>";
-		echo $devolucion;
 	}
 	public function declinarPedido($id){
-		
-	
+		$eliminar=$this->ejemplar_model->deletePeticion($id);
+		if($eliminar){
+			redirect(base_url('Administrador/peticionesDeLibros'));
+		}
 	}
 
 	public function salir(){
