@@ -84,7 +84,7 @@ class ejemplar_model extends CI_Model{
 		return $this->db->delete('peticion', array('peti_id' => $id)) ? true:false;
 	}
 	function getPrestados(){
-		$query=$this->db->query('SELECT pres_id,usua_nombres,ejem_portada,ejem_titulo,pres_fechareg,pres_dias,pres_fechaprestamo,pres_fechadevolucion FROM ejemplar,usuario,prestamo WHERE pres_ejem_id=ejem_id AND pres_usua_id=usua_id');
+		$query=$this->db->query('SELECT pres_id,pres_usua_id,usua_nombres,ejem_portada,ejem_titulo,pres_fechareg,pres_dias,pres_fechaprestamo,pres_fechadevolucion FROM ejemplar,usuario,prestamo WHERE pres_ejem_id=ejem_id AND pres_usua_id=usua_id');
 		if($query->num_rows()>0){
 			return $query->result();
 		}else{

@@ -57,20 +57,7 @@ class usuario extends CI_Controller {
 		} 
 	}
 
-	public function librosPrestados(){
-		$tipoDeUsuario=$this->session->userdata('usua_esadmin');
-		$nombreDelUsuario=$this->session->userdata('usua_nombres');
-		$datos['nombreDelUsuario']=$nombreDelUsuario;
-		$datos['titulo']='Libros Prestados';
-		if($this->session->userdata('usua_login')&&$tipoDeUsuario==0){
-			$this->load->view('Usuarios/header',$datos);
-			
-			$this->load->view('Usuarios/footer');
-		}else{
-			redirect(base_url().'Login');
-		} 
-
-	}
+	
 
 	public function misLibrosFavoritos(){
 		$tipoDeUsuario=$this->session->userdata('usua_esadmin');
@@ -198,5 +185,23 @@ class usuario extends CI_Controller {
 			VALUES('{$ide}','{$idu}','{$fecha}','{$dias}')");
 		
 		redirect(base_url().'usuario/misLibrosFavoritos/');
+	}
+
+	public function librosPrestados(){
+		$tipoDeUsuario=$this->session->userdata('usua_esadmin');
+		$nombreDelUsuario=$this->session->userdata('usua_nombres');
+		$datos['nombreDelUsuario']=$nombreDelUsuario;
+		$datos['titulo']='Libros Prestados';
+		if($this->session->userdata('usua_login')&&$tipoDeUsuario==0){
+			$data =[
+				'prestados'=> $this->ejemplar_model->getPrestados(),
+			];
+			$this->load->view('Usuarios/header',$datos);
+			$this->load->view('Usuarios/libros_prestados',$data);
+			$this->load->view('Usuarios/footer');
+		}else{
+			redirect(base_url().'Login');
+		} 
+
 	}
 }
