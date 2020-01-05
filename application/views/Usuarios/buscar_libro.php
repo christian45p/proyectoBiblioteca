@@ -72,19 +72,19 @@
                       </a>
                     </div>
                     <div class="col-md-7">
-                      <h4 class="mb-0">
-                        <a href="<?php echo base_url(). 'ejemplar/ver_ejemplar/'. $dato->ejem_id;?>"><?php echo $dato->ejem_titulo; ?></a>
-                      </h4>
+                      <h4 class="h5 text-uppercase text-dark font-weight-bold">
+                        <?php echo $dato->ejem_titulo; ?></a>
+                      </h4 class="font-italic">
                       <p><?php echo $dato->ejem_resumen; ?></p>
                     </div>
-                    <!-- <div class="col-auto test-right">
-                      <a href="<?php echo base_url().'usuario/agregar_favorito/'.$dato->ejem_id?>"  class="table-action btn btn-success btn-sm text-white" >
-                        <i class="fa fa-star"></i>
-                      </a>
-                      <a href="<?php echo base_url().'ejemplar/ver_ejemplar/'.$dato->ejem_id?>"  class="table-action btn btn-info btn-sm text-white" >
+                   <div class="col-auto test-right boton" rel="<?php echo $dato->ejem_id;?>" data-toggle="modal" data-target=".bd-example-modal-lg">
+                      <a class="table-action btn btn-primary rounded btn-sm text-white" >
                         Generar peticion
                       </a>
-                    </div> -->
+                      <a href=""  class="table-action btn btn-secondary btn-sm text-white" >
+                        <i class="fa fa-star"></i>
+                      </a>
+                    </div>
                   </div>
                 </li>
               </ul>
@@ -94,3 +94,36 @@
         </div>
       </div>
     </div>
+
+        <div class="modal fade bd-example-modal-lg" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Portada</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body contenido">
+        
+      </div>
+<!--       <div class="modal-footer">
+  <button type="button" class="btn btn-d" data-dismiss="modal">Cerrar</button>
+</div> -->
+    </div>
+  </div>
+</div>
+
+
+<script>
+  $('.modal').find('form').submit(function(){
+
+      $.ajax({
+        method: "POST",
+        url: $(this).attr('action'),
+        data: $( this ).serialize()
+      })
+      return false;
+  })
+
+  </script>
