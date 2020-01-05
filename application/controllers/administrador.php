@@ -409,19 +409,7 @@ class administrador extends CI_Controller {
 
 	//***************************************************************************************
 
-	public function librosPrestados(){
-		$tipoDeUsuario=$this->session->userdata('usua_esadmin');
-		$nombreDelUsuario=$this->session->userdata('usua_nombres');
-		$datos['nombreDelUsuario']=$nombreDelUsuario;
-		$datos['titulo']="Libros Prestados";
-		if($this->session->userdata('usua_login')&&$tipoDeUsuario==1){
-			$this->load->view('Administrador/header',$datos);
-			
-			$this->load->view('Administrador/footer');
-		}else{
-			redirect(base_url().'Login');
-		} 
-	}
+	
 
 	public function reportes(){
 		$tipoDeUsuario=$this->session->userdata('usua_esadmin');
@@ -562,6 +550,29 @@ class administrador extends CI_Controller {
 		$eliminar=$this->ejemplar_model->deletePeticion($id);
 		if($eliminar){
 			redirect(base_url('Administrador/peticionesDeLibros'));
+		}
+	}
+	public function librosPrestados(){
+		$tipoDeUsuario=$this->session->userdata('usua_esadmin');
+		$nombreDelUsuario=$this->session->userdata('usua_nombres');
+		$datos['nombreDelUsuario']=$nombreDelUsuario;
+		$datos['titulo']="Libros Prestados";
+		if($this->session->userdata('usua_login')&&$tipoDeUsuario==1){
+			$data =[
+				'prestados'=> $this->ejemplar_model->getPrestados(),
+			];
+			$this->load->view('Administrador/header',$datos);
+			$this->load->view('Administrador/listado_prestados',$data);
+			$this->load->view('Administrador/footer');
+		}else{
+			redirect(base_url().'Login');
+		} 
+	}
+
+	public function reportarDevolucion($id){
+		$eliminar=$this->ejemplar_model->reportarDevolucion($id);
+		if($eliminar){
+			redirect(base_url('Administrador/librosPrestados'));
 		}
 	}
 
