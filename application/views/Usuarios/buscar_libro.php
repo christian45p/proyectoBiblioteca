@@ -16,7 +16,7 @@
                     <form action="<?php echo base_url('usuario/buscarLibro');?>" method = "post">
                     <div class="form-row">
                         <div class=" col-md-2" >
-                                <select id="inputState" class="form-control" name=""  >
+                                <select id="inputState" class="form-control" name="categoria"  >
                                   <option value="1" >Area - Categoria</option>
                                 </select>
                         </div>                    

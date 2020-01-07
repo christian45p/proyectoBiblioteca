@@ -49,9 +49,13 @@ class usuario extends CI_Controller {
 		$datos['titulo']='Busqueda de Libros';
 		if($this->session->userdata('usua_login')&&$tipoDeUsuario==0){
 		$valor = $this->input->post('valor');
-        $datos['resultado'] = $this->usuario_model->resultado($valor);
+		$categoria = $this->input->post('categoria');
+		$data=[
+			'resultado'=>$this->ejemplar_model->buscarLibro($valor,$categoria),
+		];
+        
 		$this->load->view('Usuarios/header',$datos);
-		$this->load->view('Usuarios/buscar_libro');
+		$this->load->view('Usuarios/buscar_libro',$data);
 		$this->load->view('Usuarios/footer');
 
 		}else{
@@ -68,9 +72,8 @@ class usuario extends CI_Controller {
 		$datos['titulo']='Libros Favoritos';
 		if($this->session->userdata('usua_login')&&$tipoDeUsuario==0){
 			$this->load->view('Usuarios/header',$datos);
-			
-			
-			$this->load->view('Usuarios/librosFavoritos');
+			 $datos['resultado'] = $this->ejemplar_model->obtiene_favorito();
+			$this->load->view('Usuarios/librosFavoritos',$datos);
 			$this->load->view('Usuarios/footer');
 		}else{
 			redirect(base_url().'Login');
@@ -184,8 +187,9 @@ class usuario extends CI_Controller {
         
     }
     public function eliminarFavoritoPortada($id)
-    {
-            $this->ejemplar_model->eliminarFavorito($id);
+    {		
+    		$uid = $this->session->userdata('usua_id');
+            $this->ejemplar_model->eliminarFavorito($id,$uid);
             redirect(base_url().'usuario/index/');
      }
 

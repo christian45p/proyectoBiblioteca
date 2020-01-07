@@ -16,22 +16,21 @@
                 <div class="p-2">
                   <div class="card card-profile border-bottom-secondary shadow h-100" style="width: 180px; height: 450px;" >
                     <img src="<?php echo base_url().'uploads/'.$dato->ejem_portada?>" alt="Image placeholder" class="card-img-top  boton" rel="<?php echo $dato->ejem_id;?>" data-toggle="modal" data-target=".bd-example-modal-lg">
-
+ 
                     <div class="card-body">
                       <div class="text-center">
                         <h5 class="h6 text-dark" ><?php echo $dato->ejem_titulo; ?></h5>
                         <div class="h6">
                           <i><?php echo $dato->auto_nombres; ?></i>
-                          <i><?php echo $dato->ejem_id ?></i>
                        </div>
                           <?php if($grado==0):?>
                         <div class="card-body border-0 pt-4 pt-md-4 pb-0 pb-md-4">
                           <div class="d-flex">
-                            <?php foreach ($favorito as $fav): if($dato->ejem_id == $fav->favo_ejem_id):?>
-                            <a href="<?php echo base_url().'usuario/eliminarFavoritoPortada/'.$dato->ejem_id?>" class="btn btn-sm btn-danger"><i class="fa fa-times-circle"></i></a> 
+                            <?php $IdUsuario=$this->session->userdata('usua_id'); ?>
+                            <?php foreach ($favorito as $fav): if($dato->ejem_id == $fav->favo_ejem_id && $fav->favo_usua_id==$IdUsuario):?>
+                            <a href="<?php echo base_url().'usuario/eliminarFavoritoPortada/'.$fav->favo_ejem_id?>" class="btn btn-sm btn-danger"><i class="fa fa-times-circle"></i></a> 
                           <?php endif; endforeach; ?>
                           <a href="<?php echo base_url().'usuario/agregarFavorito/'.$dato->ejem_id?>" class="btn btn-sm btn-success" ><i class="fa fa-thumbs-up"></i></a>
-                          <i><?php echo $grado?></i>
                       </div>
                     </div>
                         <?php endif;?>

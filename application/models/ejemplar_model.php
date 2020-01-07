@@ -20,12 +20,6 @@ class ejemplar_model extends CI_Model{
     function favorito(){
         return $this->db->get('favorito')->result();
     }
-     function num_favorito($id){
-		return $this->db->select('favo_usua_id')
-						->like('favo_usua_id', $id)
-						->from('favorito')
-						->count_all_results();
-	}
 	function obtiene_favorito(){
 	    return $this->db->order_by('favo_ejem_id DESC')
 	    				->select('*')
@@ -36,9 +30,9 @@ class ejemplar_model extends CI_Model{
     function insertarFavorito($id,$uid){
     	$this->db->insert('favorito', array('favo_ejem_id' => $id, 'favo_usua_id' => $uid));
     }
-    function eliminarFavorito($id)
+    function eliminarFavorito($id,$uid)
 	{
-		return $this->db->delete('favorito', array('favo_ejem_id' => $id)) ? true: false;
+		return $this->db->delete('favorito', array('favo_ejem_id' => $id, 'favo_usua_id' => $uid)) ? true: false;
 	}
 	function obtener_usuario_por_id($id)
 	{
@@ -51,6 +45,13 @@ class ejemplar_model extends CI_Model{
 	function insert($data){
 		
 		$this->db->insert('ejemplar',$data);
+	}
+	function buscarLibro($data,$categoria){
+
+		$query=$this->db->query("SELECT * FROM ejemplar,categoria WHERE ejem_cate_id AND cate_id AND cate_id='{$categoria}' AND (ejem_titulo LIKE '%$data%' OR ejem_resumen like '%$data%' OR ejem_editorial like '%$data%')");
+	
+			return $query->result();
+	
 	}
 
 	function update($id,$data){
