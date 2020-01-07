@@ -27,7 +27,7 @@
                           <?php if($grado==0):?>
                         <div class="card-body border-0 pt-4 pt-md-4 pb-0 pb-md-4">
                           <div class="d-flex">
-                            <?php foreach ($favorito as $fav): if($dato->ejem_id == $fav->favo_ejem_id && $fav->usua_id == $id):?>
+                            <?php foreach ($favorito as $fav): if($dato->ejem_id == $fav->favo_ejem_id):?>
                             <a href="<?php echo base_url().'usuario/eliminarFavoritoPortada/'.$dato->ejem_id?>" class="btn btn-sm btn-danger"><i class="fa fa-times-circle"></i></a> 
                           <?php endif; endforeach; ?>
                           <a href="<?php echo base_url().'usuario/agregarFavorito/'.$dato->ejem_id?>" class="btn btn-sm btn-success" ><i class="fa fa-thumbs-up"></i></a>
