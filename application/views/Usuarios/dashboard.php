@@ -14,18 +14,27 @@
             <div class="row">
               <?php foreach ($resultado as $dato): if($dato->ejem_cate_id == $cate->cate_id):?>
                 <div class="p-2">
-                  <div class="card card-profile border-bottom-secondary shadow h-100 boton" style="width: 180px; height: 450px;" rel="<?php echo $dato->ejem_id;?>" data-toggle="modal" data-target=".bd-example-modal-lg">
-                    <img src="<?php echo base_url().'uploads/'.$dato->ejem_portada?>" alt="Image placeholder" class="card-img-top">
+                  <div class="card card-profile border-bottom-secondary shadow h-100" style="width: 180px; height: 450px;" >
+                    <img src="<?php echo base_url().'uploads/'.$dato->ejem_portada?>" alt="Image placeholder" class="card-img-top  boton" rel="<?php echo $dato->ejem_id;?>" data-toggle="modal" data-target=".bd-example-modal-lg">
 
                     <div class="card-body">
                       <div class="text-center">
                         <h5 class="h6 text-dark" ><?php echo $dato->ejem_titulo; ?></h5>
                         <div class="h6">
                           <i><?php echo $dato->auto_nombres; ?></i>
-                        </div>
-                        <div>
-                          <i class="far fa-star"></i>
-                        </div>
+                          <i><?php echo $dato->ejem_id ?></i>
+                       </div>
+                          <?php if($grado==0):?>
+                        <div class="card-body border-0 pt-4 pt-md-4 pb-0 pb-md-4">
+                          <div class="d-flex">
+                            <?php foreach ($favorito as $fav): if($dato->ejem_id == $fav->favo_ejem_id && $fav->usua_id == $id):?>
+                            <a href="<?php echo base_url().'usuario/eliminarFavoritoPortada/'.$dato->ejem_id?>" class="btn btn-sm btn-danger"><i class="fa fa-times-circle"></i></a> 
+                          <?php endif; endforeach; ?>
+                          <a href="<?php echo base_url().'usuario/agregarFavorito/'.$dato->ejem_id?>" class="btn btn-sm btn-success" ><i class="fa fa-thumbs-up"></i></a>
+                          <i><?php echo $grado?></i>
+                      </div>
+                    </div>
+                        <?php endif;?>
                       </div>
                     </div>
                   </div>

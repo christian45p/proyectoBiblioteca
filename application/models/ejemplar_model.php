@@ -17,6 +17,29 @@ class ejemplar_model extends CI_Model{
 	function obtiene_ejemplar_categoria(){
         return $this->db->get('categoria')->result();
     }
+    function favorito(){
+        return $this->db->get('favorito')->result();
+    }
+     function num_favorito($id){
+		return $this->db->select('favo_usua_id')
+						->like('favo_usua_id', $id)
+						->from('favorito')
+						->count_all_results();
+	}
+	function obtiene_favorito(){
+	    return $this->db->order_by('favo_ejem_id DESC')
+	    				->select('*')
+	    				->join('ejemplar', 'ejemplar.ejem_id = favorito.favo_ejem_id')
+	    				->get('favorito')
+	    				->result();
+    }
+    function insertarFavorito($id,$uid){
+    	$this->db->insert('favorito', array('favo_ejem_id' => $id, 'favo_usua_id' => $uid));
+    }
+    function eliminarFavorito($id)
+	{
+		return $this->db->delete('favorito', array('favo_ejem_id' => $id)) ? true: false;
+	}
 	function obtener_usuario_por_id($id)
 	{
 		$this->db->select('*');

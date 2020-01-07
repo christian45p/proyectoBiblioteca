@@ -28,7 +28,9 @@ class usuario extends CI_Controller {
 	  	$datos['titulo']='Portada';
 		if($this->session->userdata('usua_login')&&$tipoDeUsuario==0){
 			$datos['resultado']  = $this->ejemplar_model->read();
+			$datos['grado'] = $this->session->userdata('usua_login');
 			$datos['categoria']  = $this->ejemplar_model->obtiene_ejemplar_categoria();
+			$datos['favorito']  = $this->ejemplar_model->favorito();
 			$this->load->view('Usuarios/header',$datos);
 			$this->load->view('Usuarios/dashboard');			
 			$this->load->view('Usuarios/footer');
@@ -67,6 +69,8 @@ class usuario extends CI_Controller {
 		if($this->session->userdata('usua_login')&&$tipoDeUsuario==0){
 			$this->load->view('Usuarios/header',$datos);
 			
+			
+			$this->load->view('Usuarios/librosFavoritos');
 			$this->load->view('Usuarios/footer');
 		}else{
 			redirect(base_url().'Login');
@@ -173,7 +177,17 @@ class usuario extends CI_Controller {
 		$this->session->unset_userdata('usua_login');
 		redirect(base_url().'Login');
 	}
-
+	public function agregarFavorito($id){
+            $uid = $this->session->userdata('usua_id');
+            $insertar_favorito = $this->ejemplar_model->insertarFavorito($id, $uid);
+			redirect(base_url().'usuario/index/');
+        
+    }
+    public function eliminarFavoritoPortada($id)
+    {
+            $this->ejemplar_model->eliminarFavorito($id);
+            redirect(base_url().'usuario/index/');
+     }
 
 	public function pedir(){
 		$ide = $this->input->post('ide');

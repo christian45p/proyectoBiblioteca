@@ -82,7 +82,7 @@
                         Generar peticion
                       </a>
                     </div>
-                    <a href=""  class="table-action btn btn-primary btn-sm text-white" >
+                    <a href="<?php echo base_url().'usuario/agregarFavorito/'.$dato->ejem_id?>"  class="table-action btn btn-primary btn-sm text-white" >
                         <i class="fa fa-thumbs-up" aria-hidden="true"></i>
                       </a>
                   </div>
