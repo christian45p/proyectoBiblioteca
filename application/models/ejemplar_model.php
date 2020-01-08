@@ -46,6 +46,12 @@ class ejemplar_model extends CI_Model{
 		
 		$this->db->insert('ejemplar',$data);
 	}
+	function insertHistorial($data){
+		$this->db->insert('historial',$data);
+	}
+	function deleteHistorial($id){
+		return $this->db->delete('historial', array('histo_id' => $id)) ? true:false;
+	}
 	function buscarLibro($data,$categoria){
 
 		$query=$this->db->query("SELECT * FROM ejemplar,categoria WHERE ejem_cate_id AND cate_id AND cate_id='{$categoria}' AND (ejem_titulo LIKE '%$data%' OR ejem_resumen like '%$data%' OR ejem_editorial like '%$data%')");
@@ -117,6 +123,15 @@ class ejemplar_model extends CI_Model{
 	}
 	function reportarDevolucion($id){
 		return $this->db->delete('prestamo', array('pres_id' => $id)) ? true:false;
+	}
+
+	function getHistorial(){
+		$query=$this->db->query('SELECT * FROM historial');
+		if($query->num_rows()>0){
+			return $query->result();
+		}else{
+			return false;
+		}
 	}
 }
 ?>

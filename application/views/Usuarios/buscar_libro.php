@@ -26,7 +26,7 @@
                             <div class="input-group input-group-alternative input-group-merge">
                               <input class="form-control" placeholder="Buscar" type="text" name="valor">
                               <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fa fa-search"></i></span>
+                                <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
                               </div>
                             </div>
                           </div>

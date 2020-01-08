@@ -1,40 +1,46 @@
-    <div class="container-fluid mt--6">
-      <div class="row">
-        <div class="col-xl-12">
-          <div class="card bg-white">
-            <div class="card-header bg-transparent">
-              <div class="row align-items-center">
-                <div class="col">
-                  <h5 class="h3 mb-0">Historial de busqueda</h5>
-                </div>
-              </div>
-            </div>
-            <div class="card-body">
-              <div class="row">
-                <div class="col-xl-12">
-                  
-                  <div class="card-body">
-                    <ul class="list-group list-group-flush list my--3">
-                      <li class="list-group-item px-0">
-                        <div class="row align-items-center">
-                          <div class="col ml--2">
-                            <h4 class="mb-0"></h4>
-                            <small></small>
-                          </div>
-                          <div class="col-auto">
-                            <a href=""  class="table-action btn btn-sm btn-danger text-white">
-                              Quitar?
-                            </a>
-                          </div>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                  <?php endif; endforeach; ?>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+<div class="text-right container">
+    <a href='<?= base_url('administrador/add_autor')?>' class='btn btn-primary'>Crear registro</a>
+</div>
+<h2>historial de busqueda</h2>
+<div class="table-responsive py-4">
+<table id="myTable" class='table table-bordered'>
+<thead class="thead-dark">
+    <tr class='info'>
+        <th class="text-center">ID</th>
+        <th class="text-center">Termino Buscado</th>
+        <th class="text-center">Fecha</th>
+        <th class="text-center">Opciones</th>
+    </tr>
+</thead>
+    <?php $IdUsuario=$this->session->userdata('usua_id'); ?>
+    <?php if(!empty($historial)): ?>
+    <?php foreach ($historial as $his): ?>
+    <?php if($IdUsuario==$his->histo_usua_id): ?>
+    <tr>
+        <td class="text-center text-dark"><?= $his->histo_id?></td>
+        <td class="text-center text-dark"><?= $his->histo_termino?></td>
+        <td class="text-center text-dark"><?= $his->histo_fechareg?></td>
+        <td class='text-center'>
+            <a href="<?= base_url('usuario/delete_historial/'.$his->histo_id)?>" class='btn btn-danger eliminar'><i class="fas fa-trash-alt"></i></a>
+            
+        </td>
+    </tr>
+    <?php endif; ?>
+    <?php endforeach;?>
+    <?php endif; ?>
+</table>
+</div>
+<script>
+    $(document).ready(function(){
+    $('#myTable').DataTable();
+});
+    $(document).ready(function(){
+        $('.eliminar').click(function(){
+            $elem = $(this);
+            $.post( $(this).attr('href'), function( data ) {
+                $elem.closest('tr').fadeOut(1000);
+            });
+            return false;
+        });
+    });
+</script>
