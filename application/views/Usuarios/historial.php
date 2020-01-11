@@ -1,6 +1,3 @@
-<div class="text-right container">
-    <a href='<?= base_url('administrador/add_autor')?>' class='btn btn-primary'>Crear registro</a>
-</div>
 <h2>historial de busqueda</h2>
 <div class="table-responsive py-4">
 <table id="myTable" class='table table-bordered'>

@@ -52,7 +52,7 @@ class usuario extends CI_Controller {
    
 		$this->load->view('Usuarios/header',$datos);
 		$valor = $this->input->post('valor');
-
+		
 		
 		$IdUsuario=$this->session->userdata('usua_id');
 	 	$dato=[
@@ -60,8 +60,9 @@ class usuario extends CI_Controller {
 	 		'histo_termino'=>$valor,
 	 		'histo_fechareg'=>date("Y-m-d H:i:s"),
 	 	];
+	 	if ($valor != '') {
 	 	$this->ejemplar_model->insertHistorial($dato);
-
+	 	}
 		$categoria = $this->input->post('categoria');
 		$data=[
 			'resultado'=>$this->ejemplar_model->buscarLibro($valor,$categoria),
@@ -116,9 +117,25 @@ class usuario extends CI_Controller {
 		
 	}
 	public function delete_historial($id){
-		$this->ejemplar_model->deleteHistorial($id);
-		redirect(base_url().'Usuarios/historialDeBusqueda');
+		$tipoDeUsuario=$this->session->userdata('usua_esadmin');
+		$nombreDelUsuario=$this->session->userdata('usua_nombres');
+		$datos['nombreDelUsuario']=$nombreDelUsuario;
+		$datos['titulo']='Historial de Búsqueda';
+		if($this->session->userdata('usua_login')&&$tipoDeUsuario==0){
+
+
+			$this->ejemplar_model->deleteHistorial($id);
+
+
+			$this->load->view('Usuarios/header',$datos);
+			$this->load->view('Usuarios/footer');
+		}else{
+			redirect(base_url().'Login');
+		}
+			
+			$this->load->view('Usuarios/footer');
 	}
+
 
 	public function datosDeUsuario(){
 		$tipoDeUsuario=$this->session->userdata('usua_esadmin');
