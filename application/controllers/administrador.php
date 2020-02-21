@@ -88,7 +88,7 @@ class administrador extends CI_Controller {
 			);
 
 		  $this->load->library('upload', $config);
-		  if ($this->upload->do_upload('ejem_portada'))
+		  if ($this->upload->do_upload	('ejem_portada'))
 			$data1 =  $this->upload->data("file_name");
 		else $data1 ="imagen.jpg";
 
