@@ -7,7 +7,8 @@ class administrador extends CI_Controller {
 		parent::__construct();
 		$this->load->model('ejemplar_model');
 		$this->load->model('autor_model','aut');
-		$this->load->model('usuario_model');
+		$this->load->model('usuario_model');}
+		//sdfbkdsfhbdkasjhfkashfkjashfkljhfkdjshfkjas
 
 	}
 
